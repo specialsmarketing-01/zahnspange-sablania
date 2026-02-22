@@ -42,10 +42,6 @@ export default function BracesCategoriesSection({
     "bracesCategoriesSub" in h
       ? (h as { bracesCategoriesSub: string }).bracesCategoriesSub
       : "";
-  const moreLabel =
-    "bracesCategoriesMore" in h
-      ? (h as { bracesCategoriesMore: string }).bracesCategoriesMore
-      : "Mehr lesen";
 
   const getCardText = (textKey: (typeof CATEGORIES)[number]["textKey"]) => {
     if (!(textKey in h)) return "";
@@ -96,18 +92,21 @@ export default function BracesCategoriesSection({
                 <p className="flex-1 text-sm leading-relaxed text-gray-600">
                   {getCardText(cat.textKey)}
                 </p>
-                <Link
-                  href={getHref(cat.path, locale)}
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded"
-                >
-                  {moreLabel}
-                  <span
-                    className="ml-1.5 text-accent transition-transform group-hover:translate-x-0.5"
-                    aria-hidden
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  <Link
+                    href={getHref("/online-termin", locale)}
+                    className="inline-flex items-center justify-center rounded-lg bg-primary px-3 py-2.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-primary/90 sm:px-4 sm:text-sm whitespace-nowrap"
                   >
-                    →
-                  </span>
-                </Link>
+                    {dict.common.ctaBook}
+                  </Link>
+                  <Link
+                    href={getHref(cat.path, locale)}
+                    className="inline-flex items-center justify-center rounded-lg border-2 border-primary/20 px-3 py-2.5 text-xs font-semibold text-primary transition-colors hover:border-primary/40 hover:bg-primary/5 sm:px-4 sm:text-sm whitespace-nowrap"
+                  >
+                    {dict.common.learnMore}
+                    <span className="ml-1 shrink-0" aria-hidden>→</span>
+                  </Link>
+                </div>
               </div>
             </article>
           ))}

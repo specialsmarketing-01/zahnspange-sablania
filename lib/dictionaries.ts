@@ -71,9 +71,9 @@ export const dictionaries = {
       ariaHours: "Öffnungszeiten",
     },
     common: {
-      ctaBook: "Termin vereinbaren",
+      ctaBook: "Jetzt buchen",
       ctaBookOnline: "Online Termin buchen",
-      learnMore: "Mehr erfahren",
+      learnMore: "Mehr lesen",
       allServices: "Alle Leistungen anzeigen",
       contactRequest: "Anfrage senden",
     },
@@ -459,9 +459,9 @@ export const dictionaries = {
       ariaHours: "Opening hours",
     },
     common: {
-      ctaBook: "Book Appointment",
+      ctaBook: "Book now",
       ctaBookOnline: "Book Online",
-      learnMore: "Learn more",
+      learnMore: "Read more",
       allServices: "View all services",
       contactRequest: "Send request",
     },

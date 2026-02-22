@@ -60,15 +60,23 @@ export default function Services({ locale, dict }: { locale: Locale; dict: Dicti
                 {nd[key]}
               </h3>
               <p className="mt-2 flex-1 text-gray-600">{descs[i]}</p>
-              <Link
-                href={getHref(SERVICE_HREFS[i], locale)}
-                className="mt-6 inline-flex items-center text-sm font-semibold text-accent hover:text-accent-light transition-colors"
-              >
-                {dict.common.learnMore}
-                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <div className="mt-6 grid grid-cols-2 gap-2">
+                <Link
+                  href={getHref("/online-termin", locale)}
+                  className="inline-flex items-center justify-center rounded-lg bg-primary px-3 py-2.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-primary/90 sm:px-4 sm:text-sm whitespace-nowrap"
+                >
+                  {dict.common.ctaBook}
+                </Link>
+                <Link
+                  href={getHref(SERVICE_HREFS[i], locale)}
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-primary/20 px-3 py-2.5 text-xs font-semibold text-primary transition-colors hover:border-primary/40 hover:bg-primary/5 sm:px-4 sm:text-sm whitespace-nowrap"
+                >
+                  {dict.common.learnMore}
+                  <svg className="ml-1 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </article>
           ))}
         </div>
