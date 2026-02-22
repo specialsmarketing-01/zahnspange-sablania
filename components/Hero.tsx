@@ -1,6 +1,7 @@
+import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
-import { BOOKING_URL } from "@/lib/site";
+import { getHref } from "@/lib/paths";
 
 type HomepageHero = {
   heroBadge?: string;
@@ -54,14 +55,12 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={getHref("/online-termin", locale)}
                 className="inline-flex items-center justify-center rounded-xl bg-[#0f2e5c] px-6 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#163d78] focus:outline-none focus:ring-2 focus:ring-[#0f2e5c] focus:ring-offset-2"
               >
                 {ctaPrimary}
-              </a>
+              </Link>
               <a
                 href="tel:+4313306090"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-[#1e293b] transition-colors hover:bg-gray-100"

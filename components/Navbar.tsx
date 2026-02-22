@@ -207,7 +207,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
             href="https://powerforms.at/247674"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center justify-center rounded-full border-2 border-[#0f2e5c] px-5 py-2.5 text-sm font-semibold text-[#0f2e5c] transition-colors hover:bg-[#0f2e5c]/5"
+            className="hidden xl:inline-flex items-center justify-center rounded-full border-2 border-[#0f2e5c] px-5 py-2.5 text-sm font-semibold text-[#0f2e5c] transition-colors hover:bg-[#0f2e5c]/5"
           >
             {locale === "de" ? "Gesundheitsfragebogen" : "Health Questionnaire"}
           </a>
