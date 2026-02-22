@@ -1,0 +1,30 @@
+---
+description: Critical project rules - follow to avoid breaking CSS and functionality
+globs: 
+  - "app/layout.tsx"
+  - "app/globals.css"
+  - "tailwind.config.ts"
+  - "**/LocaleShell.tsx"
+---
+
+# Styling and layout – do not break
+
+When editing this project:
+
+1. **app/layout.tsx**
+   - Do NOT remove the line `import "./globals.css"`.
+   - Do NOT replace `<LocaleShell>{children}</LocaleShell>` with just `{children}`.
+   - Do NOT remove the `body` className (e.g. `font-sans min-h-screen bg-white text-primary`).
+
+2. **app/globals.css**
+   - Do NOT remove or reorder the three directives: `@tailwind base;`, `@tailwind components;`, `@tailwind utilities;`.
+   - Do NOT remove the `html, body { margin: 0; padding: 0; }` block or the `:root` design tokens.
+
+3. **tailwind.config.ts**
+   - Do NOT remove or narrow the `content` array. It must include `./app/**/*`, `./components/**/*`, `./pages/**/*`.
+   - Do NOT clear `theme.extend` (colors, fontFamily, boxShadow).
+
+4. **LocaleShell**
+   - This component wraps the app with Navbar, Footer, and Breadcrumb. Do not remove it from the root layout.
+
+If you are asked to "simplify" or "clean up" the layout or CSS, preserve the above. See `STYLING.md` in the project root for full rules.
