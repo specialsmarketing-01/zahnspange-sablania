@@ -1,9 +1,6 @@
-import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import { BOOKING_URL } from "@/lib/site";
-
-const PRIMARY = "#0f2e5c";
 
 type HomepageHero = {
   heroBadge?: string;
@@ -61,8 +58,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#163d78]"
-                style={{ backgroundColor: PRIMARY }}
+                className="inline-flex items-center justify-center rounded-xl bg-[#0f2e5c] px-6 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#163d78] focus:outline-none focus:ring-2 focus:ring-[#0f2e5c] focus:ring-offset-2"
               >
                 {ctaPrimary}
               </a>

@@ -51,7 +51,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
       aria-label={f.ariaFooter}
     >
       {/* CTA band */}
-      <div className="border-b border-white/10 bg-primary/95">
+      <div className="border-b border-gray-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <Link
@@ -72,7 +72,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-primary shadow-lg hover:bg-accent-light transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+              className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-primary shadow-lg hover:bg-accent-light transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 focus:ring-offset-white"
             >
               {ctaLabel}
             </a>
@@ -221,13 +221,6 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Bottom credit */}
-      <div className="border-t border-white/10 py-4">
-        <p className="text-center text-xs text-white/60">
-          {f.atsewa}
-        </p>
       </div>
     </footer>
   );
