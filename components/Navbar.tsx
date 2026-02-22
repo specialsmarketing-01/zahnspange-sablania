@@ -8,9 +8,6 @@ import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import { getPathForLocale, getHref } from "@/lib/paths";
 
-const PRIMARY = "#0f2e5c";
-const PRIMARY_HOVER = "#163d78";
-
 const DROPDOWN_DE_PATHS = [
   "/kieferorthopaedie",
   "/unsichtbare-zahnspange-wien",
@@ -217,8 +214,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
           <Link
             href={getHref("/online-termin", locale)}
-            className="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-[#163d78]"
-            style={{ backgroundColor: PRIMARY }}
+            className="hidden xl:inline-flex items-center justify-center rounded-full bg-[#0f2e5c] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-[#163d78]"
           >
             {dict.nav.cta}
           </Link>
@@ -349,8 +345,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
             <Link
               href={getHref("/online-termin", locale)}
-              className="mt-3 flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold text-white shadow-md"
-              style={{ backgroundColor: PRIMARY }}
+              className="mt-3 flex items-center justify-center rounded-full bg-[#0f2e5c] px-6 py-3 text-base font-semibold text-white shadow-md transition-colors hover:bg-[#163d78]"
               onClick={() => setMobileOpen(false)}
             >
               {dict.nav.cta}
