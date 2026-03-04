@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ServicesSection";
 import BracesCategoriesSection from "@/components/BracesCategoriesSection";
-import TreatmentsSection from "@/components/TreatmentsSection";
+import ServicesSimple from "@/components/ServicesSimple";
 import DigitalPracticeSection from "@/components/DigitalPracticeSection";
-import AboutSection from "@/components/AboutSection";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -34,11 +33,10 @@ export default function EnHomePage() {
   return (
     <>
       <Hero locale={locale} dict={dict} />
-      <ServicesSection locale={locale} dict={dict} />
+      <ServicesSimple locale={locale} dict={dict} />
       <BracesCategoriesSection locale={locale} dict={dict} />
-      <TreatmentsSection locale={locale} dict={dict} />
+      <ServicesSection locale={locale} dict={dict} />
       <DigitalPracticeSection locale={locale} dict={dict} />
-      <AboutSection locale={locale} dict={dict} />
       <Services locale={locale} dict={dict} />
       <WhyChooseUs dict={dict} />
       <Testimonials locale={locale} dict={dict} />

@@ -37,6 +37,9 @@ export const DE_TO_EN: Record<string, string> = {
   "/komposit-zahnfuellung": "/en/composite-fillings",
   "/krone-bruecke": "/en/crown-bridge",
   "/sportschutz-mouthguards": "/en/sports-mouthguards",
+  "/asethetic-dental-services": "/en/aesthetic-dental-services",
+  "/implantat-wien": "/en/implant-vienna",
+  "/zahnarzt-1200-wien": "/en/dentist-1200-vienna",
 };
 
 /** English path -> German path (root) */

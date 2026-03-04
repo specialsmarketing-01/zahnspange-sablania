@@ -1,29 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import PageContent from "@/components/PageContent";
 import { getDictionary } from "@/lib/dictionaries";
 import { SITE_URL } from "@/lib/site";
 import { getHref } from "@/lib/paths";
+import { SERVICE_CATEGORIES } from "@/data/serviceMenu";
 
 const locale = "en" as const;
 
-const SERVICE_PATHS = [
-  "/kieferorthopaedie",
-  "/unsichtbare-zahnspange-wien",
-  "/unsichtbare-zahnspange-lingual-innenliegende-zahnspange",
-  "/zahnspange-fuer-kinder",
-  "/zahnspange-fuer-jugendliche",
-  "/zahnspange-fuer-erwachsene",
-  "/myofunktionelle-therapie",
-  "/kfo-retainer",
-  "/durchsichtige-zahnspange",
-  "/mundhygiene-wien",
-  "/zahnbleaching",
-  "/komposit-zahnfuellung",
-  "/krone-bruecke",
-  "/zahnersatz",
-  "/sportschutz-mouthguards",
-];
+const CARD_CATEGORY_IDS = ["orthodontics", "aesthetic", "general"] as const;
 
 export const metadata: Metadata = {
   title: "Services",
@@ -41,37 +27,94 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   const dict = getDictionary(locale);
   const l = dict.leistungen;
-  const titles = dict.routeTitles;
+  const titles = dict.routeTitles as Record<string, string>;
+  const leads = dict.pageLeads as Record<string, string>;
+
+  const cardCategories = SERVICE_CATEGORIES.filter((c) =>
+    CARD_CATEGORY_IDS.includes(c.id as (typeof CARD_CATEGORY_IDS)[number])
+  );
 
   return (
     <PageContent locale={locale} dict={dict} title={l.title} lead={l.lead}>
-      <h2 className="text-2xl font-bold text-primary mt-12 mb-4">
-        {l.orthodonticsTitle}
-      </h2>
-      <p className="text-gray-600">{l.orthodonticsText}</p>
-      <ul className="mt-6 space-y-2 list-disc pl-6 text-gray-600">
-        {SERVICE_PATHS.slice(0, 9).map((path) => (
-          <li key={path}>
-            <Link href={getHref(path, locale)} className="text-accent hover:underline">
-              {titles[path] ?? path}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {cardCategories.map((category) => {
+        const isOrthodontics = category.id === "orthodontics";
+        const isAesthetic = category.id === "aesthetic";
 
-      <h2 className="text-2xl font-bold text-primary mt-12 mb-4">
-        {l.prophylaxisTitle}
-      </h2>
-      <p className="text-gray-600">{l.prophylaxisText}</p>
-      <ul className="mt-6 space-y-2 list-disc pl-6 text-gray-600">
-        {SERVICE_PATHS.slice(9).map((path) => (
-          <li key={path}>
-            <Link href={getHref(path, locale)} className="text-accent hover:underline">
-              {titles[path] ?? path}
-            </Link>
-          </li>
-        ))}
-      </ul>
+        const sectionTitle = isOrthodontics
+          ? l.orthodonticsTitle
+          : isAesthetic
+          ? dict.navDropdown.aesthetic
+          : dict.navDropdown.general;
+
+        const sectionText = isOrthodontics
+          ? l.orthodonticsText
+          : isAesthetic
+          ? dict.footer.aestheticFillings
+          : l.prophylaxisText;
+
+        return (
+          <section key={category.id} className="mt-12">
+            <h2 className="text-2xl font-bold text-primary mb-3">{sectionTitle}</h2>
+            <p className="text-gray-600">{sectionText}</p>
+
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {category.items.map((item) => {
+                const title = titles[item.dePath] ?? item.dePath;
+                const lead = leads[item.dePath];
+                const iconSrc = item.iconFile
+                  ? `/icons/${encodeURIComponent(item.iconFile)}`
+                  : undefined;
+
+                return (
+                  <Link
+                    key={item.dePath}
+                    href={getHref(item.dePath, locale)}
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  >
+                    {iconSrc && (
+                      <div className="flex items-center justify-center bg-[#f4f6fb] px-6 py-6">
+                        <div className="relative h-16 w-16">
+                          <Image
+                            src={iconSrc}
+                            alt=""
+                            fill
+                            sizes="64px"
+                            className="object-contain drop-shadow-sm"
+                          />
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex flex-1 flex-col px-6 py-5">
+                      <h3 className="text-base font-semibold text-[#0f2e5c] group-hover:text-[#163d78]">
+                        {title}
+                      </h3>
+                      {lead && (
+                        <p className="mt-2 line-clamp-3 text-sm text-gray-600">{lead}</p>
+                      )}
+                      <span className="mt-4 inline-flex items-center text-sm font-semibold text-[#0f2e5c] group-hover:text-[#163d78]">
+                        {dict.common.learnMore}
+                        <svg
+                          className="ml-1 h-4 w-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={1.8}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden
+                        >
+                          <path d="M7 17L17 7" />
+                          <path d="M9 7h8v8" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
 
       <p className="mt-10 text-gray-600">
         {l.moreInfo}{" "}

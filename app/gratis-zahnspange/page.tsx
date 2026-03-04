@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ServicePageContent from "@/components/ServicePageContent";
+import GratisZahnspangeContent from "@/components/GratisZahnspangeContent";
 import { getDictionary } from "@/lib/dictionaries";
 import { getServicePageMetadata } from "@/lib/servicePageMetadata";
 
@@ -12,5 +12,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Page() {
   const dict = getDictionary(locale);
-  return <ServicePageContent dePath={DE_PATH} locale={locale} dict={dict} />;
+  return <GratisZahnspangeContent locale={locale} dict={dict} />;
 }
+

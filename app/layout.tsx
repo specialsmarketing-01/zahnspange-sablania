@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description:
     "Ihre Spezialisten für moderne Zahnspangen in Wien. Individuelle Beratung, moderne Technik und perfekte Ergebnisse.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/Dr-Manish-fav.png",
+    apple: "/Dr-Manish-fav.png",
   },
 };
 

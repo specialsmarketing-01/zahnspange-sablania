@@ -7,6 +7,7 @@ import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import { getPathForLocale, getHref } from "@/lib/paths";
+import { SERVICE_CATEGORIES, type ServiceCategoryId } from "@/data/serviceMenu";
 
 const DROPDOWN_DE_PATHS = [
   "/kieferorthopaedie",
@@ -34,26 +35,36 @@ export default function Navbar({ locale, dict }: NavbarProps) {
   const pathname = usePathname() ?? "";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [leistungenOpen, setLeistungenOpen] = useState(false);
+  const [activeServiceCategory, setActiveServiceCategory] =
+    useState<ServiceCategoryId>("orthodontics");
   const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileLeistungenOpen, setMobileLeistungenOpen] = useState(false);
+  const [mobileActiveServiceCategory, setMobileActiveServiceCategory] =
+    useState<ServiceCategoryId>("orthodontics");
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
 
   const homeHref = getHref("/", locale);
   const pathForDe = getPathForLocale(pathname, "de");
   const pathForEn = getPathForLocale(pathname, "en");
 
-  const dropdownLabels = [
-    dict.navDropdown.orthodontics,
-    dict.navDropdown.invisibleBraces,
-    dict.navDropdown.bracesChildren,
-    dict.navDropdown.bracesTeens,
-    dict.navDropdown.bracesAdults,
-    dict.navDropdown.myofunctional,
-    dict.navDropdown.retainers,
-    dict.navDropdown.oralHygiene,
-    dict.navDropdown.teethWhitening,
-    dict.navDropdown.dentalProsthetics,
-  ];
+  const nd = dict.navDropdown as Record<string, string>;
+
+  const getCategoryLabel = (id: ServiceCategoryId) => {
+    switch (id) {
+      case "procedure":
+        return nd.procedure;
+      case "dentist":
+        return nd.dentistVienna;
+      case "orthodontics":
+        return nd.orthodontics;
+      case "aesthetic":
+        return nd.aesthetic;
+      case "general":
+        return nd.general;
+      default:
+        return id;
+    }
+  };
 
   const navLinkClass =
     "font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors duration-200 whitespace-nowrap";
@@ -71,25 +82,38 @@ export default function Navbar({ locale, dict }: NavbarProps) {
         className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8"
         aria-label={dict.nav.ariaNav}
       >
-        {/* LEFT: Logo + clinic name */}
+        {/* LEFT: Fav icon + doctor name + credentials (logo area) */}
         <Link
           href={homeHref}
-          className="flex shrink-0 items-center gap-3 min-h-[52px]"
-          aria-label={`Zahnspange Sablania – ${dict.nav.home}`}
+          className="flex shrink-0 flex-row items-center gap-3 min-h-[52px]"
+          aria-label={`${dict.nav.brandName} – ${dict.nav.home}`}
         >
           <Image
-            src="/Dr-Sablania-websitelogo.png"
-            alt="Dr. Sablania – Zahnspange Sablania"
-            width={200}
-            height={52}
-            className="h-12 w-auto object-contain"
-            priority
+            src="/Dr-Manish-fav.png"
+            alt=""
+            width={70}
+            height={70}
+            className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] object-contain shrink-0"
             unoptimized
           />
+          <div className="flex flex-col items-start justify-center text-left gap-0.5">
+            <span className="text-[9px] font-normal text-[#0f2e5c] leading-none uppercase tracking-wide">
+              {(dict.nav as { brandTitle?: string }).brandTitle}
+            </span>
+            <span className="text-[13px] sm:text-[14px] font-bold tracking-tight text-[#0f2e5c] leading-tight">
+              {dict.nav.brandName}
+            </span>
+            <span className="text-[8px] sm:text-[10px] font-normal text-[#0f2e5c] leading-snug">
+              {(dict.nav as { brandCredentials?: string }).brandCredentials}
+            </span>
+            <span className="text-[8px] sm:text-[10px] font-normal text-[#0f2e5c] leading-snug">
+              {(dict.nav as { brandSpecialties?: string }).brandSpecialties}
+            </span>
+          </div>
         </Link>
 
         {/* CENTER: Navigation */}
-        <div className="hidden xl:flex xl:items-center xl:gap-8 xl:flex-1 xl:justify-center">
+        <div className="hidden lg:flex lg:items-center lg:gap-8 lg:flex-1 lg:justify-center">
           <Link
             href={homeHref}
             className={`text-sm ${navLinkClass} ${pathname === "/" || pathname === "/en" ? navLinkActiveClass : ""}`}
@@ -118,17 +142,106 @@ export default function Navbar({ locale, dict }: NavbarProps) {
               </svg>
             </Link>
             {leistungenOpen && (
-              <div className="absolute left-0 top-full pt-2">
-                <div className="min-w-[220px] rounded-xl border border-gray-200 bg-white py-3 shadow-lg">
-                  {DROPDOWN_DE_PATHS.map((path, i) => (
-                    <Link
-                      key={path}
-                      href={getHref(path, locale)}
-                      className="block px-5 py-2 text-sm text-[#1e293b] hover:bg-gray-100 rounded-md transition-colors duration-200"
-                    >
-                      {dropdownLabels[i]}
-                    </Link>
-                  ))}
+              <div className="absolute left-0 top-full pt-3">
+                <div className="flex min-w-[520px] rounded-2xl border border-gray-200 bg-white/95 py-4 shadow-xl backdrop-blur-sm">
+                  {/* Left column: service categories */}
+                  <div className="w-56 border-r border-gray-100 px-3">
+                    <p className="mb-2 px-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                      {dict.nav.services}
+                    </p>
+                    <ul className="space-y-0.5">
+                      {SERVICE_CATEGORIES.map((category) => {
+                        if (category.id === "procedure" || category.id === "dentist") {
+                          const targetPath =
+                            category.items[0]?.dePath ??
+                            (category.id === "procedure"
+                              ? "/ablauf-zahnspange-kieferorthopaedie"
+                              : "/ueber-mich");
+                          return (
+                            <li key={category.id}>
+                              <Link
+                                href={getHref(targetPath, locale)}
+                                className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-sm text-left text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
+                                onClick={() => setLeistungenOpen(false)}
+                              >
+                                <span>{getCategoryLabel(category.id)}</span>
+                              </Link>
+                            </li>
+                          );
+                        }
+
+                        return (
+                          <li key={category.id}>
+                            <button
+                              type="button"
+                              className={`flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-sm text-left transition-colors ${
+                                activeServiceCategory === category.id
+                                  ? "bg-[#0f2e5c]/5 text-[#0f2e5c] font-semibold"
+                                  : "text-[#1e293b] hover:bg-gray-50"
+                              }`}
+                              onMouseEnter={() => setActiveServiceCategory(category.id)}
+                            >
+                              <span>{getCategoryLabel(category.id)}</span>
+                              {(category.id === "orthodontics" ||
+                                category.id === "aesthetic" ||
+                                category.id === "general") && (
+                                <svg
+                                  className="h-3 w-3 text-gray-400"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  aria-hidden
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              )}
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+
+                  {/* Right column: links for active category */}
+                  <div className="w-[360px] px-4">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                      {getCategoryLabel(activeServiceCategory)}
+                    </p>
+                    <div className="grid gap-1">
+                      {SERVICE_CATEGORIES.find((c) => c.id === activeServiceCategory)?.items.map((item) => (
+                        <Link
+                          key={item.dePath}
+                          href={getHref(item.dePath, locale)}
+                          className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
+                        >
+                          <span className="truncate">
+                            {(dict.routeTitles as Record<string, string>)[item.dePath] ?? item.dePath}
+                          </span>
+                          <svg
+                            className="ml-2 h-3 w-3 text-gray-300"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="mt-3 flex gap-2 text-xs text-gray-500">
+                      <Link
+                        href={getHref("/kieferorthopaedie", locale)}
+                        className="hover:text-[#0f2e5c] hover:underline"
+                      >
+                        {nd.orthodontics}
+                      </Link>
+                      <span>•</span>
+                      <Link href={getHref("/leistungen", locale)} className="hover:text-[#0f2e5c] hover:underline">
+                        {dict.footer.generalDentistry}
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -181,53 +294,41 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
         {/* RIGHT: Language + CTA */}
         <div className="flex items-center gap-4 shrink-0">
-          <div className="hidden xl:flex items-center gap-1 text-sm font-medium text-[#1e293b]">
-            {locale === "de" ? (
-              <span className="px-2 py-1 rounded text-[#0f2e5c] font-semibold" aria-current="true">
-                DE
-              </span>
-            ) : (
-              <Link href={pathForDe} className="px-2 py-1 rounded hover:text-[#0f2e5c]" aria-label="Deutsch">
-                DE
-              </Link>
-            )}
-            <span className="text-gray-300" aria-hidden>|</span>
-            {locale === "en" ? (
-              <span className="px-2 py-1 rounded text-[#0f2e5c] font-semibold" aria-current="true">
-                EN
-              </span>
-            ) : (
-              <Link href={pathForEn} className="px-2 py-1 rounded hover:text-[#0f2e5c]" aria-label="English">
-                EN
-              </Link>
-            )}
-          </div>
+          <Link
+            href={locale === "de" ? pathForEn : pathForDe}
+            className="hidden lg:inline-flex items-center gap-1.5 px-2 py-1.5 rounded text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors"
+            aria-label={locale === "de" ? "Switch to English" : "Auf Deutsch wechseln"}
+          >
+            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span>{locale === "de" ? "EN" : "DE"}</span>
+          </Link>
 
           <a
             href="https://powerforms.at/247674"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden xl:inline-flex items-center justify-center rounded-full border-2 border-[#0f2e5c] px-5 py-2.5 text-sm font-semibold text-[#0f2e5c] transition-colors hover:bg-[#0f2e5c]/5"
+            className="hidden lg:inline-flex items-center justify-center rounded-full border-2 border-[#0f2e5c] px-5 py-2.5 text-sm font-semibold text-[#0f2e5c] transition-colors hover:bg-[#0f2e5c]/5"
           >
             {locale === "de" ? "Gesundheitsfragebogen" : "Health Questionnaire"}
           </a>
 
-          <Link
-            href={getHref("/online-termin", locale)}
-            className="hidden xl:inline-flex items-center justify-center rounded-full bg-[#0f2e5c] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-[#163d78]"
-          >
-            {dict.nav.cta}
-          </Link>
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex xl:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
           <Link
             href={locale === "de" ? pathForEn : pathForDe}
-            className="text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] px-2 py-1"
+            className="inline-flex items-center gap-1.5 px-2 py-1.5 rounded text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors"
             aria-label={locale === "de" ? "Switch to English" : "Auf Deutsch wechseln"}
           >
-            {locale === "de" ? "EN" : "DE"}
+            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span>{locale === "de" ? "EN" : "DE"}</span>
           </Link>
           <button
             type="button"
@@ -249,7 +350,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="xl:hidden border-t border-gray-200 bg-white">
+        <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="mx-auto max-w-7xl px-6 py-4 space-y-1">
             <Link
               href={homeHref}
@@ -277,17 +378,67 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                 </svg>
               </button>
               {mobileLeistungenOpen && (
-                <div className="ml-4 border-l border-gray-200 pl-3 space-y-0.5 py-1">
-                  {DROPDOWN_DE_PATHS.map((path, i) => (
-                    <Link
-                      key={path}
-                      href={getHref(path, locale)}
-                      className="block rounded-lg px-3 py-2 text-sm text-[#1e293b]/90 hover:bg-[#f8f9fb] hover:text-[#0f2e5c]"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {dropdownLabels[i]}
-                    </Link>
-                  ))}
+                <div className="ml-4 border-l border-gray-200 pl-3 space-y-1 py-1">
+                  {SERVICE_CATEGORIES.map((category) => {
+                    if (category.id === "procedure" || category.id === "dentist") {
+                      const targetPath =
+                        category.items[0]?.dePath ??
+                        (category.id === "procedure"
+                          ? "/ablauf-zahnspange-kieferorthopaedie"
+                          : "/ueber-mich");
+                      return (
+                        <Link
+                          key={category.id}
+                          href={getHref(targetPath, locale)}
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-[#1e293b]/90 hover:bg-[#f8f9fb] hover:text-[#0f2e5c]"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {getCategoryLabel(category.id)}
+                        </Link>
+                      );
+                    }
+
+                    return (
+                      <div key={category.id}>
+                        <button
+                          type="button"
+                          className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-[#1e293b]/90 hover:bg-[#f8f9fb] hover:text-[#0f2e5c]"
+                          onClick={() =>
+                            setMobileActiveServiceCategory(
+                              mobileActiveServiceCategory === category.id ? "orthodontics" : category.id
+                            )
+                          }
+                          aria-expanded={mobileActiveServiceCategory === category.id}
+                        >
+                          <span>{getCategoryLabel(category.id)}</span>
+                          <svg
+                            className={`h-3 w-3 transition-transform ${
+                              mobileActiveServiceCategory === category.id ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        {mobileActiveServiceCategory === category.id && (
+                          <div className="ml-3 border-l border-gray-200 pl-3 space-y-0.5 py-1">
+                            {category.items.map((item) => (
+                              <Link
+                                key={item.dePath}
+                                href={getHref(item.dePath, locale)}
+                                className="block rounded-lg px-3 py-1.5 text-sm text-[#1e293b]/80 hover:bg-[#f8f9fb] hover:text-[#0f2e5c]"
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                {(dict.routeTitles as Record<string, string>)[item.dePath] ?? item.dePath}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

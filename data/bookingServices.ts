@@ -89,4 +89,12 @@ export const bookingServices = [
     desc_en: "Single or multiple missing teeth",
     image: "/services/implant-crown.jpg",
   },
+  {
+    slug: "vollprothesen",
+    title_de: "Vollprothesen",
+    desc_de: "Vollprothesen werden verwendet, wenn alle Zähne im Ober- oder Unterkiefer fehlen.",
+    title_en: "Full dentures",
+    desc_en: "Full dentures are used when all teeth in the upper or lower jaw are missing.",
+    image: "/services/vollprothese.jpg",
+  },
 ];

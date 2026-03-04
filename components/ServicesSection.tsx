@@ -5,15 +5,11 @@ import type { Dictionary } from "@/lib/dictionaries";
 import { getHref } from "@/lib/paths";
 
 const SERVICE_IMAGES_AND_PATHS = [
-  { image: "/services/lingual.jpg", path: "/unsichtbare-zahnspange-lingual-innenliegende-zahnspange" },
   { image: "/services/fillings.jpg", path: "/komposit-zahnfuellung" },
   { image: "/services/bleaching.jpg", path: "/zahnbleaching" },
   { image: "/services/veneers.jpg", path: "/krone-bruecke" },
   { image: "/services/mundhygiene.jpg", path: "/mundhygiene-wien" },
-  { image: "/services/invisalign.jpg", path: "/unsichtbare-zahnspange-wien" },
-  { image: "/services/vollprothese.jpg", path: "/zahnersatz" },
   { image: "/services/teilprothese.jpg", path: "/zahnersatz" },
-  { image: "/services/implantat.jpg", path: "/zahnersatz" },
   { image: "/services/krone.jpg", path: "/krone-bruecke" },
   { image: "/services/mouthguard.jpg", path: "/sportschutz-mouthguards" },
 ] as const;
@@ -36,7 +32,8 @@ export default function ServicesSection({ locale, dict }: { locale: Locale; dict
         </p>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card, i) => {
-            const { image, path } = SERVICE_IMAGES_AND_PATHS[i];
+            const config = SERVICE_IMAGES_AND_PATHS[i % SERVICE_IMAGES_AND_PATHS.length];
+            const { image, path } = config;
             return (
               <article
                 key={path + i}

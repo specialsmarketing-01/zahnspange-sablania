@@ -3,6 +3,10 @@ import type { Locale } from "./i18n";
 export const dictionaries = {
   de: {
     nav: {
+      brandTitle: "Dr. med. dent",
+      brandName: "Manish Sablania",
+      brandCredentials: "BDS M.Sc. Specialized Orthodontics",
+      brandSpecialties: "Kieferorthopäde | Ästhetische | Implantologie",
       home: "Startseite",
       services: "Leistungen",
       aboutMe: "Über mich",
@@ -29,6 +33,10 @@ export const dictionaries = {
       teethWhitening: "Zahnbleaching",
       dentalProsthetics: "Zahnersatz",
       oralHygieneMore: "Mundhygiene & mehr",
+      aesthetic: "Ästhetische Zahnheilkunde",
+      general: "Allgemeine Zahnheilkunde",
+      procedure: "Ablauf",
+      dentistVienna: "Zahnarzt 1200 Wien",
     },
     footer: {
       ordinationHeading: "Ordination, 1200 Wien",
@@ -113,15 +121,18 @@ export const dictionaries = {
       "/komposit-zahnfuellung": "Komposit-Zahnfüllung",
       "/krone-bruecke": "Krone & Brücke",
       "/sportschutz-mouthguards": "Sportschutz Mouthguards",
+      "/asethetic-dental-services": "Ästhetische Zahnärztliche Leistungen",
+      "/implantat-wien": "Implantat Wien",
+      "/zahnarzt-1200-wien": "Zahnarzt 1200 Wien",
     } as Record<string, string>,
     homepage: {
       heroTitle: "Ihre Spezialisten für moderne Zahnspangen in Wien",
       heroSubline: "Individuelle Beratung • Moderne Technik • Perfektes Lächeln",
       heroCta: "Jetzt Termin buchen",
       heroContact: "Kontakt aufnehmen",
-      heroBadge: "Moderne Kieferorthopädie in Wien",
-      heroHeadlineMain: "Ihr Spezialist für Zahnspangen –",
-      heroHeadlineAccent: "ästhetisch, präzise & individuell.",
+      heroBadge: "All health insurance funds and private · Mon–Fri: 10am–5pm",
+      heroHeadlineMain: "Allgemein Zahnarzt und",
+      heroHeadlineAccent: "Fachzahnarzt für Kieferorthopädie",
       heroDescription:
         "Wir bieten moderne Zahnkorrekturen für Kinder, Jugendliche und Erwachsene – von klassischen Zahnspangen bis zu unsichtbaren Alignern.",
       heroCtaPrimary: "Jetzt Termin vereinbaren",
@@ -144,10 +155,31 @@ export const dictionaries = {
       whyTitle: "Warum Sie uns wählen sollten",
       whySub: "Qualität, Vertrauen und Ergebnisse – dafür stehen wir.",
       whyFeatures: [
-        { title: "Modernste Technik", description: "Wir setzen auf digitale Abformung, 3D-Scans und präzise Behandlungsplanung für optimale Ergebnisse." },
-        { title: "Individuelle Betreuung", description: "Jeder Patient erhält einen auf seine Bedürfnisse abgestimmten Behandlungsplan und persönliche Begleitung." },
-        { title: "Langjährige Erfahrung", description: "Unser Team bringt jahrelange Expertise in der Kieferorthopädie und zahlreiche zufriedene Patienten mit." },
-        { title: "Flexible Terminvergabe", description: "Wir bemühen uns um passende Termine für Sie – auch außerhalb der üblichen Praxiszeiten wenn nötig." },
+        {
+          title: "Modernste Technik",
+          description:
+            "Digitale Abformung, 3D-Scans und präzise Planung für optimale Ergebnisse.",
+        },
+        {
+          title: "Individuelle Betreuung",
+          description:
+            "Behandlungspläne abgestimmt auf Ihre Bedürfnisse – mit persönlicher Begleitung.",
+        },
+        {
+          title: "Langjährige Erfahrung",
+          description:
+            "Jahrelange Expertise in der Kieferorthopädie und viele zufriedene Patienten.",
+        },
+        {
+          title: "Flexible Terminvergabe",
+          description:
+            "Wir finden Termine, die zu Ihrem Alltag passen – auch außerhalb üblicher Zeiten.",
+        },
+        {
+          title: "Ratenzahlung & Finanzierungsoptionen",
+          description:
+            "Flexible Raten- und Finanzierungsmodelle machen hochwertige Behandlung leistbar.",
+        },
       ],
       testimonialsTitle: "Das sagen unsere Patienten",
       testimonialsSub: "Vertrauen Sie auf die Erfahrungen zufriedener Familien und Patienten.",
@@ -164,18 +196,21 @@ export const dictionaries = {
       servicesSectionTitle: "Leistungen",
       servicesSectionSub: "Unsere Behandlungen im Überblick",
       servicesSectionCards: [
-        { title: "Unsichtbare Lingualzahnspange", text: "Unsichtbare Zahnspangen sind innenliegende Zahnspangen. Bei denen die Brackets nicht außen, sondern auf der Innenseite der Zähne aufgebracht werden." },
         { title: "Ästhetische Zahnfarbige Füllungen", text: "Ästhetische Zahnfüllungen sind hochwertige Kunststoff oder Keramik Zahnfüllungen." },
         { title: "Zahnbleaching", text: "Zahnbleaching bedeutet Aufhellung der Zähne." },
         { title: "Ästhetische Zahnbehandlung", text: "Veneers sind zahnfarbige sehr dünne Verblendschalen aus Keramik." },
         { title: "Professionelle Mundhygiene", text: "Mit regelmäßiger Mundhygiene und gesunder Ernährung beugen wir Erkrankung von Zahnfleisch und Zahnknochen." },
-        { title: "Unsichtbare Zahnspange Invisalign", text: "Invisalign ist hochmoderne Methode zur Korrektur von Zahnfehlstellungen mit transparenten durchsichtigen Folien." },
-        { title: "Vollprothesen", text: "Vollprothesen werden verwendet, wenn alle Zähne im Ober- oder Unterkiefer fehlen." },
         { title: "Teilprothesen", text: "Teilprothesen eignen sich für Patienten, die noch über natürliche Zähne verfügen." },
-        { title: "Implantatgetragener Zahnersatz", text: "Implantatgetragener Zahnersatz wird mit Zahnimplantaten befestigt und bietet im Vergleich zu herkömmlichem Zahnersatz eine höhere Stabilität." },
         { title: "Krone-Brücke", text: "Krone-Brücke sind individuell angefertigte Restaurationen, die fehlende Zähne ersetzen sollen." },
         { title: "Sportschutz-Mouthguards", text: "Sportschutz-Mouthguards sind abnehmbar individuell angefertigte Gummimaterial, die Zähne schützt." },
       ],
+      firstVisitTitle: "Sie sind zum ersten Mal bei uns? Wir machen eine umfangreiche Zahnanalyse!",
+      firstVisitText1:
+        "Bei jedem neuen Patienten führen wir zunächst eine umfassende Zahnanalyse durch. Hierbei sehen wir uns an, wie es Ihren Zähnen aktuell geht und erarbeiten, was Ihre Ziele sind.",
+      firstVisitText2:
+        "Egal, ob Sie zur regelmäßigen Zahnreinigung kommen, Zahnersatz brauchen oder Ihre Zähne begradigen lassen möchten – wir erstellen Ihnen einen passenden Plan.",
+      firstVisitBadgeLeading: "The Leading Dentists of the World",
+      firstVisitBadgeHygiene: "Hygiene-Prädikat 2025",
       treatmentsTitle: "Alle Zahnbehandlungen in einer Praxis:",
       treatmentsCards: [
         "Teil und Vollprothesen",
@@ -185,6 +220,7 @@ export const dictionaries = {
         "Unsichtbare Zahnspange Invisalign und Lingual",
         "Veneers – Krone – Brücke",
       ],
+      instalmentOptions: "Ratenzahlung möglich",
       bracesCategoriesTitle: "Kieferorthopädie in Wien",
       bracesCategoriesSub:
         "Invisalign, Gratiszahnspange, durchsichtige Zahnspange, unsichtbare Zahnspange oder Clear Aligner – transparente Schienen.",
@@ -197,6 +233,8 @@ export const dictionaries = {
       bracesCategoriesCardChildren: "Zahnspange für Kinder regulieren Kiefer und Zahnfehlstellungen.",
       bracesCategoriesCardTeens: "Zahnspange für Jugendliche regulieren Zahnfehlstellungen und Kiefer.",
       bracesCategoriesCardAdults: "Zahnspange Erwachsene – Unsichtbare Aligners.",
+      bracesCategoriesCardInvisalign: "Unsichtbare Zahnspange Invisalign – transparente Schienen für eine diskrete Zahnkorrektur.",
+      bracesCategoriesCardLingual: "Unsichtbare Lingualzahnspange – innenliegende feste Zahnspange für maximale Ästhetik.",
       digitalPracticeTitle: "Digitale Praxis",
       digitalPracticeStat1Number: "7850+",
       digitalPracticeStat1Text: "Kieferorthopädie Zahnspangen-Behandlungen-Zusammenarbeit",
@@ -230,6 +268,43 @@ export const dictionaries = {
       processLink: "Ablauf Zahnspange & Kieferorthopädie",
       closing:
         "Vereinbaren Sie einen unverbindlichen Beratungstermin in unserer Ordination in Wien – wir freuen uns auf Sie.",
+    },
+    lingualBraces: {
+      title: "Lingual-Zahnspange – Innenliegende Zahnspange",
+      lead:
+        "Lingual-Zahnspangen sind unsichtbare Zahnspangen, bei denen die Brackets auf der Innenseite der Zähne (Zungenseite und Gaumenseite) angebracht werden – im Gegensatz zu klassischen Zahnspangen, die von außen sichtbar sind. Die unsichtbare, innenliegende Zahnspange eignet sich besonders für Patientinnen und Patienten, die eine Zahnkorrektur wünschen, aber unauffällig bleiben möchten.",
+      intro2:
+        "Dank moderner Technik und Fortschritten in der Kieferorthopädie können Fehlstellungen mit innenliegenden Brackets heute genauso erfolgreich behandelt werden wie mit Brackets von außen.",
+      intro3:
+        "Die innenliegenden Brackets, Bögen und Drähte werden in modernen Fachlaboren individuell gefertigt. Jeder Zahn, jede Zahnfläche, Größe und Form ist anders. Auch die Biomechanik unterscheidet sich im Vergleich zu außenliegenden Brackets.",
+      advantagesDisadvantagesTitle: "Lingual-Zahnspange: Vor- und Nachteile",
+      advantagesDisadvantagesIntro:
+        "Die Behandlungsdauer hängt natürlich von der Fehlstellung, der gewählten Methode und der Technik ab. Kleine Fehlstellungen dauern z. B. einige Wochen/Monate, ausgeprägte Fehlstellungen einige Monate/Jahre. Die Kosten für innenliegende Zahnspangen sind aufgrund des hohen Aufwands auch deutlich höher als z. B. bei Alignern oder außenliegenden Zahnspangen.",
+      consultationNote: "Alle Details erfahren Sie hier: Kostenlose Erstberatung",
+      checkupNote: "Die wichtigen Kontrolltermine (innenliegende Zahnspange) finden alle 6–8 Wochen statt!",
+      advantagesTitle: "Vorteile der Lingual-Zahnspange:",
+      advantages: [
+        "Diese feste, innenliegende Zahnspange ist von außen nicht sichtbar – ideal für alle, die ihre Zahnstellung wirklich unauffällig korrigieren möchten (z. B. Politiker, Sänger, Models, Berufspendler mit viel Kundenkontakt).",
+        "Fast alle Fehlstellungen lassen sich mit der Lingual-Technik korrigieren – sowohl bei Jugendlichen als auch bei Erwachsenen. Geringeres Kariesrisiko, da die innenliegenden Brackets nah an den Speicheldrüsen liegen: regelmäßiges Spülen und Remineralisation der Zahnoberfläche.",
+      ],
+      disadvantagesTitle: "Nachteile der Lingual-Zahnspange:",
+      disadvantages: [
+        "Beim Sprechen ist anfangs eine Gewöhnung nötig – besonders S- und Z-Laute können anfangs schwerer auszusprechen sein.",
+        "Essen und Kauen sind anfangs weniger angenehm.",
+        "Eine feste, innenliegende Zahnspange ist nicht herausnehmbar – im Gegensatz z. B. zu Alignern.",
+      ],
+      processTitle: "Lingual-Zahnspange und Ablauf in meiner Kieferorthopädie",
+      steps: [
+        "Kostenlose Erstberatung bei Fehlstellungen in unserer Kieferorthopädie. Nur nach Terminvereinbarung!",
+        "Erstellung der Behandlungsunterlagen für den individuellen Behandlungsverlauf. Diagnostik mit Röntgen, Fotos und digitalen Scans – stets ohne Vermerke.",
+        "Planungsgespräch und Aufklärung. Röntgenauswertung und Analysegespräch, welche Art von Zahnspange bzw. Brackets für Ihren Fall nötig sind.",
+        "Behandlungsbeginn. Einsetzen der Apparatur und Aufklärung zu Reinigung und Tragezeiten.",
+        "Wichtige und notwendige Kontrollen alle 6–8 Wochen.",
+        "Behandlungsende. Entfernung der Zahnspange und Besprechung des Behandlungsergebnisses.",
+        "Retention – der Beginn der Stabilisierung des Behandlungsergebnisses.",
+      ],
+      processLinkText: "Den gesamten Ablauf in meiner Kieferorthopädie finden Sie hier ausführlich erklärt.",
+      processLinkPath: "/ablauf-zahnspange-kieferorthopaedie",
     },
     leistungen: {
       title: "Unsere Leistungen",
@@ -382,6 +457,10 @@ export const dictionaries = {
       "/krone-bruecke": "Krone und Brücke für lückenlosen und stabilen Zahnersatz. Wir beraten Sie zu Materialien und Ablauf.",
       "/zahnersatz": "Moderner Zahnersatz für Ästhetik und Funktion. Von der Krone über die Brücke bis zur Prothese – wir finden die passende Lösung.",
       "/sportschutz-mouthguards": "Individueller Sportschutz zum Schutz der Zähne beim Sport. Angepasst für maximalen Komfort und Schutz.",
+      "/asethetic-dental-services": "Ästhetische Zahnärztliche Leistungen – ein Überblick über unser Angebot von der unsichtbaren Zahnspange bis zu Bleaching, Füllungen und Mundhygiene.",
+      "/implantat-wien": "Zahnimplantate in Wien: Festsitzender Zahnersatz als stabile und ästhetische Alternative zu Prothesen – von der Planung bis zur Nachsorge.",
+      "/zahnarzt-1200-wien":
+        "Ihre Zahnarztpraxis in Wien 1200 für allgemeine, ästhetische Zahnheilkunde und Kieferorthopädie – zentral gelegen und mit moderner Technik ausgestattet.",
     } as Record<string, string>,
     metadata: {
       defaultTitle: "Zahnspange Sablania | Kieferorthopädie & Zahnspangen Wien",
@@ -391,6 +470,10 @@ export const dictionaries = {
   },
   en: {
     nav: {
+      brandTitle: "Dr. med. dent",
+      brandName: "Manish Sablania",
+      brandCredentials: "BDS M.Sc. Specialized Orthodontics",
+      brandSpecialties: "Orthodontist | Aesthetic | Implantology",
       home: "Home",
       services: "Services",
       aboutMe: "About Me",
@@ -417,6 +500,10 @@ export const dictionaries = {
       teethWhitening: "Teeth Whitening",
       dentalProsthetics: "Dental Prosthetics",
       oralHygieneMore: "Oral hygiene & more",
+      aesthetic: "Aesthetic Dentistry",
+      general: "General Dentistry",
+      procedure: "Procedure",
+      dentistVienna: "Dentist 1200 Vienna",
     },
     footer: {
       ordinationHeading: "Practice, 1200 Vienna",
@@ -501,6 +588,9 @@ export const dictionaries = {
       "/komposit-zahnfuellung": "Composite Fillings",
       "/krone-bruecke": "Crown & Bridge",
       "/sportschutz-mouthguards": "Sports Mouthguards",
+      "/asethetic-dental-services": "Aesthetic Dental Services",
+      "/implantat-wien": "Implant Vienna",
+      "/zahnarzt-1200-wien": "Dentist 1200 Vienna",
     } as Record<string, string>,
     homepage: {
       heroTitle: "Your Specialists for Modern Braces in Vienna",
@@ -532,10 +622,31 @@ export const dictionaries = {
       whyTitle: "Why Choose Us",
       whySub: "Quality, trust and results – that is what we stand for.",
       whyFeatures: [
-        { title: "State-of-the-Art Technology", description: "We use digital impressions, 3D scans and precise treatment planning for optimal results." },
-        { title: "Individual Care", description: "Every patient receives a treatment plan tailored to their needs and personal support throughout." },
-        { title: "Years of Experience", description: "Our team brings long-standing expertise in orthodontics and many satisfied patients." },
-        { title: "Flexible Scheduling", description: "We aim to find appointment times that suit you – including outside regular hours when needed." },
+        {
+          title: "State-of-the-Art Technology",
+          description:
+            "Digital impressions, 3D scans and precise planning for reliable results.",
+        },
+        {
+          title: "Individual Care",
+          description:
+            "Treatment plans tailored to you with personal support throughout.",
+        },
+        {
+          title: "Years of Experience",
+          description:
+            "Long-standing orthodontic expertise and many satisfied patients.",
+        },
+        {
+          title: "Flexible Scheduling",
+          description:
+            "Appointment times that fit your schedule, even outside regular hours.",
+        },
+        {
+          title: "Instalment & Financing Options",
+          description:
+            "Flexible instalment and financing so high-quality care remains affordable.",
+        },
       ],
       testimonialsTitle: "What Our Patients Say",
       testimonialsSub: "Trust the experience of satisfied families and patients.",
@@ -552,18 +663,23 @@ export const dictionaries = {
       servicesSectionTitle: "Services",
       servicesSectionSub: "Our treatments at a glance",
       servicesSectionCards: [
-        { title: "Invisible lingual braces", text: "Invisible braces are inner (lingual) braces, where the brackets are placed on the inside of the teeth instead of the outside." },
         { title: "Aesthetic tooth-coloured fillings", text: "Aesthetic fillings are high-quality composite or ceramic dental fillings." },
         { title: "Teeth whitening", text: "Teeth whitening means lightening the colour of your teeth." },
         { title: "Aesthetic dental treatment", text: "Veneers are very thin tooth-coloured ceramic shells that are bonded to the front of the teeth." },
         { title: "Professional oral hygiene", text: "With regular oral hygiene and a healthy diet we help prevent disease of the gums and jawbone." },
-        { title: "Invisible braces Invisalign", text: "Invisalign is a state-of-the-art method for correcting tooth misalignments using clear, transparent aligners." },
         { title: "Full dentures", text: "Full dentures are used when all teeth in the upper or lower jaw are missing." },
         { title: "Partial dentures", text: "Partial dentures are suitable for patients who still have some natural teeth." },
         { title: "Implant-supported dentures", text: "Implant-supported dentures are attached to dental implants and offer greater stability compared to conventional dentures." },
         { title: "Crown and bridge", text: "Crowns and bridges are custom-made restorations that replace missing teeth." },
         { title: "Sports mouthguards", text: "Sports mouthguards are removable, custom-made devices that protect your teeth during sport." },
       ],
+      firstVisitTitle: "Is it your first visit? We start with a comprehensive dental analysis.",
+      firstVisitText1:
+        "For every new patient we begin with a detailed dental analysis. We assess your current situation and discuss your goals.",
+      firstVisitText2:
+        "Whether you come for regular cleaning, need restorations or want to straighten your teeth – we create a tailored treatment plan.",
+      firstVisitBadgeLeading: "The Leading Dentists of the World",
+      firstVisitBadgeHygiene: "Hygiene seal 2025",
       treatmentsTitle: "All dental treatments in one practice:",
       treatmentsCards: [
         "Partial and full dentures",
@@ -573,6 +689,7 @@ export const dictionaries = {
         "Invisible braces: Invisalign and lingual",
         "Veneers, crown and bridge",
       ],
+      instalmentOptions: "Instalment options available",
       bracesCategoriesTitle: "Orthodontics in Vienna",
       bracesCategoriesSub:
         "Invisalign, free braces, clear aligners, invisible braces – we offer the full range of modern orthodontic options.",
@@ -586,6 +703,8 @@ export const dictionaries = {
       bracesCategoriesCardChildren: "Braces for children correct jaw and tooth misalignments.",
       bracesCategoriesCardTeens: "Braces for teens correct tooth and jaw misalignments.",
       bracesCategoriesCardAdults: "Braces for adults – invisible aligners.",
+      bracesCategoriesCardInvisalign: "Invisible braces Invisalign – clear aligners for discreet tooth correction.",
+      bracesCategoriesCardLingual: "Invisible lingual braces – fixed braces on the inside of the teeth for maximum aesthetics.",
       digitalPracticeTitle: "Digital Practice",
       digitalPracticeStat1Number: "7850+",
       digitalPracticeStat1Text: "Orthodontic brace treatments – in collaboration",
@@ -619,6 +738,43 @@ export const dictionaries = {
       processLink: "Braces & Orthodontics Process",
       closing:
         "Book a no-obligation consultation at our practice in Vienna – we look forward to seeing you.",
+    },
+    lingualBraces: {
+      title: "Lingual Braces – Internal Braces",
+      lead:
+        "Lingual braces refer to invisible braces in which the brackets are placed on the inside of the teeth (tongue side and palate side) rather than on the outside. In comparison to classic braces, which are visible and stuck on the outside. The invisible, internal braces are particularly suitable for patients who need teeth straightening but want to hide it.",
+      intro2:
+        "Thanks to modern technology and advances in orthodontics, it is now possible to treat misaligned teeth just as successfully with internal brackets as with brackets on the outside.",
+      intro3:
+        "The internal braces, brackets and wires are manufactured individually in state-of-the-art specialist laboratories. Every tooth, every tooth surface, size and shape is different. The biomechanics are also different compared to external brackets.",
+      advantagesDisadvantagesTitle: "Lingual Braces Advantages and Disadvantages",
+      advantagesDisadvantagesIntro:
+        "The duration of treatment obviously depends on the deformity, the treatment methods and the technique used. Small misalignments, for example, take a few weeks/months. Severe misalignment for a few months/years. The costs of internal braces are also significantly higher than, for example, aligners or external braces due to the high level of effort involved.",
+      consultationNote: "You can find out all the details here: Free initial consultation",
+      checkupNote: "The important check-up appointments (internal braces) take place every 6–8 weeks!",
+      advantagesTitle: "Lingual braces advantages:",
+      advantages: [
+        "These fixed, internal braces cannot be seen from the outside – ideal for patients who really want to correct their misaligned teeth without being noticed. Politicians, singers, models. Commuters with a lot of customer contact.",
+        "Almost all misalignments can be corrected with internal braces. Both in adolescents and adults. Low risk of caries because the internal braces are located close to the salivary glands: regular rinsing and re-mineralization of the tooth surface.",
+      ],
+      disadvantagesTitle: "Lingual braces disadvantages:",
+      disadvantages: [
+        "When speaking, you have to get used to it at the beginning – S and C sounds in particular can be difficult to speak at the beginning.",
+        "Eating and chewing are not very comfortable at first.",
+        "A fixed, internal brace that is not removable. In contrast to aligners, for example.",
+      ],
+      processTitle: "Lingual Braces and the Process in my Orthodontics",
+      steps: [
+        "Free initial consultation for misaligned teeth in our orthodontics. Appointment only by appointment!",
+        "Create treatment documents for individual treatment courses. Diagnosis with x-rays, photos and digital scans. Always without marks.",
+        "Plan discussion and explanation. X-ray evaluation and the analysis discussion about which type of braces and/or brackets are necessary for the individual case.",
+        "Start of treatment. Inserting the device and providing information about cleaning and wearing times.",
+        "Important and necessary check-ups every 6–8 weeks.",
+        "End of treatment. Removing the braces and discussing the results of the treatment.",
+        "Retention – the beginning of stabilization of the treatment result.",
+      ],
+      processLinkText: "Here you will find the entire process in my orthodontics explained in detail.",
+      processLinkPath: "/ablauf-zahnspange-kieferorthopaedie",
     },
     leistungen: {
       title: "Our Services",
@@ -771,6 +927,10 @@ export const dictionaries = {
       "/krone-bruecke": "Crown and bridge for seamless, stable dental restorations. We advise on materials and process.",
       "/zahnersatz": "Modern dental prosthetics for aesthetics and function. From crown to bridge to denture – we find the right solution.",
       "/sportschutz-mouthguards": "Custom sports mouthguards to protect teeth during sport. Fitted for maximum comfort and protection.",
+      "/asethetic-dental-services": "Aesthetic dental services in Vienna – an overview of whitening, fillings, oral hygiene, sports mouthguards and more.",
+      "/implantat-wien": "Dental implants in Vienna: fixed, natural-looking replacement for missing teeth – from assessment and planning to long-term maintenance.",
+      "/zahnarzt-1200-wien":
+        "General and aesthetic dentistry plus orthodontics in Vienna 1200 – centrally located practice with modern technology.",
     } as Record<string, string>,
     metadata: {
       defaultTitle: "Zahnspange Sablania | Orthodontics & Braces Vienna",

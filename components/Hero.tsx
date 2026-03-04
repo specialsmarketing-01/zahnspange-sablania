@@ -34,10 +34,28 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           {/* LEFT COLUMN */}
           <div className="text-center lg:text-left">
             {badge && (
-              <span
-                className="inline-block rounded-full bg-[#0f2e5c]/10 px-4 py-2 text-sm font-medium text-[#0f2e5c]"
-              >
-                {badge}
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#0f2e5c]/10 px-4 py-2 text-sm font-medium text-[#0f2e5c]">
+                <span>
+                  {badge.split("·")[0]?.trim()}
+                </span>
+                {badge.includes("·") && (
+                  <>
+                    <svg
+                      className="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.8}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3 2" />
+                    </svg>
+                    <span>{badge.split("·")[1]?.trim()}</span>
+                  </>
+                )}
               </span>
             )}
 

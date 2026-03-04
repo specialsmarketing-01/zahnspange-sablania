@@ -4,27 +4,6 @@ import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import { getHref } from "@/lib/paths";
 
-const CATEGORIES = [
-  {
-    image: "/services/kinder.jpg",
-    path: "/zahnspange-fuer-kinder",
-    key: "bracesChildren" as const,
-    textKey: "bracesCategoriesCardChildren" as const,
-  },
-  {
-    image: "/services/jugendliche.jpg",
-    path: "/zahnspange-fuer-jugendliche",
-    key: "bracesTeens" as const,
-    textKey: "bracesCategoriesCardTeens" as const,
-  },
-  {
-    image: "/services/erwachsene.jpg",
-    path: "/zahnspange-fuer-erwachsene",
-    key: "bracesAdults" as const,
-    textKey: "bracesCategoriesCardAdults" as const,
-  },
-] as const;
-
 export default function BracesCategoriesSection({
   locale,
   dict,
@@ -43,9 +22,9 @@ export default function BracesCategoriesSection({
       ? (h as { bracesCategoriesSub: string }).bracesCategoriesSub
       : "";
 
-  const getCardText = (textKey: (typeof CATEGORIES)[number]["textKey"]) => {
-    if (!(textKey in h)) return "";
-    const value = (h as unknown as Record<string, unknown>)[textKey];
+  const getCardText = (key: string) => {
+    if (!(key in h)) return "";
+    const value = (h as unknown as Record<string, unknown>)[key];
     return typeof value === "string" ? value : "";
   };
 
@@ -65,15 +44,46 @@ export default function BracesCategoriesSection({
           </p>
         )}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((cat) => (
+          {[
+            {
+              image: "/services/kinder.jpg",
+              path: "/zahnspange-fuer-kinder",
+              title: nd.bracesChildren,
+              textKey: "bracesCategoriesCardChildren",
+            },
+            {
+              image: "/services/jugendliche.jpg",
+              path: "/zahnspange-fuer-jugendliche",
+              title: nd.bracesTeens,
+              textKey: "bracesCategoriesCardTeens",
+            },
+            {
+              image: "/services/erwachsene.jpg",
+              path: "/zahnspange-fuer-erwachsene",
+              title: nd.bracesAdults,
+              textKey: "bracesCategoriesCardAdults",
+            },
+            {
+              image: "/services/invisalign.jpg",
+              path: "/unsichtbare-zahnspange-wien",
+              title: locale === "de" ? "Unsichtbare Zahnspange Invisalign" : "Invisible braces Invisalign",
+              textKey: "bracesCategoriesCardInvisalign",
+            },
+            {
+              image: "/services/lingual.jpg",
+              path: "/unsichtbare-zahnspange-lingual-innenliegende-zahnspange",
+              title: locale === "de" ? "Unsichtbare Lingualzahnspange" : "Invisible lingual braces",
+              textKey: "bracesCategoriesCardLingual",
+            },
+          ].map((cat) => (
             <article
-              key={cat.key}
+              key={cat.path}
               className="group flex flex-col overflow-hidden rounded-2xl border border-primary/5 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg hover:border-primary/10"
             >
               <div className="relative aspect-[4/3] w-full shrink-0 bg-gray-200">
-                <Image
-                  src={cat.image}
-                  alt={nd[cat.key]}
+                  <Image
+                    src={cat.image}
+                    alt={cat.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -82,9 +92,9 @@ export default function BracesCategoriesSection({
                 <div
                   className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-primary/90 via-primary/50 to-transparent px-4 pb-4 pt-12"
                   aria-hidden
-                >
-                  <h3 className="text-left text-lg font-semibold text-white drop-shadow-md">
-                    {nd[cat.key]}
+                  >
+                    <h3 className="text-left text-lg font-semibold text-white drop-shadow-md">
+                      {cat.title}
                   </h3>
                 </div>
               </div>
@@ -99,8 +109,8 @@ export default function BracesCategoriesSection({
                   >
                     {dict.common.ctaBook}
                   </Link>
-                  <Link
-                    href={getHref(cat.path, locale)}
+                    <Link
+                      href={getHref(cat.path, locale)}
                     className="inline-flex items-center justify-center rounded-lg border-2 border-primary/20 px-3 py-2.5 text-xs font-semibold text-primary transition-colors hover:border-primary/40 hover:bg-primary/5 sm:px-4 sm:text-sm whitespace-nowrap"
                   >
                     {dict.common.learnMore}
