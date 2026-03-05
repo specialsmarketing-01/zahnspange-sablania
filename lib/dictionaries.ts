@@ -194,6 +194,21 @@ export const dictionaries = {
         { quote: "Als Erwachsener habe ich mich für Invisalign entschieden. Das Team hat alles perfekt erklärt und die Behandlung war unkompliziert. Ich bin begeistert von meinem neuen Lächeln.", author: "Thomas B.", role: "Patient" },
         { quote: "Von der ersten Beratung bis zur letzten Kontrolle – alles war top organisiert. Moderne Praxis, nettes Personal und ein super Ergebnis. Gerne weiterzuempfehlen!", author: "Sophie M.", role: "Patientin" },
       ],
+      paymentInfoTitle: "Kosten & Zahlung",
+      paymentInfo: [
+        {
+          title: "Fee Guide",
+          description: "Erfahren Sie vorab die geschätzten Behandlungskosten in unserer Praxis für Zahnspangen Sablania.",
+        },
+        {
+          title: "0% Finance",
+          description: "Wir bieten flexible Ratenpläne, damit Ihre Behandlung gut leistbar bleibt.",
+        },
+        {
+          title: "Payment",
+          description: "Wir akzeptieren verschiedene Zahlungsmethoden, um die Bezahlung für Sie so bequem wie möglich zu machen.",
+        },
+      ],
       ctaTitle: "Vereinbaren Sie noch heute einen Beratungstermin",
       ctaSub: "Wir freuen uns auf Sie und beraten Sie gerne unverbindlich zu allen Möglichkeiten der Kieferorthopädie in Wien.",
       ctaButton: "Online Termin buchen",
@@ -666,6 +681,21 @@ export const dictionaries = {
         { quote: "Very professional and friendly advice. My daughter feels comfortable at every appointment. The results after braces are fantastic!", author: "Maria K.", role: "Parent" },
         { quote: "As an adult I chose Invisalign. The team explained everything clearly and the treatment was straightforward. I am delighted with my new smile.", author: "Thomas B.", role: "Patient" },
         { quote: "From the first consultation to the final check – everything was very well organised. Modern practice, friendly staff and a great result. Happy to recommend!", author: "Sophie M.", role: "Patient" },
+      ],
+      paymentInfoTitle: "Payment & Costs",
+      paymentInfo: [
+        {
+          title: "Fee Guide",
+          description: "Find out the estimated treatment costs at Braces Sablania before you start.",
+        },
+        {
+          title: "0% Finance",
+          description: "We offer flexible repayment plans to help you keep your treatment affordable.",
+        },
+        {
+          title: "Payment",
+          description: "We offer various payment methods for treatments to make them more convenient.",
+        },
       ],
       ctaTitle: "Book a Consultation Today",
       ctaSub: "We look forward to seeing you and are happy to advise you without obligation on all orthodontic options in Vienna.",

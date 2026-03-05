@@ -16,6 +16,8 @@ function StarRating({ ariaLabel }: { ariaLabel: string }) {
 export default function Testimonials({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.homepage;
   const starAria = locale === "de" ? "5 von 5 Sternen" : "5 out of 5 stars";
+  const paymentInfo = (h as unknown as { paymentInfo?: { title: string; description: string }[] }).paymentInfo;
+  const paymentTitle = (h as unknown as { paymentInfoTitle?: string }).paymentInfoTitle;
   return (
     <section className="bg-gray-50 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,7 +46,98 @@ export default function Testimonials({ locale, dict }: { locale: Locale; dict: D
             </blockquote>
           ))}
         </div>
+
+        {paymentInfo && paymentInfo.length > 0 && (
+          <div className="mt-16 border-t border-gray-200 pt-10">
+            {paymentTitle && (
+              <h3 className="text-center text-xl font-semibold text-primary">
+                {paymentTitle}
+              </h3>
+            )}
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {paymentInfo.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl bg-white p-6 shadow-soft border border-primary/5 flex flex-col"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      {index === 0 && <FeeGuideIcon />}
+                      {index === 1 && <FinanceIcon />}
+                      {index === 2 && <PaymentIcon />}
+                    </div>
+                    <h4 className="text-base font-semibold text-primary">
+                      {item.title}
+                    </h4>
+                  </div>
+                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
+  );
+}
+
+function FeeGuideIcon() {
+  return (
+    <svg
+      className="h-5 w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <path d="M8 9h8M8 13h5M8 17h3" />
+    </svg>
+  );
+}
+
+function FinanceIcon() {
+  return (
+    <svg
+      className="h-5 w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="8" cy="8" r="3" />
+      <circle cx="16" cy="16" r="3" />
+      <path d="M10.5 10.5L13.5 13.5" />
+      <path d="M6 16h4" />
+      <path d="M14 8h4" />
+    </svg>
+  );
+}
+
+function PaymentIcon() {
+  return (
+    <svg
+      className="h-5 w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 10h18" />
+      <path d="M8 15h2" />
+      <path d="M12 15h4" />
+    </svg>
   );
 }
