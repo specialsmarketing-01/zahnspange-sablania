@@ -9,7 +9,7 @@ import { SERVICE_CATEGORIES } from "@/data/serviceMenu";
 
 const locale = "de" as const;
 
-const CARD_CATEGORY_IDS = ["orthodontics", "aesthetic", "general"] as const;
+const CARD_CATEGORY_IDS = ["orthodontics", "general"] as const;
 
 export const metadata: Metadata = {
   title: "Leistungen",
@@ -38,18 +38,13 @@ export default function LeistungenPage() {
     <PageContent locale={locale} dict={dict} title={l.title} lead={l.lead}>
       {cardCategories.map((category) => {
         const isOrthodontics = category.id === "orthodontics";
-        const isAesthetic = category.id === "aesthetic";
 
         const sectionTitle = isOrthodontics
           ? l.orthodonticsTitle
-          : isAesthetic
-          ? dict.navDropdown.aesthetic
           : dict.navDropdown.general;
 
         const sectionText = isOrthodontics
           ? l.orthodonticsText
-          : isAesthetic
-          ? dict.footer.aestheticFillings
           : l.prophylaxisText;
 
         return (

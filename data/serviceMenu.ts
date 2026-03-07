@@ -2,7 +2,6 @@ export type ServiceCategoryId =
   | "procedure"
   | "dentist"
   | "orthodontics"
-  | "aesthetic"
   | "general";
 
 export interface ServiceItemConfig {
@@ -56,21 +55,14 @@ export const SERVICE_CATEGORIES: ServiceCategoryConfig[] = [
     ],
   },
   {
-    id: "aesthetic",
+    id: "general",
     items: [
+      { dePath: "/krone-bruecke", iconFile: "Veneers Crown Bridge.png" },
       { dePath: "/asethetic-dental-services", iconFile: "Veneers Crown Bridge.png" },
-      { dePath: "/unsichtbare-zahnspange-wien", iconFile: "Invisible braces Invisalign and lingual braces.png" },
       { dePath: "/mundhygiene-wien", iconFile: "Teeth whitening - oral hygiene.png" },
       { dePath: "/zahnbleaching", iconFile: "Teeth whitening - oral hygiene.png" },
       { dePath: "/komposit-zahnfuellung", iconFile: "Aesthetic tooth-colored fillings.png" },
       { dePath: "/sportschutz-mouthguards", iconFile: "Teil und Vollprothesen   .png" },
-    ],
-  },
-  {
-    id: "general",
-    items: [
-      { dePath: "/implantat-wien", iconFile: "Teil und Vollprothesen   .png" },
-      { dePath: "/krone-bruecke", iconFile: "Veneers Crown Bridge.png" },
     ],
   },
 ];

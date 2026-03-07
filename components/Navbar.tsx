@@ -57,8 +57,6 @@ export default function Navbar({ locale, dict }: NavbarProps) {
         return nd.dentistVienna;
       case "orthodontics":
         return nd.orthodontics;
-      case "aesthetic":
-        return nd.aesthetic;
       case "general":
         return nd.general;
       default:
@@ -148,7 +146,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                     </p>
                     <ul className="space-y-0.5">
                       {SERVICE_CATEGORIES.map((category) => {
-                        if (category.id === "procedure" || category.id === "dentist") {
+                        if (category.items.length <= 1) {
                           const targetPath =
                             category.items[0]?.dePath ??
                             (category.id === "procedure"
@@ -179,9 +177,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                               onMouseEnter={() => setActiveServiceCategory(category.id)}
                             >
                               <span>{getCategoryLabel(category.id)}</span>
-                              {(category.id === "orthodontics" ||
-                                category.id === "aesthetic" ||
-                                category.id === "general") && (
+                              {category.items.length > 1 && (
                                 <svg
                                   className="h-3 w-3 text-gray-400"
                                   fill="none"
@@ -209,20 +205,11 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                         <Link
                           key={item.dePath}
                           href={getHref(item.dePath, locale)}
-                          className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
+                          className="flex items-center rounded-lg px-3 py-2 text-sm text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
                         >
                           <span className="truncate">
                             {(dict.routeTitles as Record<string, string>)[item.dePath] ?? item.dePath}
                           </span>
-                          <svg
-                            className="ml-2 h-3 w-3 text-gray-300"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            aria-hidden
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
                         </Link>
                       ))}
                     </div>
@@ -381,7 +368,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
               {mobileLeistungenOpen && (
                 <div className="ml-4 border-l border-gray-200 pl-3 space-y-1 py-1">
                   {SERVICE_CATEGORIES.map((category) => {
-                    if (category.id === "procedure" || category.id === "dentist") {
+                    if (category.items.length <= 1) {
                       const targetPath =
                         category.items[0]?.dePath ??
                         (category.id === "procedure"
