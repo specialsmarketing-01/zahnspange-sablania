@@ -64,8 +64,8 @@ export default function HeroSpecialtiesSection({
             />
             {/* Blue overlay (replacing purple) - site default #0f2e5c */}
             <div className={`absolute inset-0 ${OVERLAY_BLUE}`} aria-hidden />
-            {/* Content: title + description + button, all white, centered */}
-            <div className="relative flex flex-col items-center justify-center p-4 text-center sm:p-6 md:p-8 lg:p-10">
+            {/* Content: title + description + button, centered top-to-bottom and left-to-right */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center sm:p-6 md:p-8 lg:p-10">
               <h2 className="text-xl font-bold leading-tight text-white sm:text-2xl md:text-3xl">
                 {card.title}
               </h2>
