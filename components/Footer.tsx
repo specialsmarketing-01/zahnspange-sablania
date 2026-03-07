@@ -46,17 +46,17 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
 
   return (
     <footer
-      className="bg-primary text-white"
+      className="min-w-0 overflow-x-hidden bg-primary text-white"
       role="contentinfo"
       aria-label={f.ariaFooter}
     >
       {/* CTA band */}
       <div className="border-b border-gray-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <Link
               href={getHref("/", locale)}
-              className="shrink-0 block min-h-[60px]"
+              className="shrink-0 block min-h-[60px] max-w-full"
               aria-label="Zahnspange Sablania – Startseite"
             >
               <Image
@@ -64,7 +64,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
                 alt="Dr. Sablania – Zahnspange Sablania"
                 width={250}
                 height={65}
-                className="h-[60px] w-auto object-contain"
+                className="h-[60px] w-auto max-w-full object-contain object-left"
                 unoptimized
               />
             </Link>
@@ -81,8 +81,8 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
       </div>
 
       {/* Main footer grid */}
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto min-w-0 max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid min-w-0 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Ordination & contact */}
           <section className="lg:col-span-1" aria-labelledby="footer-ordination" aria-label={f.ariaHours}>
             <h2 id="footer-ordination" className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
@@ -187,7 +187,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
 
       {/* Contact strip */}
       <div className="border-t border-white/10 bg-primary/90">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex flex-col gap-4">
               <p className="text-sm font-medium text-white/95">{f.practiceDescription}</p>

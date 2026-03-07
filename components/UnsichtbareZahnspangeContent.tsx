@@ -16,9 +16,12 @@ export default function UnsichtbareZahnspangeContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "Unsichtbare Zahnspange Wien";
   const lead = leads[dePath];
+  const terminHref = getHref("/online-termin", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>
+      {locale === "de" && (
+        <>
       <h2>Unsichtbare Zahnspange Wien: Innovative Behandlungsmethode mit Invisalign in Wien</h2>
       <p>
         Die Behandlungsmethode der unsichtbaren Zahnspange bietet verschiedene Namen, darunter
@@ -120,7 +123,7 @@ export default function UnsichtbareZahnspangeContent({
 
       <p className="mt-6">
         <Link
-          href={getHref("/online-termin", locale)}
+          href={terminHref}
           className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90"
         >
           Kostenlose Erstberatung für Invisalign vereinbaren
@@ -334,13 +337,62 @@ export default function UnsichtbareZahnspangeContent({
       </ol>
 
       <p className="mt-6">
-        <Link
-          href={getHref("/online-termin", locale)}
-          className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90"
-        >
+        <Link href={terminHref} className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90">
           Kostenlose Erstberatung für Invisalign vereinbaren
         </Link>
       </p>
+        </>
+      )}
+      {locale === "en" && (
+        <>
+          <h2>Invisible braces Vienna: innovative treatment with Invisalign in Vienna</h2>
+          <p>The invisible brace treatment goes by several names, including „Invisible braces Vienna“ and „Invisalign Vienna“. This modern approach uses transparent aligner trays made with computer-aided technology in the lab.</p>
+          <p>Invisible braces Vienna – also known as Invisalign clear aligners – allow both teenagers and adults to benefit from clear aligner technology.</p>
+          <p>This aligner therapy is a state-of-the-art way to correct misalignment without brackets or wires. The trays apply gentle forces to move the teeth step by step towards the planned result.</p>
+          <p>In some cases treatment with clear aligners can also be shorter than with traditional methods, with fewer visits.</p>
+          <p>Every method has pros and cons. Suitability for the invisible brace should always be decided with a specialist orthodontist who considers your individual needs.</p>
+          <h2 className="mt-10">Advantages and disadvantages of invisible braces</h2>
+          <h3 className="mt-8">Advantages of Invisalign – clear aligner therapy</h3>
+          <ul>
+            <li><strong>Aesthetics:</strong> The aligners are almost invisible.</li>
+            <li><strong>Comfort:</strong> More comfortable than fixed braces; smooth plastic, no irritation.</li>
+            <li><strong>Removable:</strong> For eating, drinking and brushing – no dietary restrictions.</li>
+            <li><strong>Precision:</strong> Individually made using 3D imaging and computer technology.</li>
+            <li><strong>Time:</strong> In some cases treatment can be faster; check-ups often less time-consuming.</li>
+            <li><strong>Daily life:</strong> Sport, playing instruments and events are easier as aligners can be removed.</li>
+          </ul>
+          <h3 className="mt-8">Disadvantages of Invisalign – clear aligner therapy</h3>
+          <ul>
+            <li><strong>Discipline:</strong> Must be worn 20–22 hours per day for the best result.</li>
+            <li><strong>Food:</strong> Some foods (hard, sticky, strongly coloured) should be avoided.</li>
+            <li><strong>Limits:</strong> Some complex or severe cases may be better with fixed braces.</li>
+            <li><strong>Visits:</strong> Regular check-ups are still needed.</li>
+          </ul>
+          <p className="mt-6"><Link href={terminHref} className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90">Book a free Invisalign consultation</Link></p>
+          <h2 className="mt-10">Details of treatment with Invisalign, the invisible brace</h2>
+          <p>Treatment uses a series of transparent aligners made individually for you. Each set is worn 12–14 days. We give patients 4–6 aligners to take home so you don’t need to come in every time.</p>
+          <p>Details: consultation and planning with 3D imaging; aligners made in the Invisalign lab; wear 20–22 hours per day, change every 12–14 days; progress checks (first around 8 weeks); treatment duration typically 6–24 months depending on the case; after treatment, retainers are often used to stabilise the result.</p>
+          <h2 className="mt-10">Invisalign for adults and teenagers</h2>
+          <p>For adults, the invisible brace fits well with work. For teenagers: aesthetics and confidence; sport and activities; social situations; compliance indicators and growth-specific options.</p>
+          <h2 className="mt-10">Treatment by severity – IOTN</h2>
+          <p>Treatment duration with clear aligners depends on the severity of misalignment (IOTN). Diagnosis and planning are key. We use X-rays, impressions or 3D scans, set-up models and lab-made aligners. Patient cooperation (wear time and changing aligners on schedule) is essential.</p>
+          <h2 className="mt-10">Invisalign clear aligners – reimbursement from health funds or supplementary insurance</h2>
+          <p>Depending on severity and type of treatment, health funds or supplementary insurance may reimburse part of the cost. Click your fund: <a href="https://www.svs.at" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">SVS</a>, <a href="https://www.bvaeb.at" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">BVA</a>, <a href="https://www.oegk.at" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">KFA</a>. For supplementary insurance, please contact your insurer.</p>
+          <h2 className="mt-10">Invisible braces Vienna – Invisalign in our practice</h2>
+          <p>1200 Vienna, near 1210, 1190, 1220, 1020 and Klosterneuburg.</p>
+          <h3 className="mt-8">Aligners – the process</h3>
+          <ol>
+            <li>Free initial consultation. By appointment only!</li>
+            <li>Treatment records. Diagnosis with X-rays, photos and digital scans – without impressions.</li>
+            <li>Planning discussion. X-ray review and analysis of which brace/brackets are needed.</li>
+            <li>Start of treatment. Fitting and advice on cleaning and wear.</li>
+            <li>Check-ups every 6–8 weeks.</li>
+            <li>End of treatment. Removal and discussion of the result.</li>
+            <li><strong>Retention</strong> – stabilising the result.</li>
+          </ol>
+          <p className="mt-6"><Link href={terminHref} className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90">Book a free Invisalign consultation</Link></p>
+        </>
+      )}
     </PageContent>
   );
 }

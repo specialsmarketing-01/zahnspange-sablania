@@ -77,37 +77,34 @@ export default function Navbar({ locale, dict }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full min-w-0 overflow-x-hidden bg-white shadow-sm">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8"
+        className="mx-auto flex min-w-0 max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 lg:px-8"
         aria-label={dict.nav.ariaNav}
       >
         {/* LEFT: Fav icon + doctor name + credentials (logo area) */}
         <Link
           href={homeHref}
-          className="flex shrink-0 flex-row items-center gap-3 min-h-[52px]"
+          className="flex min-w-0 shrink flex-row items-center gap-3 sm:gap-4 min-h-[52px]"
           aria-label={`${dict.nav.brandName} – ${dict.nav.home}`}
         >
           <Image
             src="/Dr-Manish-fav.png"
             alt=""
-            width={70}
-            height={70}
-            className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] object-contain shrink-0"
+            width={88}
+            height={88}
+            className="h-14 w-14 shrink-0 object-contain sm:h-[72px] sm:w-[72px] lg:h-[88px] lg:w-[88px]"
             unoptimized
           />
-          <div className="flex flex-col items-start justify-center text-left gap-0.5">
-            <span className="text-[9px] font-normal text-[#0f2e5c] leading-none uppercase tracking-wide">
+          <div className="flex min-w-0 flex-1 flex-col items-start justify-center text-left gap-1">
+            <span className="text-[10px] sm:text-[11px] font-normal text-[#0f2e5c] leading-none uppercase tracking-wide">
               {(dict.nav as { brandTitle?: string }).brandTitle}
             </span>
-            <span className="text-[13px] sm:text-[14px] font-bold tracking-tight text-[#0f2e5c] leading-tight">
+            <span className="truncate text-base font-bold tracking-tight text-[#0f2e5c] leading-tight sm:text-[20px] lg:text-[22px]">
               {dict.nav.brandName}
             </span>
-            <span className="text-[8px] sm:text-[10px] font-normal text-[#0f2e5c] leading-snug">
+            <span className="text-[10px] sm:text-[11px] font-normal text-[#0f2e5c] leading-snug">
               {(dict.nav as { brandCredentials?: string }).brandCredentials}
-            </span>
-            <span className="text-[8px] sm:text-[10px] font-normal text-[#0f2e5c] leading-snug">
-              {(dict.nav as { brandSpecialties?: string }).brandSpecialties}
             </span>
           </div>
         </Link>

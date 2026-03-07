@@ -16,9 +16,12 @@ export default function ZahnspangeJugendlicheContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "Zahnspange für Jugendliche";
   const lead = leads[dePath];
+  const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>
+      {locale === "de" && (
+        <>
       <h2>Zahnspange für Jugendliche im Alter von 10 bis 18 Jahren</h2>
       <p>
         Die vielfältigen Behandlungsmöglichkeiten für Jugendliche mit einer Zahnspange finden Sie
@@ -137,13 +140,67 @@ export default function ZahnspangeJugendlicheContent({
       </ol>
 
       <p className="mt-6">
-        <Link
-          href={getHref("/ablauf-zahnspange-kieferorthopaedie", locale)}
-          className="text-accent font-medium hover:underline"
-        >
+        <Link href={ablaufHref} className="text-accent font-medium hover:underline">
           Hier finden Sie den gesamten Ablauf in meiner Kieferorthopädie im Detail erklärt.
         </Link>
       </p>
+        </>
+      )}
+      {locale === "en" && (
+        <>
+          <h2>Braces for teenagers aged 10 to 18</h2>
+          <p>You will find the various treatment options for teenagers with braces below. Click on the option you are interested in for full details.</p>
+          <h3 className="mt-8">Metal brackets</h3>
+          <p>Adult metal brackets</p>
+          <p>Young woman with grey braces</p>
+          <h3 className="mt-6">Clear braces – invisible braces</h3>
+          <p>Ceramic braces for children</p>
+          <h3 className="mt-6">Clear aligners, Invisalign invisible braces</h3>
+          <p>Invisible braces Vienna – Invisalign Vienna clear aligners, braces for adults | clear aligners</p>
+          <h2 className="mt-10">Why are braces so important for teenagers during development?</h2>
+          <p>Crooked teeth or jaw misalignment lead to overload in certain areas.</p>
+          <p><strong>WARNING:</strong> This can damage the teeth themselves or cause problems with the periodontium, jawbone, jaw joint and masticatory muscles. Speech problems are also a common cause.</p>
+          <p>Jaw growth can still be influenced optimally at this age. Excessive growth must be restrained; slow growth must be encouraged. These are key tasks for a good orthodontist.</p>
+          <p>Timely treatment can help with many problems:</p>
+          <ul>
+            <li>It can prevent the need for future orthodontic treatment.</li>
+            <li>Psychosocial aspects and appearance are often reasons for feeling uncomfortable.</li>
+            <li>Growth can be used perfectly for treatment during this period – facial growth, tooth eruption and the change to permanent teeth.</li>
+          </ul>
+          <h2 className="mt-10">What should you consider with orthodontic treatment (correction) for misalignment?</h2>
+          <h3 className="mt-6">When is orthodontic treatment necessary for teenagers?</h3>
+          <p><strong>Timing is very important:</strong></p>
+          <ul>
+            <li>From around 11–12 years of age the main phase of treatment begins – phase 2 starts after the late mixed dentition or directly after the tooth change.</li>
+            <li>The growth peak is reached at around 11–12 in girls and 13–14 in boys.</li>
+          </ul>
+          <p>Starting treatment at or before this time is advisable and beneficial!</p>
+          <p className="mt-6 font-medium">The right start time for orthodontic treatment is especially important.</p>
+          <p>Relevant for the right start time:</p>
+          <ul>
+            <li>Chronological age</li>
+            <li>Dental and skeletal age</li>
+            <li>Skeletal development</li>
+            <li>Type of misalignment (dysgnathia)</li>
+          </ul>
+          <p>Unfavourable growth can further worsen misalignment and make treatment harder and the prognosis less favourable.</p>
+          <p>For optimal treatment of misalignment (e.g. lower or upper jaw retrusion), growth is essential.</p>
+          <h2 className="mt-10">Braces for teenagers and treatment duration</h2>
+          <p>Depending on the misalignment, treatment with fixed braces usually takes 18–24 months on average. In adults, duration varies from case to case. All details are discussed at the free initial consultation.</p>
+          <p>Braces for adults</p>
+          <h2 className="mt-10">Braces for teenagers – the process</h2>
+          <ol>
+            <li>Free initial consultation for misalignment at our orthodontic practice. By appointment only!</li>
+            <li>Create treatment records for your individual plan. Diagnosis with X-rays, photos and digital scans. Always without impressions.</li>
+            <li>Planning discussion and explanation. X-ray review and analysis of which type of brace and/or brackets are needed.</li>
+            <li>Start of treatment. Fitting the appliance and advice on cleaning and wear times.</li>
+            <li>Check-up appointments every 6–8 weeks.</li>
+            <li>End of treatment. Removal of the brace and discussion of the result.</li>
+            <li><strong>Retention</strong> – the start of stabilising the treatment result.</li>
+          </ol>
+          <p className="mt-6"><Link href={ablaufHref} className="text-accent font-medium hover:underline">Full details of the treatment process at our practice</Link></p>
+        </>
+      )}
     </PageContent>
   );
 }

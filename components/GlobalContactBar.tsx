@@ -2,8 +2,8 @@ import { BOOKING_URL } from "@/lib/site";
 
 export default function GlobalContactBar() {
   return (
-    <section className="bg-[#f3f5f9] border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-10">
+    <section className="bg-[#f3f5f9] border-t border-gray-200 overflow-x-hidden">
+      <div className="mx-auto max-w-7xl min-w-0 px-4 py-10 sm:px-6">
 
         <h2 className="text-center text-2xl font-semibold text-[#0f2e5c] mb-8">
           How can we help you?
@@ -48,7 +48,7 @@ export default function GlobalContactBar() {
 
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+          <div className="grid grid-cols-2 min-w-0 md:grid-cols-4 gap-4 mt-6">
 
             <a href="tel:+4313306090"
               className="rounded-xl border p-4 text-center hover:bg-gray-50">

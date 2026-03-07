@@ -89,6 +89,7 @@ export const dictionaries = {
       onlineReceptionContact: "Kontakt",
       onlineReceptionAppointments: "Termine",
       onlineReceptionPrescriptions: "Rezepte & Dokumente",
+      onlineReceptionWhatsApp: "WhatsApp",
       onlineReceptionMore: "Weitere Optionen",
     },
     booking: {
@@ -136,7 +137,7 @@ export const dictionaries = {
       heroSubline: "Individuelle Beratung • Moderne Technik • Perfektes Lächeln",
       heroCta: "Jetzt Termin buchen",
       heroContact: "Kontakt aufnehmen",
-      heroBadge: "All health insurance funds and private · Mon–Fri: 10am–5pm",
+      heroBadge: "Alle Kassen und Privat · Mo–Fr: 10–17 Uhr",
       heroHeadlineMain: "Allgemein Zahnarzt und",
       heroHeadlineAccent: "Fachzahnarzt für Kieferorthopädie",
       heroDescription:
@@ -577,6 +578,7 @@ export const dictionaries = {
       onlineReceptionContact: "Contact",
       onlineReceptionAppointments: "Appointments",
       onlineReceptionPrescriptions: "Prescriptions & documents",
+      onlineReceptionWhatsApp: "WhatsApp",
       onlineReceptionMore: "More options",
     },
     booking: {

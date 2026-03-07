@@ -16,9 +16,12 @@ export default function ZahnspangeErwachseneContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "Zahnspange für Erwachsene";
   const lead = leads[dePath];
+  const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>
+      {locale === "de" && (
+        <>
       <h2>Invisalign, Unsichtbare Zahnspange, Clear Aligner Kieferorthopädie für Erwachsene</h2>
       <p>
         Eine Behandlung ist grundsätzlich in jedem Alter möglich. Bei Zahnspangen für Erwachsenen
@@ -147,13 +150,53 @@ export default function ZahnspangeErwachseneContent({
       </ol>
 
       <p className="mt-6">
-        <Link
-          href={getHref("/ablauf-zahnspange-kieferorthopaedie", locale)}
-          className="text-accent font-medium hover:underline"
-        >
+        <Link href={ablaufHref} className="text-accent font-medium hover:underline">
           Hier finden Sie den gesamten Ablauf in meiner Kieferorthopädie im Detail erklärt.
         </Link>
       </p>
+        </>
+      )}
+      {locale === "en" && (
+        <>
+          <h2>Invisalign, invisible braces, clear aligner orthodontics for adults</h2>
+          <p>Treatment is generally possible at any age. For adult braces there are some special considerations. Whether treatment is advisable and feasible only becomes clear after an examination of the teeth, gums and jaw. Then follows the diagnosis and assessment of the expected outcome with braces.</p>
+          <h2 className="mt-10">Braces for adults</h2>
+          <p>As with children, there are various options for orthodontic treatment in adults. The following types are possible:</p>
+          <h3 className="mt-8">Ceramic brackets</h3>
+          <p><strong>Metal brackets</strong> – the fixed brace for adults. With clear ceramic brackets you benefit from a much improved appearance.</p>
+          <p>Brackets are bonded directly to the outside of the teeth and are popular with both teenagers and adults. Archwires in tooth colour can also be used.</p>
+          <p>Braces for adults</p>
+          <h3 className="mt-8">Lingual brace</h3>
+          <p>This inner brace works with high precision and is almost completely invisible, all day.</p>
+          <p><strong>Plus:</strong> Invisible! The brace cannot be seen from the outside.</p>
+          <p><strong>Minus:</strong> At the start, S and C sounds can be harder to pronounce when speaking.</p>
+          <h3 className="mt-8">Invisalign clear aligner trays</h3>
+          <p>Another option for treating misalignment. Correction is done with individually made trays. Almost invisible and removable.</p>
+          <p>These trays are often worn by adults and should be worn both during the day and at night. They are removed for eating and brushing.</p>
+          <h2 className="mt-10">Reimbursement options for adult braces</h2>
+          <p>Depending on the severity of misalignment and type of treatment, health insurers or supplementary insurance may reimburse part of the cost.</p>
+          <p><strong>Information on health fund reimbursement:</strong></p>
+          <p>Please click on your fund – you will be taken to their information page.</p>
+          <ul className="list-none space-y-2">
+            <li><a href="https://www.svs.at" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">SVS</a></li>
+            <li><a href="https://www.bvaeb.at" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">BVA</a></li>
+            <li><a href="https://www.oegk.at" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">KFA</a></li>
+          </ul>
+          <p><strong>Information on reimbursement from supplementary insurance:</strong></p>
+          <p>Please contact your insurer; we do not have access to individual policy terms.</p>
+          <h2 className="mt-10">Orthodontic treatment for adults – the process</h2>
+          <ol>
+            <li>Free initial consultation for misalignment at our orthodontic practice. By appointment only!</li>
+            <li>Create treatment records for your individual plan. Diagnosis with X-rays, photos and digital scans. Always without impressions.</li>
+            <li>Planning discussion and explanation. X-ray review and analysis of which type of brace and/or brackets are needed.</li>
+            <li>Start of treatment. Fitting the appliance and advice on cleaning and wear times.</li>
+            <li>Check-up appointments every 6–8 weeks.</li>
+            <li>End of treatment. Removal of the brace and discussion of the result.</li>
+            <li><strong>Retention</strong> – the start of stabilising the treatment result.</li>
+          </ol>
+          <p className="mt-6"><Link href={ablaufHref} className="text-accent font-medium hover:underline">Full details of the treatment process at our practice</Link></p>
+        </>
+      )}
     </PageContent>
   );
 }

@@ -16,9 +16,12 @@ export default function KfoRetainerContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "KFO Retainer";
   const lead = leads[dePath];
+  const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>
+      {locale === "de" && (
+        <>
       <h2>Retention, die wichtige Stabilisierungsphase nach der Behandlung von Zahnfehlstellungen!</h2>
       <p>
         Zähne können sich kontinuierlich und ein Leben lang verschieben. Wenn die Behandlung nach
@@ -180,13 +183,70 @@ export default function KfoRetainerContent({
       </ol>
 
       <p className="mt-6">
-        <Link
-          href={getHref("/ablauf-zahnspange-kieferorthopaedie", locale)}
-          className="text-accent font-medium hover:underline"
-        >
+        <Link href={ablaufHref} className="text-accent font-medium hover:underline">
           Hier finden Sie den gesamten Ablauf in meiner Kieferorthopädie im Detail erklärt.
         </Link>
       </p>
+        </>
+      )}
+      {locale === "en" && (
+        <>
+          <h2>Retention – the important stabilisation phase after treatment for misalignment</h2>
+          <p>Teeth can shift continuously throughout life. When treatment for a misalignment has ended, the important period of stabilisation begins.</p>
+          <p>The term retainer is an umbrella term (from English) for a group of devices (retention appliances) that are removable or fixed and help to stabilise the result of orthodontic treatment. The essential stabilisation phase lasts 2–3 years. In some cases, lifelong retention may be necessary.</p>
+          <h2 className="mt-10">Retention and the cost of retainers</h2>
+          <p>The cost of the initial fitting is included in the treatment package!</p>
+          <h2 className="mt-10">Braces and retention – why stabilisation after treatment is so important</h2>
+          <h3 className="mt-6">What is a retainer?</h3>
+          <p>A fixed or removable appliance that serves to maintain and stabilise the optimised tooth and jaw position after orthodontic treatment.</p>
+          <p>Stabilisation (retention) is extremely important from a medical point of view. Here are some key reasons and details:</p>
+          <ul>
+            <li>Braces, aligner trays or ceramic brackets move teeth from their original position to the optimised position. Teeth are not yet stable in this new position and have a strong tendency to move back. This process loosens bone lamellae and stretches connective tissue fibres.</li>
+            <li>If you do not use retention to stabilise the result, the misalignment can quickly return.</li>
+            <li>Return to the old position and other unwanted changes after treatment are one of the main problems in orthodontics. Without retention, both function and the aesthetic result can be lost. Therefore, at the end of every orthodontic treatment the result must be stabilised with a fixed retainer or removable trays.</li>
+          </ul>
+          <p className="font-medium mt-6"><strong>Note!</strong> At the end of every orthodontic treatment the result must be stabilised with fixed retainers or removable trays.</p>
+          <h2 className="mt-10">Retention with removable appliances – advantages and disadvantages</h2>
+          <p className="font-medium">Choosing the right retainer to stabilise your result.</p>
+          <p>The choice of retention appliance always depends on your individual situation. The original misalignment is one factor.</p>
+          <h3 className="mt-6">Advantages of removable retention appliances</h3>
+          <ul><li>Easy to use.</li><li>Removable. Easy to insert and remove yourself.</li></ul>
+          <h3 className="mt-6">Disadvantages of retention appliances</h3>
+          <ul>
+            <li>Compliance or insufficient wear during the day.</li>
+            <li>We always recommend using retention for the long term, often for life. Motivation to wear the appliance can be low.</li>
+          </ul>
+          <h3 className="mt-6">Myofunctional brace – removable</h3>
+          <p>Myofunctional brace</p>
+          <h2 className="mt-10">Retention and the fixed retainer (bonded retainer wire)</h2>
+          <p>The fixed (bonded) retainer is a thin wire attached behind the front teeth of the upper and/or lower jaw using a special bonding technique. Usually from canine to canine.</p>
+          <h3 className="mt-6">Advantages of fixed retainers</h3>
+          <ul><li>Invisible because it sits on the inside.</li><li>Stabilises the teeth day and night, 24 hours.</li><li>Cannot be lost or forgotten.</li><li>Comfortable and secure compared to removable models.</li></ul>
+          <h3 className="mt-6">Disadvantages of non-removable retainers</h3>
+          <ul><li>You must clean between the teeth thoroughly.</li><li>You must use dental floss regularly.</li></ul>
+          <p>The fixed retainer offers more effective long-term results because it is permanently attached. Of course, setbacks can still occur, e.g. if a bond or the wire breaks and individual teeth move undesirably.</p>
+          <p>Fixed retainer</p>
+          <h2 className="mt-10">Retention with aligners as removable brace</h2>
+          <p>Clear overlay aligners can be used as a retention element during the stabilisation phase.</p>
+          <p>Aligners</p>
+          <h2 className="mt-10">How long must a retainer be worn for stabilisation?</h2>
+          <p>It is not possible to predict which cases will relapse. Misalignment with jaw retrusion or lower front crowding are more prone to relapse.</p>
+          <p>Long-term use of retainers (fixed or removable) may be necessary to maintain the result.</p>
+          <p>After the end of treatment I recommend a check-up twice a year to ensure the result is stable.</p>
+          <p>Regular self-check of the retainer when brushing your teeth is essential.</p>
+          <h2 className="mt-10">The process at our practice</h2>
+          <ol>
+            <li>Free initial consultation for misalignment at our orthodontic practice. By appointment only!</li>
+            <li>Create treatment records for your individual plan. Diagnosis with X-rays, photos and digital scans. Always without impressions.</li>
+            <li>Planning discussion and explanation. X-ray review and analysis of which type of brace and/or brackets are needed.</li>
+            <li>Start of treatment. Fitting the appliance and advice on cleaning and wear times.</li>
+            <li>Check-up appointments every 6–8 weeks.</li>
+            <li>End of treatment. Removal of the brace and discussion of the result.</li>
+            <li><strong>Retention</strong> – the start of stabilising the treatment result.</li>
+          </ol>
+          <p className="mt-6"><Link href={ablaufHref} className="text-accent font-medium hover:underline">Full details of the treatment process at our practice</Link></p>
+        </>
+      )}
     </PageContent>
   );
 }

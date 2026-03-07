@@ -17,9 +17,13 @@ export default function GratisZahnspangeContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "Gratis Zahnspange";
   const lead = leads[dePath];
+  const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
+  const terminHref = getHref("/online-termin", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>
+      {locale === "de" && (
+        <>
       <h2>Seit Juli 2015 gibt es neue Regeln für die Gratis-Zahnspange!</h2>
       <p>
         Als Fachzahnarzt für Kieferorthopädie und qualifizierter
@@ -54,7 +58,7 @@ export default function GratisZahnspangeContent({
           auf eine Gratiszahnspange zu erhalten. Die Korrektur muss aus medizinischen Gründen
           erforderlich sein (<strong>IOTN 4 oder 5</strong>). Das wird in einer Erstberatung festgestellt.
           Schweregrad-Feststellung:{" "}
-          <Link href={getHref("/online-termin", locale)}>Termin für Erstberatung vereinbaren</Link>.
+          <Link href={terminHref}>Termin für Erstberatung vereinbaren</Link>.
         </li>
         <li>
           Vor Behandlungsbeginn (Gratis Zahnspange) ist ein Antrag bei der Krankenkasse einzureichen.
@@ -324,14 +328,54 @@ export default function GratisZahnspangeContent({
 
       <p className="mt-6 text-gray-600">
         Den gesamten Ablauf in meiner Kieferorthopädie{" "}
-        <Link
-          href={getHref("/ablauf-zahnspange-kieferorthopaedie", locale)}
-          className="text-accent font-medium hover:underline"
-        >
+        <Link href={ablaufHref} className="text-accent font-medium hover:underline">
           im Detail erklärt
         </Link>
         .
       </p>
+        </>
+      )}
+      {locale === "en" && (
+        <>
+          <h2>Since July 2015 there are new rules for free braces!</h2>
+          <p>As a specialist orthodontist and qualified Wahl-Kieferorthopäde (ÖGK), I also offer the free brace scheme. This means patients can get 80–100% of the health fund tariff refunded.</p>
+          <h2 className="mt-10">Free braces Vienna – requirements and your right to reimbursement</h2>
+          <p>Children and teenagers during and after the tooth change and until the end of their 18th year are entitled.</p>
+          <h3 className="mt-8">Braces – free brace, fixed or removable: requirements</h3>
+          <ul>
+            <li>There must be severe dental and/or jaw misalignment (IOTN 4 or 5). This is determined at an initial consultation. <Link href={terminHref}>Book an initial consultation</Link>.</li>
+            <li>Before treatment starts, an application must be submitted to the health fund. If approved, 80–100% of the fixed free brace tariff is refunded. Tip: check with your fund before starting.</li>
+            <li>Treatment is with metal brackets only. Top-ups for e.g. ceramic brackets are not covered.</li>
+          </ul>
+          <h3 className="mt-10">Note!</h3>
+          <p>If severity is IOTN 4 or 5 but parents want an alternative (without fund support), we offer: clear braces, ceramic brackets, clear aligners (Invisalign), ceramic braces for children, aligners.</p>
+          <h2 className="mt-10">Free braces – interceptive treatment in the mixed dentition</h2>
+          <p>In the mixed dentition (around 6–10 years), early limited treatment. Duration: max. 1 year, then a break and check-ups every 4–6 months. Around 12–13 we check again; if needed, fixed braces follow.</p>
+          <h2 className="mt-10">Jaw/tooth misalignments that require treatment</h2>
+          <p>Habits (e.g. tongue thrust, thumb-sucking); crossbite; anterior open bite; lack of space; deep bite/overbite; pronounced overjet; upper jaw retrusion (class 3).</p>
+          <h2 className="mt-10">Free braces – main treatment in the permanent dentition</h2>
+          <p>If IOTN 4 or 5 applies, you are entitled to reimbursement. Only fixed metal braces may be used for the free brace scheme. Tip: always confirm with your health fund. Treatment with fixed free braces usually takes 18–24 months.</p>
+          <h3 className="mt-8">Removable free brace</h3>
+          <p>Only effective if worn at least 12–14 hours per day. Duration about 1 year.</p>
+          <h2 className="mt-10">Free braces Vienna: important steps for reimbursement</h2>
+          <ol>
+            <li>Free initial consultation. By appointment only!</li>
+            <li>Treatment records. Diagnosis with X-rays, photos and digital scans. Without impressions.</li>
+            <li>Planning discussion. X-ray review and analysis of which brace/brackets are needed.</li>
+            <li>Start of treatment. Fitting and advice on cleaning and wear.</li>
+            <li>Check-ups every 6–8 weeks.</li>
+            <li>End of treatment. Removal and discussion of the result.</li>
+            <li><strong>Retention</strong> – stabilising the result.</li>
+          </ol>
+          <h2 className="mt-10">Treatment options when reimbursement is not possible</h2>
+          <p>If severity is only IOTN 2 or 3: we can offer ceramic brackets, clear aligners, or lingual (invisible) braces.</p>
+          <h2 className="mt-10">Orthodontics and the treatment process</h2>
+          <p>Same 7 steps as above.</p>
+          <p className="mt-6 text-gray-600">
+            <Link href={ablaufHref} className="text-accent font-medium hover:underline">Full details of the treatment process at our practice</Link>.
+          </p>
+        </>
+      )}
     </PageContent>
   );
 }
