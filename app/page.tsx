@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import HeroSpecialtiesSection from "@/components/HeroSpecialtiesSection";
 import ServicesSection from "@/components/ServicesSection";
 import BracesCategoriesSection from "@/components/BracesCategoriesSection";
 import ServicesSimple from "@/components/ServicesSimple";
@@ -33,6 +34,7 @@ export default function HomePage() {
   return (
     <>
       <Hero locale={locale} dict={dict} />
+      <HeroSpecialtiesSection locale={locale} dict={dict} />
       <ServicesSimple locale={locale} dict={dict} />
       <BracesCategoriesSection locale={locale} dict={dict} />
       <ServicesSection locale={locale} dict={dict} />
