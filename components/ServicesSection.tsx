@@ -15,11 +15,14 @@ const SERVICE_IMAGES_AND_PATHS = [
   { image: "/services/knirschschiene.jpg", path: "/zahnersatz" },
 ] as const;
 
+type ServiceCard = { title: string; text: string };
+
 export default function ServicesSection({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.homepage;
   const title = h.servicesSectionTitle;
   const sub = h.servicesSectionSub;
-  const cards = Array.isArray(h.servicesSectionCards) ? h.servicesSectionCards : [];
+  const raw = h.servicesSectionCards;
+  const cards: ServiceCard[] = Array.isArray(raw) ? (raw as ServiceCard[]) : [];
   const moreLabel = dict.common.learnMore;
 
   return (
