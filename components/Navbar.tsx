@@ -77,7 +77,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full min-w-0 overflow-x-hidden bg-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full min-w-0 bg-white shadow-sm">
       <nav
         className="mx-auto flex min-w-0 max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 lg:px-8"
         aria-label={dict.nav.ariaNav}
@@ -315,7 +315,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden items-center gap-2">
+        <div className="flex shrink-0 lg:hidden items-center gap-2">
           <Link
             href={locale === "de" ? pathForEn : pathForDe}
             className="inline-flex items-center gap-1.5 px-2 py-1.5 rounded text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors"
@@ -329,8 +329,12 @@ export default function Navbar({ locale, dict }: NavbarProps) {
           </Link>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg p-2 text-[#1e293b] hover:bg-gray-100 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            className="relative z-10 inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-lg p-2 text-[#1e293b] hover:bg-gray-100 transition-colors touch-manipulation"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setMobileOpen((prev) => !prev);
+            }}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? dict.nav.ariaMenuClose : dict.nav.ariaMenu}
           >
@@ -347,7 +351,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
+        <div className="relative z-50 lg:hidden border-t border-gray-200 bg-white overflow-y-auto max-h-[85vh]">
           <div className="mx-auto max-w-7xl px-6 py-4 space-y-1">
             <Link
               href={homeHref}

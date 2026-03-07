@@ -7,10 +7,11 @@ import { BOOKING_URL } from "@/lib/site";
 const locale = "de" as const;
 
 const PHONE = "+43 1 3306090";
-const EMAIL = "info@zahnspange-sablania.at";
+const EMAIL1 = "info@zahnspange-sablania.at";
+const EMAIL2 = "info@wienzahnaerzte.at";
 const WHATSAPP = "+4367764410301";
 const WHATSAPP_LINK = "https://wa.me/4367764410301";
-const HOURS = "Mo–Fr: 10–17 Uhr";
+const HOURS = "Mo–Fr: 10:00 – 17:00 Uhr";
 
 export const metadata: Metadata = {
   title: "Kontakt | Dr. Manish Sablania",
@@ -47,8 +48,11 @@ export default function KontaktPage() {
         </div>
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500">E-Mail</h3>
-          <a href={`mailto:${EMAIL}`} className="mt-2 block text-[#0f2e5c] font-medium hover:underline">
-            {EMAIL}
+          <a href={`mailto:${EMAIL1}`} className="mt-2 block text-[#0f2e5c] font-medium hover:underline">
+            {EMAIL1}
+          </a>
+          <a href={`mailto:${EMAIL2}`} className="mt-1 block text-[#0f2e5c] font-medium hover:underline">
+            {EMAIL2}
           </a>
         </div>
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -70,8 +74,21 @@ export default function KontaktPage() {
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-primary mb-4">{f.ordinationHeading}</h2>
         <p className="text-gray-600">
-          {f.addressTitle} 1200 Wien. Die genaue Adresse und Anfahrtsbeschreibung erhalten Sie bei der Terminbuchung.
+          Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Wien
         </p>
+        <div className="mt-6 w-full overflow-hidden rounded-xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2657.0122893559815!2d16.36961617626859!3d48.24489087125545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476da9e0f79d997f%3A0x167db0d57f7c7ddd!2sZahnarzt%20%2CKieferorthop%C3%A4die%20Wien%201200%20%7C%20Dr.%20Manish%20Sablania%20BDS%20M.Sc%20%7C%20Fachzahnarzt%20f%C3%BCr%20Kieferorthop%C3%A4die!5e0!3m2!1sen!2sat!4v1772887221462!5m2!1sen!2sat"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Standort – Dr. Manish Sablania, Wien 1200"
+            className="block w-full rounded-xl"
+          />
+        </div>
       </section>
 
       <p className="mt-10 text-gray-600">

@@ -1,23 +1,15 @@
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 
-function StarRating({ ariaLabel }: { ariaLabel: string }) {
-  return (
-    <div className="flex gap-0.5" aria-label={ariaLabel}>
-      {[...Array(5)].map((_, i) => (
-        <svg key={i} className="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export default function Testimonials({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.homepage;
-  const starAria = locale === "de" ? "5 von 5 Sternen" : "5 out of 5 stars";
   const paymentInfo = (h as unknown as { paymentInfo?: { title: string; description: string }[] }).paymentInfo;
   const paymentTitle = (h as unknown as { paymentInfoTitle?: string }).paymentInfoTitle;
+  const testimonials = (Array.isArray((h as unknown as { testimonials?: { quote: string; author: string; role: string }[] }).testimonials)
+    ? (h as unknown as { testimonials: { quote: string; author: string; role: string }[] }).testimonials
+    : []);
+  const starAria = locale === "de" ? "5 von 5 Sternen" : "5 out of 5 stars";
+
   return (
     <section className="bg-gray-50 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,14 +21,24 @@ export default function Testimonials({ locale, dict }: { locale: Locale; dict: D
             {h.testimonialsSub}
           </p>
         </div>
+        {/* Google reviews only – no map */}
         <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {h.testimonials.map((t) => (
+          {testimonials.map((t, i) => (
             <blockquote
-              key={t.author}
-              className="rounded-xl bg-white p-8 shadow-soft border border-primary/5"
+              key={`${t.author}-${i}`}
+              className="relative rounded-xl border border-primary/10 bg-white p-8 shadow-soft"
             >
-              <StarRating ariaLabel={starAria} />
-              <p className="mt-4 text-gray-600">&ldquo;{t.quote}&rdquo;</p>
+              <div className="mb-3 flex items-center gap-2">
+                <div className="flex gap-0.5" aria-label={starAria}>
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} className="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-sm font-medium text-gray-500">Google</span>
+              </div>
+              <p className="text-gray-600">&ldquo;{t.quote}&rdquo;</p>
               <footer className="mt-6">
                 <cite className="not-italic">
                   <span className="font-semibold text-primary">{t.author}</span>

@@ -95,9 +95,7 @@ export default function OnlineTerminForm({ locale, dict }: { locale: Locale; dic
           <div className="rounded-xl bg-gray-50 p-8 shadow-soft">
             <h2 className="text-xl font-semibold text-primary">{o.contactHours}</h2>
             <address className="mt-4 not-italic text-gray-600">
-              <p className="font-medium text-primary">Zahnspange Sablania</p>
-              <p>Forsthausgasse 16–20</p>
-              <p>Stiege 3 / EG, 1200 Wien</p>
+              <p>{locale === "de" ? "Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Wien" : "Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Vienna"}</p>
               <p className="mt-4">
                 <a href="tel:+4313306090" className="text-accent hover:underline">
                   +43 1 3306090
@@ -106,6 +104,10 @@ export default function OnlineTerminForm({ locale, dict }: { locale: Locale; dic
               <p>
                 <a href="mailto:info@zahnspange-sablania.at" className="text-accent hover:underline">
                   info@zahnspange-sablania.at
+                </a>
+                <br />
+                <a href="mailto:info@wienzahnaerzte.at" className="text-accent hover:underline">
+                  info@wienzahnaerzte.at
                 </a>
               </p>
               <p className="mt-4 text-sm">

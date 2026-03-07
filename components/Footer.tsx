@@ -5,7 +5,10 @@ import type { Dictionary } from "@/lib/dictionaries";
 import { getHref } from "@/lib/paths";
 import { BOOKING_URL } from "@/lib/site";
 
-const ADDRESS_LINES = ["Forsthausgasse 16–20", "Stiege 3 / EG", "1200 Wien"];
+const getAddressLines = (locale: "de" | "en") =>
+  locale === "en"
+    ? ["Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Vienna"]
+    : ["Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Wien"];
 
 const DENTISTRY_PATHS = [
   "/komposit-zahnfuellung",
@@ -97,7 +100,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
             </ul>
             <p className="mt-5 text-sm font-medium text-white/95">{f.addressTitle}</p>
             <address className="mt-2 not-italic text-sm text-white/90 leading-relaxed">
-              {ADDRESS_LINES.map((line) => (
+              {getAddressLines(locale).map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>

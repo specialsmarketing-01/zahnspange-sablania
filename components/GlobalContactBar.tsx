@@ -42,15 +42,21 @@ export default function GlobalContactBar({ dict }: { dict: Dictionary }) {
               </p>
               <a
                 href="mailto:info@zahnspange-sablania.at"
-                className="text-[#0f2e5c] font-medium hover:underline"
+                className="block text-[#0f2e5c] font-medium hover:underline"
               >
                 info@zahnspange-sablania.at
+              </a>
+              <a
+                href="mailto:info@wienzahnaerzte.at"
+                className="block text-[#0f2e5c] font-medium hover:underline"
+              >
+                info@wienzahnaerzte.at
               </a>
             </div>
 
           </div>
 
-          <div className="grid grid-cols-2 min-w-0 md:grid-cols-4 gap-4 mt-6">
+          <div className="grid grid-cols-2 min-w-0 md:grid-cols-5 gap-4 mt-6">
 
             <a href="tel:+4313306090"
               className="rounded-xl border p-4 text-center hover:bg-gray-50">
@@ -58,8 +64,12 @@ export default function GlobalContactBar({ dict }: { dict: Dictionary }) {
             </a>
 
             <a href="mailto:info@zahnspange-sablania.at"
-              className="rounded-xl border p-4 text-center hover:bg-gray-50">
-              {g.email ?? "Email"}
+              className="rounded-xl border p-4 text-center hover:bg-gray-50 text-sm">
+              info@zahnspange-sablania.at
+            </a>
+            <a href="mailto:info@wienzahnaerzte.at"
+              className="rounded-xl border p-4 text-center hover:bg-gray-50 text-sm">
+              info@wienzahnaerzte.at
             </a>
 
             <div className="rounded-xl border p-4 text-center">

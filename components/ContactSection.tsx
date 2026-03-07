@@ -35,9 +35,7 @@ export default function ContactSection({ locale, dict }: { locale: Locale; dict:
                 {o.contactHours}
               </h3>
               <address className="mt-4 not-italic text-gray-600">
-                <p className="font-medium text-primary">Zahnspange Sablania</p>
-                <p>Forsthausgasse 16–20</p>
-                <p>Stiege 3 / EG, 1200 Wien</p>
+                <p>{locale === "de" ? "Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Wien" : "Forsthausgasse 16-20/ Stiege 3/ EG, 1200 Vienna"}</p>
                 <p className="mt-4">
                   <a href="tel:+4313306090" className="text-accent hover:underline">
                     +43 1 3306090
@@ -46,6 +44,10 @@ export default function ContactSection({ locale, dict }: { locale: Locale; dict:
                 <p>
                   <a href="mailto:info@zahnspange-sablania.at" className="text-accent hover:underline">
                     info@zahnspange-sablania.at
+                  </a>
+                  <br />
+                  <a href="mailto:info@wienzahnaerzte.at" className="text-accent hover:underline">
+                    info@wienzahnaerzte.at
                   </a>
                 </p>
                 <p className="mt-4 text-sm">
@@ -58,8 +60,8 @@ export default function ContactSection({ locale, dict }: { locale: Locale; dict:
 
             <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.0!2d16.3738!3d48.2082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDEyJzI5LjUiTiAxNsKwMjIyJzM1LjciRQ!5e0!3m2!1sde!2sat!4v1"
-                title={locale === "de" ? "Standort Zahnspange Sablania" : "Location Zahnspange Sablania"}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2657.0122893559815!2d16.36961617626859!3d48.24489087125545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476da9e0f79d997f%3A0x167db0d57f7c7ddd!2sZahnarzt%20%2CKieferorthop%C3%A4die%20Wien%201200%20%7C%20Dr.%20Manish%20Sablania%20BDS%20M.Sc%20%7C%20Fachzahnarzt%20f%C3%BCr%20Kieferorthop%C3%A4die!5e0!3m2!1sen!2sat!4v1772887221462!5m2!1sen!2sat"
+                title={locale === "de" ? "Standort Dr. Manish Sablania, Wien 1200" : "Location Dr. Manish Sablania, Vienna 1200"}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
