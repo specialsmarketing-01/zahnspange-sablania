@@ -30,7 +30,7 @@ export default function LocaleShell({ children }: { children: React.ReactNode })
       {isAblaufPage && <AblaufHeroSlider locale={locale} />}
       <Breadcrumb locale={locale} dict={dict} />
       <main className="min-h-screen min-w-0">{children}</main>
-      <GlobalContactBar />
+      <GlobalContactBar dict={dict} />
       <OnlineReceptionWidget locale={locale} dict={dict} />
       <Footer locale={locale} dict={dict} />
     </div>

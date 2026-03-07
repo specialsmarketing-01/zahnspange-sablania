@@ -98,6 +98,16 @@ export const dictionaries = {
       sectionTitle: "Online Termine",
       ctaFreeConsult: "Kostenlose Erstberatung vereinbaren",
     },
+    globalContactBar: {
+      heading: "Wie können wir Ihnen helfen?",
+      openingHours: "Öffnungszeiten",
+      hoursValue: "Mo–Fr: 10–17 Uhr",
+      telephone: "Telefon",
+      email: "E-Mail",
+      call: "Anrufen",
+      hours: "Öffnungszeiten",
+      menu: "Menü",
+    },
     breadcrumb: {
       home: "Startseite",
     },
@@ -226,13 +236,14 @@ export const dictionaries = {
         { title: "Krone-Brücke", text: "Krone-Brücke sind individuell angefertigte Restaurationen, die fehlende Zähne ersetzen sollen." },
         { title: "Sportschutz-Mouthguards", text: "Sportschutz-Mouthguards sind abnehmbar individuell angefertigte Gummimaterial, die Zähne schützt." },
       ],
-      firstVisitTitle: "Sie sind zum ersten Mal bei uns? Wir machen eine umfangreiche Zahnanalyse!",
+      firstVisitTitle: "Bei Ihrem ersten Besuch nehmen wir uns Zeit für eine umfassende Analyse Ihrer Zahngesundheit.",
       firstVisitText1:
-        "Bei jedem neuen Patienten führen wir zunächst eine umfassende Zahnanalyse durch. Hierbei sehen wir uns an, wie es Ihren Zähnen aktuell geht und erarbeiten, was Ihre Ziele sind.",
+        "Dabei prüfen wir den aktuellen Zustand Ihrer Zähne und besprechen gemeinsam Ihre Wünsche und Ziele für Ihre Zahngesundheit.",
       firstVisitText2:
-        "Egal, ob Sie zur regelmäßigen Zahnreinigung kommen, Zahnersatz brauchen oder Ihre Zähne begradigen lassen möchten – wir erstellen Ihnen einen passenden Plan.",
+        "Ob professionelle Zahnreinigung, hochwertiger Zahnersatz oder moderne Zahnkorrekturen - auf Basis der Analyse erstellen wir einen individuellen Behandlungsplan, der optimal zu Ihnen passt.",
       firstVisitBadgeLeading: "The Leading Dentists of the World",
       firstVisitBadgeHygiene: "Hygiene-Prädikat 2025",
+      firstVisitQuickAppointments: "Schnelle Termine online oder telefonisch",
       treatmentsTitle: "Alle Zahnbehandlungen in einer Praxis:",
       treatmentsCards: [
         "Teil und Vollprothesen",
@@ -587,6 +598,16 @@ export const dictionaries = {
       sectionTitle: "Online Appointments",
       ctaFreeConsult: "Book free initial consultation",
     },
+    globalContactBar: {
+      heading: "How can we help you?",
+      openingHours: "Opening Hours",
+      hoursValue: "Mon–Fri: 10am – 5pm",
+      telephone: "Telephone",
+      email: "Email",
+      call: "Call",
+      hours: "Hours",
+      menu: "Menu",
+    },
     breadcrumb: {
       home: "Home",
     },
@@ -717,13 +738,14 @@ export const dictionaries = {
         { title: "Crown and bridge", text: "Crowns and bridges are custom-made restorations that replace missing teeth." },
         { title: "Sports mouthguards", text: "Sports mouthguards are removable, custom-made devices that protect your teeth during sport." },
       ],
-      firstVisitTitle: "Is it your first visit? We start with a comprehensive dental analysis.",
+      firstVisitTitle: "On your first visit we take time for a comprehensive analysis of your dental health.",
       firstVisitText1:
-        "For every new patient we begin with a detailed dental analysis. We assess your current situation and discuss your goals.",
+        "We check the current condition of your teeth and discuss your wishes and goals for your dental health together.",
       firstVisitText2:
-        "Whether you come for regular cleaning, need restorations or want to straighten your teeth – we create a tailored treatment plan.",
+        "Whether professional teeth cleaning, high-quality dental restorations or modern orthodontics – based on the analysis we create an individual treatment plan that suits you best.",
       firstVisitBadgeLeading: "The Leading Dentists of the World",
       firstVisitBadgeHygiene: "Hygiene seal 2025",
+      firstVisitQuickAppointments: "Quick appointments online or by phone",
       treatmentsTitle: "All dental treatments in one practice:",
       treatmentsCards: [
         "Partial and full dentures",

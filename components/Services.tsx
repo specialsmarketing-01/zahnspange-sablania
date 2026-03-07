@@ -25,7 +25,7 @@ export default function Services({ locale, dict }: { locale: Locale; dict: Dicti
               <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center">
                 <Image
                   src="/clean.png"
-                  alt="Zahn-Icon"
+                  alt={locale === "en" ? "Tooth icon" : "Zahn-Icon"}
                   width={40}
                   height={40}
                   className="h-10 w-10 object-contain"
@@ -53,15 +53,14 @@ export default function Services({ locale, dict }: { locale: Locale; dict: Dicti
             </div>
           </div>
 
-          {/* Right: protect image (20%) */}
-          <div className="relative w-full h-full min-h-[200px] lg:col-span-1">
-            <Image
-              src="/protect.png"
-              alt="Hygiene-Prädikat"
-              fill
-              className="object-contain object-center"
-              sizes="(max-width: 1024px) 100vw, 20vw"
-            />
+          {/* Right: quick appointments link (20%) */}
+          <div className="flex w-full flex-col justify-center rounded-3xl border border-gray-100 bg-white p-6 shadow-lg lg:col-span-1">
+            <Link
+              href={getHref("/online-termin", locale)}
+              className="block text-center text-base font-semibold text-[#0f2e5c] hover:underline sm:text-lg"
+            >
+              {(h.firstVisitQuickAppointments as string) ?? (locale === "en" ? "Quick appointments online or by phone" : "Schnelle Termine online oder telefonisch")}
+            </Link>
           </div>
         </div>
       </div>

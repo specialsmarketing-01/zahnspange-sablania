@@ -1,12 +1,14 @@
 import { BOOKING_URL } from "@/lib/site";
+import type { Dictionary } from "@/lib/dictionaries";
 
-export default function GlobalContactBar() {
+export default function GlobalContactBar({ dict }: { dict: Dictionary }) {
+  const g = dict.globalContactBar as Record<string, string>;
   return (
     <section className="bg-[#f3f5f9] border-t border-gray-200 overflow-x-hidden">
       <div className="mx-auto max-w-7xl min-w-0 px-4 py-10 sm:px-6">
 
         <h2 className="text-center text-2xl font-semibold text-[#0f2e5c] mb-8">
-          How can we help you?
+          {g.heading ?? "How can we help you?"}
         </h2>
 
         <div className="bg-white rounded-2xl shadow-sm border p-6 space-y-6">
@@ -15,16 +17,16 @@ export default function GlobalContactBar() {
 
             <div>
               <p className="font-semibold text-gray-500 uppercase">
-                Opening Hours
+                {g.openingHours ?? "Opening Hours"}
               </p>
               <p className="text-[#0f2e5c] font-medium">
-                Mo–Fr: 10–17 Uhr
+                {g.hoursValue ?? "Mon–Fri: 10am – 5pm"}
               </p>
             </div>
 
             <div>
               <p className="font-semibold text-gray-500 uppercase">
-                Telephone
+                {g.telephone ?? "Telephone"}
               </p>
               <a
                 href="tel:+4313306090"
@@ -36,7 +38,7 @@ export default function GlobalContactBar() {
 
             <div>
               <p className="font-semibold text-gray-500 uppercase">
-                Email
+                {g.email ?? "Email"}
               </p>
               <a
                 href="mailto:info@zahnspange-sablania.at"
@@ -52,16 +54,16 @@ export default function GlobalContactBar() {
 
             <a href="tel:+4313306090"
               className="rounded-xl border p-4 text-center hover:bg-gray-50">
-              Call
+              {g.call ?? "Call"}
             </a>
 
             <a href="mailto:info@zahnspange-sablania.at"
               className="rounded-xl border p-4 text-center hover:bg-gray-50">
-              Email
+              {g.email ?? "Email"}
             </a>
 
             <div className="rounded-xl border p-4 text-center">
-              Hours
+              {g.hours ?? "Hours"}
             </div>
 
             <a
@@ -70,7 +72,7 @@ export default function GlobalContactBar() {
               rel="noopener noreferrer"
               className="rounded-xl border p-4 text-center hover:bg-gray-50"
             >
-              Menü
+              {g.menu ?? "Menu"}
             </a>
 
           </div>
