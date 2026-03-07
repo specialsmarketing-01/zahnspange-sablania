@@ -26,9 +26,9 @@ export default function AblaufZahnspangeContent({
   dict: Dictionary;
 }) {
   const dePath = "/ablauf-zahnspange-kieferorthopaedie";
+  const titles = dict.routeTitles as Record<string, string>;
   const leads = dict.pageLeads as Record<string, string>;
-  const title =
-    "Ablauf: Zahnspange Kieferorthopädie Zahnregulierung Invisalign Clear Aligner Unsichtbare Zahnspange in der Ordination.";
+  const title = titles[dePath] ?? "Ablauf Zahnspange & Kieferorthopädie";
   const lead = leads[dePath];
 
   return (

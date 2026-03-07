@@ -30,14 +30,14 @@ export default function GratisZahnspangeContent({
       </p>
       <figure className="mt-6">
         <Image
-          src="/gratis-zahnspange/erwachsen-metal-brackets.jpg"
+          src="/gratis-zahnspange/1-2048x1365.jpg"
           alt="Festsitzende Gratis-Zahnspange mit Metall-Brackets"
           width={960}
           height={480}
           className="w-full rounded-xl shadow-soft object-cover"
         />
         <figcaption className="mt-2 text-sm text-gray-500">
-          Festsitzende Gratis-Zahnspange mit Metall-Brackets.
+          Erwachsen – Metall-Brackets (festsitzende Gratis-Zahnspange).
         </figcaption>
       </figure>
 
@@ -47,13 +47,13 @@ export default function GratisZahnspangeContent({
         Vollendung des 18. Lebensjahres.
       </p>
 
-      <h3 className="mt-8">Zahnregulierung – Gratis Zahnspange, festsitzend oder abnehmbar: Voraussetzungen</h3>
+      <h3 className="mt-8">Zahnregulierung, Gratis Zahnspange – festsitzend oder abnehmbar: Voraussetzungen</h3>
       <ul>
         <li>
           Es muss eine schwere Zahn-Fehlstellung und/oder Kiefer-Fehlstellung vorliegen, um Anspruch
           auf eine Gratiszahnspange zu erhalten. Die Korrektur muss aus medizinischen Gründen
           erforderlich sein (<strong>IOTN 4 oder 5</strong>). Das wird in einer Erstberatung festgestellt.
-          Schweregrad-Feststellung:&nbsp;
+          Schweregrad-Feststellung:{" "}
           <Link href={getHref("/online-termin", locale)}>Termin für Erstberatung vereinbaren</Link>.
         </li>
         <li>
@@ -70,23 +70,23 @@ export default function GratisZahnspangeContent({
         </li>
       </ul>
 
-      <h3 className="mt-10">Alternativen zur Gratis-Zahnspange</h3>
+      <h3 className="mt-10">Merke!</h3>
       <p>
-        <strong>Merke:</strong> Wenn ein Fehlstellung-Schweregrad IOTN 4 oder 5 vorliegt, Eltern ihren
-        Kindern aber eine alternative Möglichkeit (ohne Zuschuss von der Krankenkassa) zur Gratis
-        Zahnspange anbieten wollen, dann bieten wir unter anderem:
+        Wenn ein Fehlstellung-Schwergrad IOTN 4 oder 5 vorliegt, Eltern ihren Kindern aber eine
+        alternative Möglichkeit (ohne Zuschuss von der Krankenkassa) zur Gratis Zahnspange anbieten
+        wollen, dann bieten wir:
       </p>
       <ul>
         <li>Durchsichtige Zahnspange</li>
-        <li>Keramik-Brackets</li>
-        <li>Durchsichtige Schienen (unsichtbare Zahnspange) Clear Aligner, Invisalign</li>
-        <li>Keramik-Zahnspange für Kinder</li>
-        <li>Aligner-Behandlung</li>
+        <li>Keramik Brackets</li>
+        <li>Durchsichtige Schienen (Unsichtbare Zahnspange) Clear Aligner, Invisalign</li>
+        <li>Keramik Zahnspange für Kinder</li>
+        <li>Aligners</li>
       </ul>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/durchsichtige-zahnspange.jpg"
+            src="/gratis-zahnspange/Aligners-35-q1ah25wbsc1ausmvjri1zvu9hxd6rvlh3ro9a6rxnw.jpg"
             alt="Durchsichtige Zahnspange"
             width={480}
             height={320}
@@ -96,43 +96,53 @@ export default function GratisZahnspangeContent({
         </figure>
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/keramik-brackets.jpg"
-            alt="Keramik-Brackets"
+            src="/gratis-zahnspange/girl-eating-chocolate-with-ceramic-teeth-braces_10069-205.png"
+            alt="Keramik Brackets"
             width={480}
             height={320}
             className="h-40 w-full object-cover"
           />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Keramik-Brackets</figcaption>
+          <figcaption className="px-3 py-2 text-sm text-gray-600">Keramik Brackets</figcaption>
         </figure>
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/clear-aligner-invisalign.jpg"
+            src="/gratis-zahnspange/Screenshot-5329-860x649.png"
             alt="Clear Aligner / Invisalign"
             width={480}
             height={320}
             className="h-40 w-full object-cover"
           />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Clear Aligner / Invisalign</figcaption>
+          <figcaption className="px-3 py-2 text-sm text-gray-600">Durchsichtige Schienen / Invisalign</figcaption>
         </figure>
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/keramik-kinder.jpg"
-            alt="Keramik-Zahnspange für Kinder"
+            src="/gratis-zahnspange/Kind-Laecheln.png"
+            alt="Keramik Zahnspange für Kinder"
             width={480}
             height={320}
             className="h-40 w-full object-cover"
           />
           <figcaption className="px-3 py-2 text-sm text-gray-600">
-            Keramik-Zahnspange für Kinder
+            Keramik Zahnspange für Kinder
           </figcaption>
         </figure>
       </div>
 
       <h2 className="mt-10">Gratis-Zahnspange – Interzeptive Behandlung in der Wechselgebiss-Phase</h2>
       <p>
-        Im <strong>Wechselgebiss</strong> (geeignet für Kinder zwischen ca. 6 und 10 Jahren) handelt es
-        sich um eine Behandlung in der Frühphase – eine begrenzte Behandlung im Milch- oder
-        Wechselgebiss.
+        Im{" "}
+        <strong>
+          <a
+            href="https://de.wikipedia.org/wiki/Wechselgebiss"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            Wechselgebiss
+          </a>
+        </strong>{" "}
+        – eine Behandlung geeignet für Kinder zwischen 6 und 10 Jahren – handelt es sich um eine
+        Behandlung in der Frühphase: eine begrenzte Behandlung im Milch- oder Wechselgebiss.
       </p>
       <p>
         <strong>Dauer der Behandlung:</strong> maximal 1 Jahr. Danach wird eine Pause eingelegt. In der
@@ -148,37 +158,47 @@ export default function GratisZahnspangeContent({
       <h2 className="mt-10">Kiefer-Zahnfehlstellungen, die unbedingt eine Behandlung erfordern</h2>
       <ul>
         <li>
-          <strong>Habits</strong> – schlechte Gewohnheiten, die eine Kiefer- oder Zahn-Fehlstellung
-          verursachen, z. B. Zungenpressen, falsche Schluckmuster, Daumenlutschen, Lippenpressen,
-          Fingernägelkauen etc.
+          <strong>Habits</strong> – oder schlechte Gewohnheiten, die eine Kiefer- oder
+          Zahn-Fehlstellung verursachen, z. B. Zungenpressen, falsche Schluckmuster, Daumenlutschen,
+          Lippenpressen, Fingernägelkauen etc.
         </li>
         <li>
-          <strong>Kreuzbiss</strong> seitlich (beidseitig oder einseitig), Kreuzbiss der Frontzähne /
-          progener Zwangsbiss.
+          <strong>Kreuzbiss</strong> seitlich beidseitig oder einseitig. Kreuzbiss Frontzähne /
+          Progener Zwangbiss.
         </li>
         <li>Front offener Biss.</li>
         <li>
           Platzmangel durch verschiedene Gründe oder frühzeitiges Verlieren der Milchzähne.
         </li>
-        <li>Tiefbiss / Deckbiss (Überbiss).</li>
-        <li>
-          Ausgeprägte Frontzahnstufe, Rücklage im Oberkiefer (Maxilla) – Klasse-III-Situationen.
-        </li>
+        <li>Tiefbiss (Deepbite).</li>
+        <li>Deckbiss / Überbiss.</li>
+        <li>Ausgeprägte Frontzahnstufe.</li>
+        <li>Rücklage im Oberkiefer (Maxilla) – Klasse 3.</li>
       </ul>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/front-offener-biss.jpg"
-            alt="Front offener Biss"
+            src="/gratis-zahnspange/1-Vorher-scaled-q64zyvmtlf8apes9dp27nc7p5e4l68vkzu0ft5w5ok.jpg"
+            alt="1 Vorher"
             width={480}
             height={320}
             className="h-40 w-full object-cover"
           />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Front offener Biss</figcaption>
+          <figcaption className="px-3 py-2 text-sm text-gray-600">1 Vorher</figcaption>
         </figure>
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/tiefbiss-deepbite.jpg"
+            src="/gratis-zahnspange/3-Vorher-q6504q6o4b8iy2af882n5v2y7pat2g3ggs57b57yys.jpg"
+            alt="3 Vorher"
+            width={480}
+            height={320}
+            className="h-40 w-full object-cover"
+          />
+          <figcaption className="px-3 py-2 text-sm text-gray-600">3 Vorher</figcaption>
+        </figure>
+        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
+          <Image
+            src="/gratis-zahnspange/Tiefbiss-Deepbite-768x355-1-qcg52ofkkfiaqriegr6sa4qgpfa1jrebkrjcy9yklg.jpg"
             alt="Tiefbiss (Deepbite)"
             width={480}
             height={320}
@@ -188,22 +208,24 @@ export default function GratisZahnspangeContent({
         </figure>
         <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
           <Image
-            src="/gratis-zahnspange/deckbiss-ueberbiss.jpg"
-            alt="Deckbiss / Überbiss"
+            src="/gratis-zahnspange/11-vor-q631w2oyn5p9yfaqs77kgyk85kpfzfiqt43c3mh9s4.jpg"
+            alt="Ausgeprägte Frontzahnstufe / Rücklage Oberkiefer"
             width={480}
             height={320}
             className="h-40 w-full object-cover"
           />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Deckbiss / Überbiss</figcaption>
+          <figcaption className="px-3 py-2 text-sm text-gray-600">
+            Deckbiss / Überbiss · 11 vor · Rücklage Oberkiefer (Maxilla) Klasse 3
+          </figcaption>
         </figure>
       </div>
 
-      <h2 className="mt-10">Gratis-Zahnspange – Hauptbehandlung im bleibenden Gebiss</h2>
+      <h2 className="mt-10">Gratis-Zahnspange – die Hauptbehandlung im bleibenden Gebiss (Fixezahnspange)</h2>
       <p>
-        Liegt eine Schweregrad-Fehlstellung von <strong>IOTN 4 oder IOTN 5</strong> vor, besteht
-        grundsätzlich Anspruch auf Rückerstattung der Zahnspange. Diese „Gratis-Zahnspange“ für
-        Kinder hat eine wichtige Voraussetzung: Es dürfen nur{" "}
-        <strong>festsitzende Zahnspangen aus Metall</strong> verwendet werden.
+        Wenn eine Schweregrad-Fehlstellung von <strong>IOTN 4 oder IOTN 5</strong> vorliegt, besteht
+        Anspruch auf Rückerstattung der Zahnspange. Diese „Gratis-Zahnspange“ für Kinder hat eine
+        wichtige Voraussetzung: Es dürfen nur <strong>festsitzende Zahnspangen aus Metall</strong> bei
+        der Gratis-Zahnspangen-Behandlung verwendet werden.
       </p>
       <p>
         <strong>TIPP:</strong> Auch wenn der Schweregrad der Fehlstellung (IOTN) bereits feststeht,
@@ -224,70 +246,74 @@ export default function GratisZahnspangeContent({
         <strong>Behandlungsdauer:</strong> etwa 1 Jahr.
       </p>
 
-      <h2 className="mt-10">Gratis Zahnspange Wien: Wichtige Schritte zur Rückerstattung</h2>
+      <h2 className="mt-10">Gratis Zahnspange Wien: Wichtige Links zur Rückerstattung durch die Krankenkasse!</h2>
       <ol>
         <li>
-          Kostenlose Erstberatung für Zahnfehlstellungen in unserer Kieferorthopädie. Termin nur
-          nach Vereinbarung.
+          Kostenlose Erstberatung für Zahnfehlstellung in unserer Kieferorthopädie. Termin nur nach
+          Vereinbarung!
         </li>
         <li>
-          Behandlungsunterlagen für den individuellen Behandlungsverlauf erstellen – Diagnose mit
-          Röntgen, Fotos und digitalen Scans, immer ohne Abdrücke.
+          Behandlungsunterlagen für individuellen Behandlungsverlauf erstellen. Diagnose mit
+          Röntgen, Fotos und digitalen Scans. Immer ohne Abdrücke.
         </li>
         <li>
-          Planbesprechung und Erklärung: Röntgenauswertung und Analyse-Gespräch, welche Art von
-          Zahnspange und/oder Brackets im individuellen Fall notwendig ist.
+          Planbesprechung und Erklärung. Röntgenauswertung und die Analyse-Besprechung welche Art
+          von Zahnspange und/oder Brackets für den individuellen Fall notwendig sind.
         </li>
         <li>
-          Behandlungsbeginn: Einsetzen des Geräts und Aufklärung über Reinigung und Tragezeiten.
+          Behandlungsbeginn – Einsetzen des Gerätes und Aufklärung über Reinigung und die
+          Tragezeiten.
         </li>
-        <li>Wichtige und notwendige Kontrolltermine alle 6–8 Wochen.</li>
+        <li>Wichtige und notwendigen Kontrolltermine alle 6–8 Wochen.</li>
         <li>
-          Behandlungsende: Entfernen der Spange und Besprechung des Behandlungsergebnisses.
+          Behandlungsende. Entfernen der Spange und Besprechung des Behandlungsergebnisses.
         </li>
         <li>
-          <strong>Retention</strong> – Beginn der Stabilisierung des Behandlungsergebnisses.
+          <strong>Retention</strong> – der Beginn der Stabilisierung des Behandlungsergebnisses.
         </li>
       </ol>
 
       <h2 className="mt-10">
-        Behandlungsmöglichkeiten bei Zahnfehlstellungen ohne Möglichkeit der Rückerstattung
+        Behandlungsmöglichkeiten bei Zahnfehlstellung ohne Möglichkeit der Rückerstattung
       </h2>
       <p>
-        Wenn Kinder keinen Schweregrad IOTN 4 oder 5 (Voraussetzung für eine Gratis-Zahnspange),
-        sondern nur <strong>IOTN 2 oder 3</strong> haben, gibt es folgende Alternativen:
+        Zum Beispiel wenn Kinder nicht eine Schweregrad-Fehlstellung von IOTN 4 oder IOTN 5 haben
+        (Voraussetzung für eine Gratis-Zahnspange), sondern nur <strong>IOTN 2 oder 3</strong> –
+        Alternativ zur Gratis Zahnspange:
       </p>
       <ul>
         <li>
-          Behandlung mit <strong>Keramik-Brackets</strong> – eine festsitzende Zahnspange.
+          Behandlung mit <strong>Keramik Brackets</strong> – eine festsitzende Zahnspange.
         </li>
         <li>
-          Behandlung mit <strong>Clear Alignern</strong> – durchsichtige Aligner oder durchsichtige
+          Behandlung mit <strong>Clear Aligners</strong> – durchsichtige Aligner oder durchsichtige
           Schienen.
         </li>
         <li>
-          Behandlung mit der <strong>unsichtbaren Zahnspange</strong> – innenliegend (lingual).
+          Behandlung mit der <strong>unsichtbaren Zahnspange</strong> – innenliegend oder Lingual
+          (Lingual unsichtbare Spange).
         </li>
       </ul>
 
       <h2 className="mt-10">Kieferorthopädie und der genaue Ablauf einer Behandlung</h2>
       <ol>
         <li>
-          Kostenlose Erstberatung für Zahnfehlstellungen in unserer Kieferorthopädie. Termin nur
-          nach Vereinbarung.
+          Kostenlose Erstberatung für Zahnfehlstellung in unserer Kieferorthopädie. Termin nur nach
+          Vereinbarung!
         </li>
         <li>
-          Behandlungsunterlagen für den individuellen Behandlungsverlauf erstellen – Diagnose mit
-          Röntgen, Fotos und digitalen Scans, immer ohne Abdrücke.
+          Behandlungsunterlagen für individuellen Behandlungsverlauf erstellen. Diagnose mit
+          Röntgen, Fotos und digitalen Scans. Immer ohne Abdrücke.
         </li>
         <li>
-          Planbesprechung und Erklärung – Röntgenauswertung und Analyse-Besprechung, welche Art von
-          Zahnspange und/oder Brackets im individuellen Fall notwendig sind.
+          Planbesprechung und Erklärung. Röntgenauswertung und die Analyse-Besprechung welche Art
+          von Zahnspange und/oder Brackets für den individuellen Fall notwendig sind.
         </li>
         <li>
-          Behandlungsbeginn – Einsetzen des Geräts und Aufklärung über Reinigung und Tragezeiten.
+          Behandlungsbeginn – Einsetzen des Gerätes und Aufklärung über Reinigung und die
+          Tragezeiten.
         </li>
-        <li>Wichtige und notwendige Kontrolltermine alle 6–8 Wochen.</li>
+        <li>Wichtige und notwendigen Kontrolltermine alle 6–8 Wochen.</li>
         <li>
           Behandlungsende – Entfernen der Spange und Besprechung des Behandlungsergebnisses.
         </li>
@@ -297,12 +323,12 @@ export default function GratisZahnspangeContent({
       </ol>
 
       <p className="mt-6 text-gray-600">
-        Den gesamten Ablauf in meiner Kieferorthopädie finden Sie{" "}
+        Den gesamten Ablauf in meiner Kieferorthopädie{" "}
         <Link
           href={getHref("/ablauf-zahnspange-kieferorthopaedie", locale)}
           className="text-accent font-medium hover:underline"
         >
-          hier im Detail erklärt
+          im Detail erklärt
         </Link>
         .
       </p>
