@@ -626,7 +626,7 @@ export const dictionaries = {
       heroSubline: "Individual Consultation • Modern Technology • Perfect Smile",
       heroCta: "Book Appointment Now",
       heroContact: "Contact Us",
-      heroBadge: "Modern Orthodontics in Vienna",
+      heroBadge: "All Health Insurance Companies & Private · Mon–Fri: 10am – 5pm",
       heroHeadlineMain: "Your Specialist for Braces –",
       heroHeadlineAccent: "aesthetic, precise & individual.",
       heroDescription:
