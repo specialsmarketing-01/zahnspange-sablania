@@ -36,11 +36,11 @@ export default function HomePage() {
       <Hero locale={locale} dict={dict} />
       <HeroSpecialtiesSection locale={locale} dict={dict} />
       <ServicesSimple locale={locale} dict={dict} />
-      <BracesCategoriesSection locale={locale} dict={dict} />
-      <ServicesSection locale={locale} dict={dict} />
       <DigitalPracticeSection locale={locale} dict={dict} />
       <Services locale={locale} dict={dict} />
       <WhyChooseUs dict={dict} />
+      <BracesCategoriesSection locale={locale} dict={dict} />
+      <ServicesSection locale={locale} dict={dict} />
       <Testimonials locale={locale} dict={dict} />
       <CTASection locale={locale} dict={dict} />
       <ContactSection locale={locale} dict={dict} />

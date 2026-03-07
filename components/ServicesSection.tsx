@@ -12,13 +12,14 @@ const SERVICE_IMAGES_AND_PATHS = [
   { image: "/services/teilprothese.jpg", path: "/zahnersatz" },
   { image: "/services/krone.jpg", path: "/krone-bruecke" },
   { image: "/services/mouthguard.jpg", path: "/sportschutz-mouthguards" },
+  { image: "/services/knirschschiene.jpg", path: "/zahnersatz" },
 ] as const;
 
 export default function ServicesSection({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.homepage;
   const title = h.servicesSectionTitle;
   const sub = h.servicesSectionSub;
-  const cards = h.servicesSectionCards;
+  const cards = Array.isArray(h.servicesSectionCards) ? h.servicesSectionCards : [];
   const moreLabel = dict.common.learnMore;
 
   return (

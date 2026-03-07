@@ -95,9 +95,11 @@ export default function DigitalPracticeSection({
                   <p className="font-serif text-2xl font-bold text-primary sm:text-3xl tabular-nums">
                     {stat1Number}
                   </p>
-                  <p className="mt-2 text-sm text-primary/80 leading-snug">
-                    {stat1Text}
-                  </p>
+                  {stat1Text ? (
+                    <p className="mt-2 text-sm text-primary/80 leading-snug">
+                      {stat1Text}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -111,9 +113,11 @@ export default function DigitalPracticeSection({
                   <p className="font-serif text-2xl font-bold text-primary sm:text-3xl tabular-nums">
                     {stat2Number}
                   </p>
-                  <p className="mt-2 text-sm text-primary/80 leading-snug">
-                    {stat2Text}
-                  </p>
+                  {stat2Text ? (
+                    <p className="mt-2 text-sm text-primary/80 leading-snug">
+                      {stat2Text}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </div>

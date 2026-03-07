@@ -241,6 +241,7 @@ export const dictionaries = {
         { title: "Teilprothesen", text: "Teilprothesen eignen sich für Patienten, die noch über natürliche Zähne verfügen." },
         { title: "Krone-Brücke", text: "Krone-Brücke sind individuell angefertigte Restaurationen, die fehlende Zähne ersetzen sollen." },
         { title: "Sportschutz-Mouthguards", text: "Sportschutz-Mouthguards sind abnehmbar individuell angefertigte Gummimaterial, die Zähne schützt." },
+        { title: "Knirschschiene", text: "Eine individuell angepasste Knirschschiene schützt Ihre Zähne vor Abnutzung und entlastet den Kiefer während des Schlafs." },
       ],
       firstVisitTitle: "Bei Ihrem ersten Besuch nehmen wir uns Zeit für eine umfassende Analyse Ihrer Zahngesundheit.",
       firstVisitText1:
@@ -278,7 +279,7 @@ export const dictionaries = {
       digitalPracticeStat1Number: "7850+",
       digitalPracticeStat1Text: "Kieferorthopädie Zahnspangen-Behandlungen-Zusammenarbeit",
       digitalPracticeStat2Number: "28+ Jahre Erfahrung",
-      digitalPracticeStat2Text: "in der Kieferorthopädie - Zahnregulierung - Zahnspangen",
+      digitalPracticeStat2Text: "",
       digitalPracticeCta: "Kostenlose Erstberatung vereinbaren",
       digitalPracticeCtaUrl: "https://powerdent-bos.3pointdata.com/v1/view/organization/247/index.html#/perspectives/3",
       digitalPracticePara1:
@@ -744,11 +745,10 @@ export const dictionaries = {
         { title: "Teeth whitening", text: "Teeth whitening means lightening the colour of your teeth." },
         { title: "Aesthetic dental treatment", text: "Veneers are very thin tooth-coloured ceramic shells that are bonded to the front of the teeth." },
         { title: "Professional oral hygiene", text: "With regular oral hygiene and a healthy diet we help prevent disease of the gums and jawbone." },
-        { title: "Full dentures", text: "Full dentures are used when all teeth in the upper or lower jaw are missing." },
         { title: "Partial dentures", text: "Partial dentures are suitable for patients who still have some natural teeth." },
-        { title: "Implant-supported dentures", text: "Implant-supported dentures are attached to dental implants and offer greater stability compared to conventional dentures." },
         { title: "Crown and bridge", text: "Crowns and bridges are custom-made restorations that replace missing teeth." },
         { title: "Sports mouthguards", text: "Sports mouthguards are removable, custom-made devices that protect your teeth during sport." },
+        { title: "Night guard", text: "A custom-fitted night guard protects your teeth from wear and relieves jaw tension during sleep." },
       ],
       firstVisitTitle: "On your first visit we take time for a comprehensive analysis of your dental health.",
       firstVisitText1:
@@ -787,7 +787,7 @@ export const dictionaries = {
       digitalPracticeStat1Number: "7850+",
       digitalPracticeStat1Text: "Orthodontic brace treatments – in collaboration",
       digitalPracticeStat2Number: "28+ years of experience",
-      digitalPracticeStat2Text: "in orthodontics – dental alignment – braces",
+      digitalPracticeStat2Text: "",
       digitalPracticeCta: "Book a free initial consultation",
       digitalPracticeCtaUrl: "https://powerdent-bos.3pointdata.com/v1/view/organization/247/index.html#/perspectives/3",
       digitalPracticePara1:
