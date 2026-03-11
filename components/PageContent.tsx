@@ -7,6 +7,7 @@ interface PageContentProps {
   lead?: string;
   children: React.ReactNode;
   showCta?: boolean;
+  hideHeader?: boolean;
   locale: Locale;
   dict: Dictionary;
 }
@@ -16,20 +17,23 @@ export default function PageContent({
   lead,
   children,
   showCta = true,
+  hideHeader = false,
   locale,
   dict,
 }: PageContentProps) {
   return (
     <div className="min-w-0 overflow-x-hidden bg-white">
       <div className="mx-auto min-w-0 max-w-7xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8">
-        <header className="max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            {title}
-          </h1>
-          {lead && (
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">{lead}</p>
-          )}
-        </header>
+        {!hideHeader && (
+          <header className="max-w-3xl">
+            <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+              {title}
+            </h1>
+            {lead && (
+              <p className="mt-4 text-lg text-gray-600 leading-relaxed">{lead}</p>
+            )}
+          </header>
+        )}
         <div className="mt-10 min-w-0 overflow-x-hidden prose prose-lg max-w-none prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline break-words">
           {children}
         </div>
