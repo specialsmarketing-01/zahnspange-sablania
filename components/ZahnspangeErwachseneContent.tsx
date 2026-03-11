@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import PageContent from "./PageContent";
@@ -47,6 +48,17 @@ export default function ZahnspangeErwachseneContent({
         Die Brackets werden direkt auf die Außenseite der Zähne geklebt und sind bei Jugendlichen und
         Erwachsenen besonders beliebt. Auch können Bögen in Zahnfarbe verwendet werden.
       </p>
+      <div className="mt-4 max-w-2xl mx-auto">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
+          <Image
+            src="/braces-for-teen/Braces-1-628x649.png"
+            alt="Keramikbrackets mit Bögen in Zahnfarbe"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 768px"
+          />
+        </div>
+      </div>
       <p>Zahnspange Erwachsene</p>
 
       <h3 className="mt-8">Lingualzahnspange</h3>
@@ -61,6 +73,18 @@ export default function ZahnspangeErwachseneContent({
         <strong>Negativ:</strong> Am Anfang beim Sprechen können zu Beginn S- &amp; C-Laute schwerer
         auszusprechen sein.
       </p>
+
+      <div className="mt-4 max-w-2xl mx-auto">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
+          <Image
+            src="/zahnspange-fuer-erwachsene/Lingualtechnik-640-\u00d7-500-px-e1670235670602.png"
+            alt="Lingualtechnik Zahnspange – innenliegende Zahnspange"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 768px"
+          />
+        </div>
+      </div>
 
       <h3 className="mt-8">Invisalign-Clear Aligner Durchsichtige Schienen</h3>
       <p>

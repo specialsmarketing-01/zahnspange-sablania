@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import PageContent from "./PageContent";
@@ -17,188 +18,634 @@ export default function ZahnspangeJugendlicheContent({
   const title = titles[dePath] ?? "Zahnspange für Jugendliche";
   const lead = leads[dePath];
   const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
+  const terminHref = getHref("/online-termin", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>
       {locale === "de" && (
         <>
-      <h2>Zahnspange für Jugendliche im Alter von 10 bis 18 Jahren</h2>
-      <p>
-        Die vielfältigen Behandlungsmöglichkeiten für Jugendliche mit einer Zahnspange finden Sie
-        gleich nachstehend. Alle Behandlungsdetails erhalten Sie durch Klick auf die gewünschte
-        Behandlungsart!
-      </p>
+          {/* 1. HERO SECTION */}
+          <section className="mb-10 rounded-3xl bg-gradient-to-r from-[#0f3c6e] via-[#155e75] to-[#38bdf8] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 text-white">
+            <div className="mx-auto flex max-w-5xl flex-col gap-6 lg:flex-row lg:items-center">
+              <div className="flex-1">
+                <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
+                  Zahnspange für Jugendliche
+                </h2>
+                <p className="mt-3 text-sm sm:text-base text-sky-50/90 leading-relaxed">
+                  In der Jugendphase lassen sich Zahn- und Kieferfehlstellungen oft effektiv korrigieren. Wir bieten feste
+                  und unsichtbare Optionen für Teenager.
+                </p>
+                <p className="mt-2 text-xs sm:text-sm text-sky-100/90">
+                  Zahnspange für Jugendliche Wien · Kieferorthopädie Jugendliche Wien · Zahnspange Teenager Wien
+                </p>
+                <div className="mt-4">
+                  <Link
+                    href={terminHref}
+                    className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
+                  >
+                    Kostenlose Erstberatung vereinbaren
+                  </Link>
+                </div>
+              </div>
+              <div className="mt-6 flex-1 lg:mt-0">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-soft">
+                  <Image
+                    src="/braces-for-teen/Jugendliche-600x469.png"
+                    alt="Jugendliche mit Zahnspange in kieferorthopädischer Behandlung"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <h3 className="mt-8">Metallbrackets</h3>
-      <p>Erwachsen-Metal brackets</p>
-      <p>Junge Frau mit Zahnspangen in grauer Farbe</p>
+          {/* 2. INTRO SECTION */}
+          <section className="mt-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Zahnspange für Jugendliche im Alter von <span className="underline decoration-sky-400">10 bis 18 Jahren</span>
+            </h2>
+            <p className="mt-3 mx-auto max-w-3xl text-sm sm:text-base text-slate-700 leading-relaxed">
+              Die vielfältigen Behandlungsmöglichkeiten für Jugendliche mit einer Zahnspange finden Sie
+              gleich nachstehend. Alle Behandlungsdetails erhalten Sie durch Klick auf die gewünschte
+              Behandlungsart!
+            </p>
+          </section>
 
-      <h3 className="mt-6">Durchsichtige Zahnspange – Unsichtbare Zahnspange</h3>
-      <p>Keramik Zahnspange für Kinder</p>
+          {/* 3. TREATMENT OPTIONS CARDS */}
+          <section className="mt-8">
+            <div className="grid gap-4 md:grid-cols-3">
+              {/* Metallbrackets */}
+              <article className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-40 w-full">
+                  <Image
+                    src="/braces-for-teen/1-1536x1024.jpg"
+                    alt="Junge Frau mit Metallbrackets"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
+                  />
+                </div>
+                <div className="px-4 py-3 text-sm">
+                  <h3 className="font-semibold text-[#0f2e5c]">Metallbrackets</h3>
+                  <p className="mt-2 text-slate-700 leading-relaxed">
+                    Erwachsen-Metal brackets
+                  </p>
+                  <p className="text-slate-700 leading-relaxed">
+                    Junge Frau mit Zahnspangen in grauer Farbe
+                  </p>
+                  <p className="text-slate-700 leading-relaxed">
+                    Junge Frau mit Metallbrackets
+                  </p>
+                </div>
+              </article>
 
-      <h3 className="mt-6">Clear Aligners, Invisalign Unsichtbare zahnspange</h3>
-      <p>Unsichtbare Zahnspange Wien - Invisalign Wien Clear Aligners Zahnspange für Erwachsene | Clear Aligners</p>
+              {/* Durchsichtige Zahnspange */}
+              <article className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-40 w-full">
+                  <Image
+                    src="/braces-for-teen/Zahnspange-1.png"
+                    alt="Durchsichtige Zahnspange – Keramik Zahnspange für Jugendliche"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
+                  />
+                </div>
+                <div className="px-4 py-3 text-sm">
+                  <h3 className="font-semibold text-[#0f2e5c]">
+                    Durchsichtige Zahnspange – Unsichtbare Zahnspange
+                  </h3>
+                  <p className="mt-2 text-slate-700 leading-relaxed">
+                    Keramik Zahnspange für Kinder
+                  </p>
+                </div>
+              </article>
 
-      <h2 className="mt-10">Warum ist die Zahnspange für Jugendliche in der Entwicklung so wichtig?</h2>
-      <p>
-        Schiefe Zähne oder eine Kiefer-Fehlstellung führen zu Überbelastungen einzelner Regionen.
-      </p>
-      <p>
-        <strong>ACHTUNG:</strong> Das kann die Zähne selbst schädigen oder auch Probleme des
-        Zahnhalte-Apparates, des Kieferknochens, des Kiefergelenkes und der Kaumuskulatur
-        verursachen. Auch Sprachprobleme sind eine häufig Ursache.
-      </p>
-      <p>
-        Das Wachstum des Kiefers kann in diesem Alter noch optimal beeinflusst werden. Ein
-        überschießendes Wachstum muss gehemmt werden. Ein zu langsames Wachstum des Kiefers muss
-        beschleunigt werden. Das sind wichtige Aufgaben eines guten Kieferorthopäden.
-      </p>
-      <p>Eine rechtzeitige Behandlung kann bei einer Vielzahl an Problemen helfen:</p>
-      <ul>
-        <li>Man kann zukünftigen, kieferorthopädische Behandlungen vorbeugen!</li>
-        <li>
-          Psychosoziale Aspekte und Optik sind häufig Gründe das man sich nicht wohl fühlt
-        </li>
-        <li>
-          Das Wachstum kann in dieser Zeit perfekt für die Behandlung genutzt werden.
-          Gesichtsschädel-Wachstum, der Zahnwechsel und der Zahndurchbruch.
-        </li>
-      </ul>
+              {/* Clear Aligners / Invisalign */}
+              <article className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-40 w-full">
+                  <Image
+                    src="/braces-for-teen/gallery-7-e1671902405301.jpg"
+                    alt="Clear Aligners und Invisalign unsichtbare Zahnspange für Jugendliche"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
+                  />
+                </div>
+                <div className="px-4 py-3 text-sm">
+                  <h3 className="font-semibold text-[#0f2e5c]">
+                    Clear Aligners, Invisalign Unsichtbare Zahnspange
+                  </h3>
+                  <p className="mt-2 text-slate-700 leading-relaxed">
+                    Unsichtbare Zahnspange Wien - Invisalign Wien Clear Aligners Zahnspange für Erwachsene | Clear Aligners
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
 
-      <h2 className="mt-10">
-        Was ist bei der kieferorthopädischen Behandlung (Zahnregulierung) einer Zahnfehlstellung zu
-        beachten?
-      </h2>
-      <h3 className="mt-6">Wann ist eine kieferorthopädische Behandlung bei Jugendlichen notwendig?</h3>
-      <p>
-        <strong>Zeitpunkt ist sehr wichtig:</strong>
-      </p>
-      <ul>
-        <li>
-          Ab dem 11, 12 Lebensjahr beginnt die wichtige Hauptphase der Behandlung – Phase 2 beginnt
-          nach Ende des späten Wechselgebisses oder direkt im Anschluss an den Zahnwechsels.
-        </li>
-        <li>
-          Der Wachstums-Höhepunkt wird bei Mädchen etwa mit 11 oder 12 Lebensjahr und bei Jungen mit
-          dem 13 oder 14 Lebensjahr erreicht.
-        </li>
-      </ul>
-      <p>Ein Behandlungsstart vor / zu diesem Zeitpunkt sinnvoll und vorteilhaft!</p>
+          {/* 4. WARUM WICHTIG SECTION */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Warum ist die Zahnspange für Jugendliche in der Entwicklung so wichtig?
+            </h2>
+            <div className="mt-4 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
+              <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                <p>
+                  Schiefe Zähne oder eine Kiefer-Fehlstellung führen zu Überbelastungen einzelner Regionen.
+                </p>
+                <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 shadow-soft">
+                  <p>
+                    <strong>ACHTUNG:</strong> Das kann die Zähne selbst schädigen oder auch Probleme des
+                    Zahnhalte-Apparates, des Kieferknochens, des Kiefergelenkes und der Kaumuskulatur
+                    verursachen. Auch Sprachprobleme sind eine häufig Ursache.
+                  </p>
+                </div>
+                <p>
+                  Das Wachstum des Kiefers kann in diesem Alter noch optimal beeinflusst werden. Ein
+                  überschießendes Wachstum muss gehemmt werden. Ein zu langsames Wachstum des Kiefers muss
+                  beschleunigt werden. Das sind wichtige Aufgaben eines guten Kieferorthopäden.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-56 w-full">
+                  <Image
+                    src="/braces-for-teen/smiling-beautiful-cute-brunette-woman-model-casual-summer-dress-with-no-makeup-with-white-braces-teeth-making-selfie-photo-phone-isolated-scaled.jpg"
+                    alt="Jugendliche mit weißer Zahnspange"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <p className="mt-6 font-medium">
-        Der richtige Startzeitpunkt der kieferorthopädischen Behandlung Zahnregulierung ist
-        besonders wichtig.
-      </p>
-      <p>Für den richtigen Startzeitpunkt relevant:</p>
-      <ul>
-        <li>Das chronologische Alter</li>
-        <li>Das dentale und skelettale Alter</li>
-        <li>Die skelettale Entwicklung</li>
-        <li>Die Art der Fehlstellung (Dysgnathie).</li>
-      </ul>
-      <p>
-        Ungünstige Wachstumseinflüsse können die Fehlstellung natürlich zusätzlich verstärken. einer
-        Erschwerung der Behandlung und einer Verschlechterung der Prognose beitragen.
-      </p>
-      <p>
-        Für die optimale Behandlung der Zahnfehlstellung wie z.B. Unterkiefer- oder
-        Oberkiefer-Rücklage ist das Wachstum unerlässlich.
-      </p>
+          {/* 5. VORTEILE EINER RECHTZEITIGEN BEHANDLUNG */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Eine rechtzeitige Behandlung kann bei einer Vielzahl an Problemen helfen:
+            </h2>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {[
+                "Man kann zukünftigen, kieferorthopädische Behandlungen vorbeugen!",
+                "Psychosoziale Aspekte und Optik sind häufig Gründe das man sich nicht wohl fühlt",
+                "Das Wachstum kann in dieser Zeit perfekt für die Behandlung genutzt werden. Gesichtsschädel-Wachstum, der Zahnwechsel und der Zahndurchbruch.",
+              ].map((text, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-gray-100 bg-white px-4 py-4 shadow-soft flex flex-col gap-2"
+                >
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-50 text-[#0f3c6e] text-sm font-semibold">
+                    {idx + 1}
+                  </div>
+                  <p className="text-sm text-slate-700 leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-      <h2 className="mt-10">Zahnspange bei Jugendlichen und die Behandlungsdauer</h2>
-      <p>
-        Je nach Zahnfehlstellung dauert eine Behandlung mit einer festsitzenden Zahnspange im
-        Durchschnitt 18-24 Monate mit Brackets. Bei Erwachsenen variiert die Dauer von Fall zu Fall.
-        Alle Details werden dann in dem kostenlosen Erstgespräch abgeklärt.
-      </p>
-      <p>Zahnspange Erwachsene</p>
+          {/* 6. WAS IST ZU BEACHTEN */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Was ist bei der kieferorthopädischen Behandlung (Zahnregulierung) einer Zahnfehlstellung zu beachten?
+            </h2>
+            <h3 className="mt-6 text-sm font-semibold text-[#0f2e5c]">
+              Wann ist eine kieferorthopädische Behandlung bei Jugendlichen notwendig?
+            </h3>
+            <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong>Zeitpunkt ist sehr wichtig:</strong>
+            </p>
+            <div className="mt-2 space-y-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <p>
+                Ab dem 11, 12 Lebensjahr beginnt die wichtige Hauptphase der Behandlung – Phase 2 beginnt
+                nach Ende des späten Wechselgebisses oder direkt im Anschluss an den Zahnwechsels.
+              </p>
+              <p>
+                Der Wachstums-Höhepunkt wird bei Mädchen etwa mit 11 oder 12 Lebensjahr und bei Jungen mit
+                dem 13 oder 14 Lebensjahr erreicht.
+              </p>
+              <p>Ein Behandlungsstart vor / zu diesem Zeitpunkt sinnvoll und vorteilhaft!</p>
+              <p className="mt-4 font-medium">
+                Der richtige Startzeitpunkt der kieferorthopädischen Behandlung Zahnregulierung ist
+                besonders wichtig.
+              </p>
+            </div>
 
-      <h2 className="mt-10">Zahnspange für Jugendliche, der Ablauf!</h2>
-      <ol>
-        <li>
-          Kostenlose Erstberatung für Zahnfehlstellung in unserer Kieferorthopädie. Termin nur nach
-          Vereinbarung!
-        </li>
-        <li>
-          Behandlungsunterlagen für individuellen Behandlungsverlauf erstellen. Diagnose mit
-          Röntgen, Fotos und digitalen Scans. Immer ohne Abdrücke.
-        </li>
-        <li>
-          Planbesprechung und Erklärung. Röntgenauswertung und die Analyse-Besprechung welche Art
-          von Zahnspange und/oder Brackets für den individuellen Fall notwendig sind.
-        </li>
-        <li>
-          Behandlungsbeginn. Einsetzen des Gerätes und Aufklärung über Reinigung und die Tragezeiten
-        </li>
-        <li>Wichtige und notwendigen Kontrolltermine alle 6-8 Wochen</li>
-        <li>
-          Behandlungsende. Entfernen der Spange und Besprechung des Behandlungsergebnisses
-        </li>
-        <li>
-          <strong>Retention</strong> – der Beginn der Stabilisierung des Behandlungsergebnisses
-        </li>
-      </ol>
+            <div className="mt-4 rounded-2xl border border-gray-100 bg-white px-4 py-4 shadow-soft">
+              <p className="text-sm font-semibold text-[#0f2e5c]">
+                Für den richtigen Startzeitpunkt relevant:
+              </p>
+              <ul className="mt-2 list-disc list-outside pl-5 space-y-1 text-sm sm:text-base text-slate-700">
+                <li>Das chronologische Alter</li>
+                <li>Das dentale und skelettale Alter</li>
+                <li>Die skelettale Entwicklung</li>
+                <li>Die Art der Fehlstellung (Dysgnathie).</li>
+              </ul>
+            </div>
 
-      <p className="mt-6">
-        <Link href={ablaufHref} className="text-accent font-medium hover:underline">
-          Hier finden Sie den gesamten Ablauf in meiner Kieferorthopädie im Detail erklärt.
-        </Link>
-      </p>
+            <div className="mt-4 space-y-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <p>
+                Ungünstige Wachstumseinflüsse können die Fehlstellung natürlich zusätzlich verstärken. einer
+                Erschwerung der Behandlung und einer Verschlechterung der Prognose beitragen.
+              </p>
+              <p>
+                Für die optimale Behandlung der Zahnfehlstellung wie z.B. Unterkiefer- oder
+                Oberkiefer-Rücklage ist das Wachstum unerlässlich.
+              </p>
+            </div>
+          </section>
+
+          {/* 7. BEHANDLUNGSDAUER */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Zahnspange bei Jugendlichen und die Behandlungsdauer
+            </h2>
+            <div className="mt-4 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+              <div className="rounded-2xl border border-gray-100 bg-white px-4 py-4 shadow-soft text-sm sm:text-base text-slate-700 leading-relaxed">
+                <p>
+                  Je nach Zahnfehlstellung dauert eine Behandlung mit einer festsitzenden Zahnspange im
+                  Durchschnitt 18-24 Monate mit Brackets. Bei Erwachsenen variiert die Dauer von Fall zu Fall.
+                  Alle Details werden dann in dem kostenlosen Erstgespräch abgeklärt.
+                </p>
+                <p className="mt-2">Zahnspange Erwachsene</p>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-56 w-full">
+                  <Image
+                    src="/braces-for-teen/Frau.png"
+                    alt="Jugendliche mit fester Zahnspange"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 8. METALL- UND KERAMIKBRACKETS */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Zahnspange bei Jugendlichen – Metall- und Keramikbrackets
+            </h2>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/braces-for-teen/Braces-1-628x649.png"
+                    alt="Metallbrackets für Jugendliche"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/braces-for-teen/close-up-portrait-young-cheerful-readhead-woman-orthodontist-1-scaled.jpg"
+                    alt="Keramikbrackets und Clear Aligners"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 9. DER ABLAUF */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Zahnspange für Jugendliche, der Ablauf!
+            </h2>
+            <div className="mt-4 grid gap-4">
+              {[
+                "Kostenlose Erstberatung für Zahnfehlstellung in unserer Kieferorthopädie. Termin nur nach Vereinbarung!",
+                "Behandlungsunterlagen für individuellen Behandlungsverlauf erstellen. Diagnose mit Röntgen, Fotos und digitalen Scans. Immer ohne Abdrücke.",
+                "Planbesprechung und Erklärung. Röntgenauswertung und die Analyse-Besprechung welche Art von Zahnspange und/oder Brackets für den individuellen Fall notwendig sind.",
+                "Behandlungsbeginn. Einsetzen des Gerätes und Aufklärung über Reinigung und die Tragezeiten",
+                "Wichtige und notwendigen Kontrolltermine alle 6-8 Wochen",
+                "Behandlungsende. Entfernen der Spange und Besprechung des Behandlungsergebnisses",
+                "Retention – der Beginn der Stabilisierung des Behandlungsergebnisses",
+              ].map((text, idx) => (
+                <div
+                  key={idx}
+                  className="group flex gap-3 rounded-2xl bg-[#f8fafc] px-4 py-3 sm:px-5 sm:py-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+                >
+                  <div className="mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-[#0f3c6e] text-white text-xs font-semibold">
+                    {idx + 1}
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 inline-block rounded-full bg-sky-50 px-4 py-2 text-xs sm:text-sm text-[#0f3c6e] border border-sky-100">
+              Hier finden Sie den gesamten Ablauf in meiner Kieferorthopädie im Detail erklärt.
+            </p>
+            <p className="mt-2">
+              <Link href={ablaufHref} className="text-accent font-medium hover:underline">
+                Zum detaillierten Behandlungsablauf
+              </Link>
+            </p>
+          </section>
+
+          {/* 10. FINAL CTA SECTION */}
+          <section className="mt-14 mb-2 rounded-3xl bg-[#0f3c6e] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 text-white text-center">
+            <h2 className="text-2xl sm:text-3xl font-semibold">
+              Beratung zur Zahnspange für Jugendliche vereinbaren
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-sky-100 max-w-xl mx-auto leading-relaxed">
+              Wir beraten Sie individuell zur passenden Behandlung für Jugendliche – mit festen oder unsichtbaren
+              Optionen.
+            </p>
+            <div className="mt-5 flex justify-center">
+              <Link
+                href={terminHref}
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm sm:text-base font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
+              >
+                Kostenlose Erstberatung vereinbaren
+              </Link>
+            </div>
+          </section>
         </>
       )}
       {locale === "en" && (
         <>
-          <h2>Braces for teenagers aged 10 to 18</h2>
-          <p>You will find the various treatment options for teenagers with braces below. Click on the option you are interested in for full details.</p>
-          <h3 className="mt-8">Metal brackets</h3>
-          <p>Adult metal brackets</p>
-          <p>Young woman with grey braces</p>
-          <h3 className="mt-6">Clear braces – invisible braces</h3>
-          <p>Ceramic braces for children</p>
-          <h3 className="mt-6">Clear aligners, Invisalign invisible braces</h3>
-          <p>Invisible braces Vienna – Invisalign Vienna clear aligners, braces for adults | clear aligners</p>
-          <h2 className="mt-10">Why are braces so important for teenagers during development?</h2>
-          <p>Crooked teeth or jaw misalignment lead to overload in certain areas.</p>
-          <p><strong>WARNING:</strong> This can damage the teeth themselves or cause problems with the periodontium, jawbone, jaw joint and masticatory muscles. Speech problems are also a common cause.</p>
-          <p>Jaw growth can still be influenced optimally at this age. Excessive growth must be restrained; slow growth must be encouraged. These are key tasks for a good orthodontist.</p>
-          <p>Timely treatment can help with many problems:</p>
-          <ul>
-            <li>It can prevent the need for future orthodontic treatment.</li>
-            <li>Psychosocial aspects and appearance are often reasons for feeling uncomfortable.</li>
-            <li>Growth can be used perfectly for treatment during this period – facial growth, tooth eruption and the change to permanent teeth.</li>
-          </ul>
-          <h2 className="mt-10">What should you consider with orthodontic treatment (correction) for misalignment?</h2>
-          <h3 className="mt-6">When is orthodontic treatment necessary for teenagers?</h3>
-          <p><strong>Timing is very important:</strong></p>
-          <ul>
-            <li>From around 11–12 years of age the main phase of treatment begins – phase 2 starts after the late mixed dentition or directly after the tooth change.</li>
-            <li>The growth peak is reached at around 11–12 in girls and 13–14 in boys.</li>
-          </ul>
-          <p>Starting treatment at or before this time is advisable and beneficial!</p>
-          <p className="mt-6 font-medium">The right start time for orthodontic treatment is especially important.</p>
-          <p>Relevant for the right start time:</p>
-          <ul>
-            <li>Chronological age</li>
-            <li>Dental and skeletal age</li>
-            <li>Skeletal development</li>
-            <li>Type of misalignment (dysgnathia)</li>
-          </ul>
-          <p>Unfavourable growth can further worsen misalignment and make treatment harder and the prognosis less favourable.</p>
-          <p>For optimal treatment of misalignment (e.g. lower or upper jaw retrusion), growth is essential.</p>
-          <h2 className="mt-10">Braces for teenagers and treatment duration</h2>
-          <p>Depending on the misalignment, treatment with fixed braces usually takes 18–24 months on average. In adults, duration varies from case to case. All details are discussed at the free initial consultation.</p>
-          <p>Braces for adults</p>
-          <h2 className="mt-10">Braces for teenagers – the process</h2>
-          <ol>
-            <li>Free initial consultation for misalignment at our orthodontic practice. By appointment only!</li>
-            <li>Create treatment records for your individual plan. Diagnosis with X-rays, photos and digital scans. Always without impressions.</li>
-            <li>Planning discussion and explanation. X-ray review and analysis of which type of brace and/or brackets are needed.</li>
-            <li>Start of treatment. Fitting the appliance and advice on cleaning and wear times.</li>
-            <li>Check-up appointments every 6–8 weeks.</li>
-            <li>End of treatment. Removal of the brace and discussion of the result.</li>
-            <li><strong>Retention</strong> – the start of stabilising the treatment result.</li>
-          </ol>
-          <p className="mt-6"><Link href={ablaufHref} className="text-accent font-medium hover:underline">Full details of the treatment process at our practice</Link></p>
+          {/* HERO SECTION – BRACES FOR TEENS */}
+          <section className="mb-10 rounded-3xl bg-gradient-to-r from-[#0f3c6e] via-[#155e75] to-[#38bdf8] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 text-white">
+            <div className="mx-auto flex max-w-5xl flex-col gap-6 lg:flex-row lg:items-center">
+              <div className="flex-1">
+                <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
+                  Braces for teenagers aged 10 to 18
+                </h2>
+                <p className="mt-3 text-sm sm:text-base text-sky-50/90 leading-relaxed">
+                  Modern metal brackets, clear braces and Invisalign clear aligners for teenagers – tailored orthodontic
+                  treatment in Vienna.
+                </p>
+                <p className="mt-2 text-xs sm:text-sm text-sky-100/90">
+                  Braces for teens · free braces · Invisalign for teenagers
+                </p>
+                <div className="mt-4">
+                  <Link
+                    href={terminHref}
+                    className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
+                  >
+                    Arrange a free initial consultation
+                  </Link>
+                </div>
+              </div>
+              <div className="mt-6 flex-1 lg:mt-0">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-soft">
+                  <Image
+                    src="/braces-for-teen/Jugendliche-600x469.png"
+                    alt="Teenager with braces smiling"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* TREATMENT OPTIONS GRID – METAL, CLEAR, ALIGNERS */}
+          <section className="mt-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Braces for teenagers
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-700 leading-relaxed max-w-3xl">
+              You will find the various treatment options for teenagers with braces below. Click on the option you are
+              interested in for full details.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-40 w-full">
+                  <Image
+                    src="/braces-for-teen/Braces-1-628x649.png"
+                    alt="Metal brackets for teenagers"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
+                  />
+                </div>
+                <div className="px-4 py-3 text-sm">
+                  <h3 className="font-semibold text-[#0f2e5c]">Metal brackets</h3>
+                  <p className="mt-1 text-slate-700">
+                    Adult metal brackets – young woman with grey braces.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-40 w-full">
+                  <Image
+                    src="/braces-for-teen/Zahnspange-1.png"
+                    alt="Clear ceramic braces"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
+                  />
+                </div>
+                <div className="px-4 py-3 text-sm">
+                  <h3 className="font-semibold text-[#0f2e5c]">Clear braces – invisible braces</h3>
+                  <p className="mt-1 text-slate-700">
+                    Ceramic braces for children and teenagers.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-40 w-full">
+                  <Image
+                    src="/braces-for-teen/gallery-7-e1671902405301.jpg"
+                    alt="Clear aligners and Invisalign for teens"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
+                  />
+                </div>
+                <div className="px-4 py-3 text-sm">
+                  <h3 className="font-semibold text-[#0f2e5c]">
+                    Clear aligners, Invisalign invisible braces
+                  </h3>
+                  <p className="mt-1 text-slate-700">
+                    Invisible braces Vienna – Invisalign Vienna clear aligners, braces for adults and teenagers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* WHY BRACES ARE IMPORTANT */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Why are braces so important for developing adolescents?
+            </h2>
+            <div className="mt-4 grid gap-5 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
+              <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                <p>Crooked teeth or a jaw misalignment lead to overloading of individual regions.</p>
+                <p>
+                  <strong>ATTENTION:</strong> This can damage the teeth themselves or cause problems with the
+                  periodontium, jawbone, jaw joint and chewing muscles. Speech problems are also a common consequence.
+                </p>
+                <p>
+                  The growth of the jaw can still be optimally influenced at this age. Excessive growth must be
+                  inhibited. Jaw growth that is too slow must be accelerated. These are important tasks of a good
+                  orthodontist.
+                </p>
+                <p>Timely treatment can help with a variety of problems:</p>
+                <ul className="list-disc list-outside pl-5 space-y-1">
+                  <li>You can prevent future orthodontic treatments.</li>
+                  <li>Psychosocial aspects and appearance are often reasons for not feeling well.</li>
+                  <li>
+                    Growth can be used perfectly for treatment during this time – facial skull growth, the change of
+                    teeth and the eruption of teeth.
+                  </li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                <div className="relative h-56 w-full">
+                  <Image
+                    src="/braces-for-teen/smiling-beautiful-cute-brunette-woman-model-casual-summer-dress-with-no-makeup-with-white-braces-teeth-making-selfie-photo-phone-isolated-scaled.jpg"
+                    alt="Teenager with white braces smiling"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* TIMING OF ORTHODONTIC TREATMENT */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              The right time to start orthodontic treatment is particularly important.
+            </h2>
+            <h3 className="mt-4 text-sm font-semibold text-[#0f2e5c]">
+              What should be taken into account during orthodontic treatment (tooth straightening) of a misaligned tooth?
+            </h3>
+            <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong>Timing is very important:</strong>
+            </p>
+            <ul className="mt-2 list-disc list-outside pl-5 space-y-1 text-sm sm:text-base text-slate-700">
+              <li>
+                The important main phase of treatment begins from the age of 11 or 12 – phase 2 begins after the end of
+                the late mixed dentition or directly after the change of teeth.
+              </li>
+              <li>
+                The growth peak is reached around the age of 11 or 12 for girls and around the age of 13 or 14 for boys.
+                Starting treatment at this point makes sense and is beneficial.
+              </li>
+            </ul>
+            <p className="mt-4 font-medium text-sm sm:text-base text-slate-700">
+              Relevant for the right starting time:
+            </p>
+            <ul className="mt-1 list-disc list-outside pl-5 space-y-1 text-sm sm:text-base text-slate-700">
+              <li>The chronological age</li>
+              <li>Dental and skeletal age</li>
+              <li>Skeletal development</li>
+              <li>The type of misalignment (dysgnathia)</li>
+            </ul>
+            <p className="mt-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+              Unfavorable growth influences can of course further exacerbate the misalignment, complicate treatment and
+              worsen the prognosis. Growth is essential for the optimal treatment of tooth misalignment such as lower
+              jaw or upper jaw retention.
+            </p>
+          </section>
+
+          {/* DURATION & PROCESS */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Braces in teenagers and the duration of treatment
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+              Depending on the misalignment of the teeth, treatment with fixed braces takes an average of 18–24 months
+              with brackets. In adults, the duration varies from case to case. All details will then be clarified in the
+              free initial consultation.
+            </p>
+          </section>
+
+          {/* TEEN BRACES GALLERY – USE REMAINING IMAGES */}
+          <section className="mt-10">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#0f2e5c]">
+              Braces for teens – impressions
+            </h2>
+            <p className="mt-2 text-sm text-slate-700 leading-relaxed max-w-3xl">
+              A few impressions of braces and clear aligner treatments for teenagers in our orthodontic practice.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  src: "/braces-for-teen/woman-with-dental-braces-teeth-glitter-lipstick-lips-talks-smiling-widely-blurred-background-room-home-extreme-closeup-scaled.jpg",
+                  alt: "Close-up of colourful braces",
+                  caption: "Colourful brace smile",
+                },
+                {
+                  src: "/braces-for-teen/close-up-portrait-young-cheerful-readhead-woman-orthodontist-1-scaled.jpg",
+                  alt: "Orthodontist with cheerful teen patient",
+                  caption: "Orthodontic check-up",
+                },
+                {
+                  src: "/braces-for-teen/Frau.png",
+                  alt: "Young woman showing her smile with braces",
+                  caption: "Confident smile with braces",
+                },
+              ].map((img) => (
+                <figure
+                  key={img.src}
+                  className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft"
+                >
+                  <div className="relative h-40 w-full overflow-hidden">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <figcaption className="px-3 py-2 text-sm text-gray-600">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          {/* PROCESS TIMELINE */}
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
+              Braces for teenagers, the process:
+            </h2>
+            <div className="mt-4 grid gap-4">
+              {[
+                "Free initial consultation for misaligned teeth in our orthodontics. Appointment only by appointment!",
+                "Create treatment documents for individual treatment courses. Diagnosis with X-rays, photos and digital scans. Always without marks.",
+                "Plan discussion and explanation. X-ray evaluation and the analysis discussion about which type of braces and/or brackets are necessary for the individual case.",
+                "Start of treatment. Inserting the device and providing information about cleaning and wearing times.",
+                "Important and necessary check-ups every 6-8 weeks.",
+                "End of treatment. Removing the braces and discussing the results of the treatment.",
+                "Retention – the beginning of stabilization of the treatment result.",
+              ].map((text, idx) => (
+                <div
+                  key={idx}
+                  className="group flex gap-3 rounded-2xl bg-[#f8fafc] px-4 py-3 sm:px-5 sm:py-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+                >
+                  <div className="mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-[#0f3c6e] text-white text-xs font-semibold">
+                    {idx + 1}
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6">
+              <Link href={ablaufHref} className="text-accent font-medium hover:underline">
+                Here you will find the entire process in my orthodontics explained in detail.
+              </Link>
+            </p>
+          </section>
         </>
       )}
     </PageContent>
