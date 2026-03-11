@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import PageContent from "./PageContent";
@@ -88,6 +89,18 @@ export default function UnsichtbareZahnspangeContent({
           können.
         </li>
       </ul>
+
+      <div className="mt-6 max-w-3xl mx-auto">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
+          <Image
+            src="/Invisible-beaces/Unsichtbare Zahnspange Wien Invisalign oder Clear Aligners.png"
+            alt="Unsichtbare Zahnspange Wien – Invisalign oder Clear Aligners"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 768px"
+          />
+        </div>
+      </div>
 
       <h3 className="mt-8">Unsichtbare Zahnspange Wien - Invisalign Clear Aligners</h3>
 

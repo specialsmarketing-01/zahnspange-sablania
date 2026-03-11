@@ -17,365 +17,268 @@ export default function GratisZahnspangeContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "Gratis Zahnspange";
   const lead = leads[dePath];
-  const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
   const terminHref = getHref("/online-termin", locale);
+  const isDe = locale === "de";
+
+  const heroTitle = isDe ? "Gratis Zahnspange für Kinder" : "Free braces for children";
+  const heroSubtitle = isDe
+    ? "Die Österreichische Gesundheitskasse (ÖGK) unterstützt unter bestimmten Voraussetzungen die Kosten für festsitzende Zahnspangen bei Kindern und Jugendlichen."
+    : "In Austria, the health insurance fund covers the costs of fixed braces for children and teenagers if specific criteria are met.";
+  const introHeading = isDe ? "Was bedeutet Gratis Zahnspange?" : "What does “free braces” mean?";
+  const introText1 = isDe
+    ? "Seit Juli 2015 gibt es neue Regeln für die Gratis-Zahnspange."
+    : "Since July 2015 there have been new rules for the Austrian “free braces” scheme.";
+  const introText2 = isDe
+    ? "Als Fachzahnarzt für Kieferorthopädie und qualifizierter Wahl-Kieferorthopäde der ÖGK biete ich auch die Gratiszahnspange an."
+    : "As a specialist orthodontist and qualified ÖGK partner, we also offer treatment within the free braces scheme.";
+  const introText3 = isDe
+    ? "PatientInnen bekommen 80% – 100% des Kassentarifs refundiert."
+    : "Patients can receive 80–100% of the statutory tariff back from the health insurance fund.";
 
   return (
-    <PageContent title={title} lead={lead} locale={locale} dict={dict}>
-      {locale === "de" && (
-        <>
-      <h2>Seit Juli 2015 gibt es neue Regeln für die Gratis-Zahnspange!</h2>
-      <p>
-        Als Fachzahnarzt für Kieferorthopädie und qualifizierter
-        Wahl-Kieferorthopäde der ÖGK biete ich auch die Gratiszahnspange an.
-      </p>
-      <p>
-        Das bedeutet: <strong>PatientInnen bekommen 80% – 100% des Kassentarifs refundiert.</strong>
-      </p>
-      <figure className="mt-6">
-        <Image
-          src="/gratis-zahnspange/1-2048x1365.jpg"
-          alt="Festsitzende Gratis-Zahnspange mit Metall-Brackets"
-          width={960}
-          height={480}
-          className="w-full rounded-xl shadow-soft object-cover"
-        />
-        <figcaption className="mt-2 text-sm text-gray-500">
-          Erwachsen – Metall-Brackets (festsitzende Gratis-Zahnspange).
-        </figcaption>
-      </figure>
-
-      <h2 className="mt-10">Gratis-Zahnspange Wien, Voraussetzungen und Ihr Anspruch auf Rückerstattung</h2>
-      <p>
-        Anspruch haben Kinder und Jugendliche während und nach dem Zahnwechsel und bis zur
-        Vollendung des 18. Lebensjahres.
-      </p>
-
-      <h3 className="mt-8">Zahnregulierung, Gratis Zahnspange – festsitzend oder abnehmbar: Voraussetzungen</h3>
-      <ul>
-        <li>
-          Es muss eine schwere Zahn-Fehlstellung und/oder Kiefer-Fehlstellung vorliegen, um Anspruch
-          auf eine Gratiszahnspange zu erhalten. Die Korrektur muss aus medizinischen Gründen
-          erforderlich sein (<strong>IOTN 4 oder 5</strong>). Das wird in einer Erstberatung festgestellt.
-          Schweregrad-Feststellung:{" "}
-          <Link href={terminHref}>Termin für Erstberatung vereinbaren</Link>.
-        </li>
-        <li>
-          Vor Behandlungsbeginn (Gratis Zahnspange) ist ein Antrag bei der Krankenkasse einzureichen.
-          Bei positiver Prüfung werden <strong>80–100% des Kassentarifs</strong> der festsitzenden Gratis
-          Zahnspange rückerstattet.{" "}
-          <em>
-            Tipp: Erkundigen Sie sich bei der Krankenkasse bereits vor Beginn der Behandlung.
-          </em>
-        </li>
-        <li>
-          Durchführung ausschließlich mit <strong>Metall-Brackets</strong>. Aufzahlungen für z. B. Keramik-Brackets
-          sind bei der Krankenkasse nicht zulässig.
-        </li>
-      </ul>
-
-      <h3 className="mt-10">Merke!</h3>
-      <p>
-        Wenn ein Fehlstellung-Schwergrad IOTN 4 oder 5 vorliegt, Eltern ihren Kindern aber eine
-        alternative Möglichkeit (ohne Zuschuss von der Krankenkassa) zur Gratis Zahnspange anbieten
-        wollen, dann bieten wir:
-      </p>
-      <ul>
-        <li>Durchsichtige Zahnspange</li>
-        <li>Keramik Brackets</li>
-        <li>Durchsichtige Schienen (Unsichtbare Zahnspange) Clear Aligner, Invisalign</li>
-        <li>Keramik Zahnspange für Kinder</li>
-        <li>Aligners</li>
-      </ul>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
+    <PageContent title={title} lead={lead} locale={locale} dict={dict} hideHeader showCta={false}>
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#0f3c6e] via-[#155e75] to-[#38bdf8] px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-16 text-white">
+        <div className="absolute inset-y-0 right-0 hidden w-1/2 opacity-20 lg:block">
           <Image
-            src="/gratis-zahnspange/Aligners-35-q1ah25wbsc1ausmvjri1zvu9hxd6rvlh3ro9a6rxnw.jpg"
-            alt="Durchsichtige Zahnspange"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
+            src="/gratis-zahnspange/Teaser-Zahspange.png"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="50vw"
+            priority
           />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Durchsichtige Zahnspange</figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/girl-eating-chocolate-with-ceramic-teeth-braces_10069-205.png"
-            alt="Keramik Brackets"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Keramik Brackets</figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/Screenshot-5329-860x649.png"
-            alt="Clear Aligner / Invisalign"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Durchsichtige Schienen / Invisalign</figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/Kind-Laecheln.png"
-            alt="Keramik Zahnspange für Kinder"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">
-            Keramik Zahnspange für Kinder
-          </figcaption>
-        </figure>
-      </div>
+        </div>
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center text-center gap-5">
+          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+            {isDe ? "Kassen-Zahnspange für Kinder & Jugendliche" : "Publicly funded braces for children & teens"}
+          </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">{heroTitle}</h1>
+          <p className="max-w-2xl text-sm sm:text-base text-sky-50/90 leading-relaxed">{heroSubtitle}</p>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href={terminHref}
+              className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
+            >
+              {isDe ? "Kostenlose Erstberatung vereinbaren" : "Book a free initial consultation"}
+            </Link>
+            <a
+              href="#gratis-intro"
+              className="inline-flex items-center justify-center rounded-full border border-white/60 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition"
+            >
+              {isDe ? "Mehr zur Gratis Zahnspange" : "Learn more about free braces"}
+            </a>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-sky-50/90">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-sm">
+                ⭐
+              </span>
+              <span>
+                5&nbsp;/&nbsp;5 Google-Bewertung <span className="opacity-80">· 70+ Patientenbewertungen</span>
+              </span>
+            </div>
+            <div className="h-4 w-px bg-sky-100/30 hidden sm:block" />
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-sm">
+                🧒
+              </span>
+              <span>{isDe ? "Spezialisiert auf Kinder & Jugendliche" : "Specialised in children & teens"}</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <h2 className="mt-10">Gratis-Zahnspange – Interzeptive Behandlung in der Wechselgebiss-Phase</h2>
-      <p>
-        Im{" "}
-        <strong>
-          <a
-            href="https://de.wikipedia.org/wiki/Wechselgebiss"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            Wechselgebiss
-          </a>
-        </strong>{" "}
-        – eine Behandlung geeignet für Kinder zwischen 6 und 10 Jahren – handelt es sich um eine
-        Behandlung in der Frühphase: eine begrenzte Behandlung im Milch- oder Wechselgebiss.
-      </p>
-      <p>
-        <strong>Dauer der Behandlung:</strong> maximal 1 Jahr. Danach wird eine Pause eingelegt. In der
-        Folge finden regelmäßige Kontrollen im Abstand von 4–6 Monaten statt.
-      </p>
-      <p>
-        <strong>Warum ist das so?</strong> Weil Kinder in dieser Phase Milchzähne verlieren und die
-        bleibenden Zähne gerade durchbrechen. Im Alter von 12–13 Jahren wird erneut kontrolliert,
-        ob eine weitere Zahnregulierung notwendig ist. Falls ja, erfolgt in der Regel eine Behandlung
-        mit festsitzender Zahnspange.
-      </p>
-
-      <h2 className="mt-10">Kiefer-Zahnfehlstellungen, die unbedingt eine Behandlung erfordern</h2>
-      <ul>
-        <li>
-          <strong>Habits</strong> – oder schlechte Gewohnheiten, die eine Kiefer- oder
-          Zahn-Fehlstellung verursachen, z. B. Zungenpressen, falsche Schluckmuster, Daumenlutschen,
-          Lippenpressen, Fingernägelkauen etc.
-        </li>
-        <li>
-          <strong>Kreuzbiss</strong> seitlich beidseitig oder einseitig. Kreuzbiss Frontzähne /
-          Progener Zwangbiss.
-        </li>
-        <li>Front offener Biss.</li>
-        <li>
-          Platzmangel durch verschiedene Gründe oder frühzeitiges Verlieren der Milchzähne.
-        </li>
-        <li>Tiefbiss (Deepbite).</li>
-        <li>Deckbiss / Überbiss.</li>
-        <li>Ausgeprägte Frontzahnstufe.</li>
-        <li>Rücklage im Oberkiefer (Maxilla) – Klasse 3.</li>
-      </ul>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/1-Vorher-scaled-q64zyvmtlf8apes9dp27nc7p5e4l68vkzu0ft5w5ok.jpg"
-            alt="1 Vorher"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">1 Vorher</figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/3-Vorher-q6504q6o4b8iy2af882n5v2y7pat2g3ggs57b57yys.jpg"
-            alt="3 Vorher"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">3 Vorher</figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/Tiefbiss-Deepbite-768x355-1-qcg52ofkkfiaqriegr6sa4qgpfa1jrebkrjcy9yklg.jpg"
-            alt="Tiefbiss (Deepbite)"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">Tiefbiss (Deepbite)</figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-primary/10 bg-white shadow-soft">
-          <Image
-            src="/gratis-zahnspange/11-vor-q631w2oyn5p9yfaqs77kgyk85kpfzfiqt43c3mh9s4.jpg"
-            alt="Ausgeprägte Frontzahnstufe / Rücklage Oberkiefer"
-            width={480}
-            height={320}
-            className="h-40 w-full object-cover"
-          />
-          <figcaption className="px-3 py-2 text-sm text-gray-600">
-            Deckbiss / Überbiss · 11 vor · Rücklage Oberkiefer (Maxilla) Klasse 3
-          </figcaption>
-        </figure>
-      </div>
-
-      <h2 className="mt-10">Gratis-Zahnspange – die Hauptbehandlung im bleibenden Gebiss (Fixezahnspange)</h2>
-      <p>
-        Wenn eine Schweregrad-Fehlstellung von <strong>IOTN 4 oder IOTN 5</strong> vorliegt, besteht
-        Anspruch auf Rückerstattung der Zahnspange. Diese „Gratis-Zahnspange“ für Kinder hat eine
-        wichtige Voraussetzung: Es dürfen nur <strong>festsitzende Zahnspangen aus Metall</strong> bei
-        der Gratis-Zahnspangen-Behandlung verwendet werden.
-      </p>
-      <p>
-        <strong>TIPP:</strong> Auch wenn der Schweregrad der Fehlstellung (IOTN) bereits feststeht,
-        empfehle ich immer eine Rücksprache mit der Krankenkasse.
-      </p>
-      <p>
-        Die Behandlungsdauer für eine festsitzende oder abnehmbare Gratis-Zahnspange ist natürlich
-        vom Schweregrad der Zahn-Fehlstellung abhängig. In der Regel dauert die Behandlung mit
-        einer festsitzenden Gratis-Zahnspange etwa <strong>18–24 Monate</strong>.
-      </p>
-
-      <h3 className="mt-8">Die abnehmbare Gratis-Zahnspange</h3>
-      <p>
-        Die abnehmbare Gratis-Zahnspange ist nur dann hilfreich, wenn sie{" "}
-        <strong>mindestens 12–14 Stunden pro Tag</strong> getragen wird.
-      </p>
-      <p>
-        <strong>Behandlungsdauer:</strong> etwa 1 Jahr.
-      </p>
-
-      <h2 className="mt-10">Gratis Zahnspange Wien: Wichtige Links zur Rückerstattung durch die Krankenkasse!</h2>
-      <ol>
-        <li>
-          Kostenlose Erstberatung für Zahnfehlstellung in unserer Kieferorthopädie. Termin nur nach
-          Vereinbarung!
-        </li>
-        <li>
-          Behandlungsunterlagen für individuellen Behandlungsverlauf erstellen. Diagnose mit
-          Röntgen, Fotos und digitalen Scans. Immer ohne Abdrücke.
-        </li>
-        <li>
-          Planbesprechung und Erklärung. Röntgenauswertung und die Analyse-Besprechung welche Art
-          von Zahnspange und/oder Brackets für den individuellen Fall notwendig sind.
-        </li>
-        <li>
-          Behandlungsbeginn – Einsetzen des Gerätes und Aufklärung über Reinigung und die
-          Tragezeiten.
-        </li>
-        <li>Wichtige und notwendigen Kontrolltermine alle 6–8 Wochen.</li>
-        <li>
-          Behandlungsende. Entfernen der Spange und Besprechung des Behandlungsergebnisses.
-        </li>
-        <li>
-          <strong>Retention</strong> – der Beginn der Stabilisierung des Behandlungsergebnisses.
-        </li>
-      </ol>
-
-      <h2 className="mt-10">
-        Behandlungsmöglichkeiten bei Zahnfehlstellung ohne Möglichkeit der Rückerstattung
-      </h2>
-      <p>
-        Zum Beispiel wenn Kinder nicht eine Schweregrad-Fehlstellung von IOTN 4 oder IOTN 5 haben
-        (Voraussetzung für eine Gratis-Zahnspange), sondern nur <strong>IOTN 2 oder 3</strong> –
-        Alternativ zur Gratis Zahnspange:
-      </p>
-      <ul>
-        <li>
-          Behandlung mit <strong>Keramik Brackets</strong> – eine festsitzende Zahnspange.
-        </li>
-        <li>
-          Behandlung mit <strong>Clear Aligners</strong> – durchsichtige Aligner oder durchsichtige
-          Schienen.
-        </li>
-        <li>
-          Behandlung mit der <strong>unsichtbaren Zahnspange</strong> – innenliegend oder Lingual
-          (Lingual unsichtbare Spange).
-        </li>
-      </ul>
-
-      <h2 className="mt-10">Kieferorthopädie und der genaue Ablauf einer Behandlung</h2>
-      <ol>
-        <li>
-          Kostenlose Erstberatung für Zahnfehlstellung in unserer Kieferorthopädie. Termin nur nach
-          Vereinbarung!
-        </li>
-        <li>
-          Behandlungsunterlagen für individuellen Behandlungsverlauf erstellen. Diagnose mit
-          Röntgen, Fotos und digitalen Scans. Immer ohne Abdrücke.
-        </li>
-        <li>
-          Planbesprechung und Erklärung. Röntgenauswertung und die Analyse-Besprechung welche Art
-          von Zahnspange und/oder Brackets für den individuellen Fall notwendig sind.
-        </li>
-        <li>
-          Behandlungsbeginn – Einsetzen des Gerätes und Aufklärung über Reinigung und die
-          Tragezeiten.
-        </li>
-        <li>Wichtige und notwendigen Kontrolltermine alle 6–8 Wochen.</li>
-        <li>
-          Behandlungsende – Entfernen der Spange und Besprechung des Behandlungsergebnisses.
-        </li>
-        <li>
-          <strong>Retention</strong> – der Beginn der Stabilisierung des Behandlungsergebnisses.
-        </li>
-      </ol>
-
-      <p className="mt-6 text-gray-600">
-        Den gesamten Ablauf in meiner Kieferorthopädie{" "}
-        <Link href={ablaufHref} className="text-accent font-medium hover:underline">
-          im Detail erklärt
-        </Link>
-        .
-      </p>
-        </>
-      )}
-      {locale === "en" && (
-        <>
-          <h2>Since July 2015 there are new rules for free braces!</h2>
-          <p>As a specialist orthodontist and qualified Wahl-Kieferorthopäde (ÖGK), I also offer the free brace scheme. This means patients can get 80–100% of the health fund tariff refunded.</p>
-          <h2 className="mt-10">Free braces Vienna – requirements and your right to reimbursement</h2>
-          <p>Children and teenagers during and after the tooth change and until the end of their 18th year are entitled.</p>
-          <h3 className="mt-8">Braces – free brace, fixed or removable: requirements</h3>
-          <ul>
-            <li>There must be severe dental and/or jaw misalignment (IOTN 4 or 5). This is determined at an initial consultation. <Link href={terminHref}>Book an initial consultation</Link>.</li>
-            <li>Before treatment starts, an application must be submitted to the health fund. If approved, 80–100% of the fixed free brace tariff is refunded. Tip: check with your fund before starting.</li>
-            <li>Treatment is with metal brackets only. Top-ups for e.g. ceramic brackets are not covered.</li>
-          </ul>
-          <h3 className="mt-10">Note!</h3>
-          <p>If severity is IOTN 4 or 5 but parents want an alternative (without fund support), we offer: clear braces, ceramic brackets, clear aligners (Invisalign), ceramic braces for children, aligners.</p>
-          <h2 className="mt-10">Free braces – interceptive treatment in the mixed dentition</h2>
-          <p>In the mixed dentition (around 6–10 years), early limited treatment. Duration: max. 1 year, then a break and check-ups every 4–6 months. Around 12–13 we check again; if needed, fixed braces follow.</p>
-          <h2 className="mt-10">Jaw/tooth misalignments that require treatment</h2>
-          <p>Habits (e.g. tongue thrust, thumb-sucking); crossbite; anterior open bite; lack of space; deep bite/overbite; pronounced overjet; upper jaw retrusion (class 3).</p>
-          <h2 className="mt-10">Free braces – main treatment in the permanent dentition</h2>
-          <p>If IOTN 4 or 5 applies, you are entitled to reimbursement. Only fixed metal braces may be used for the free brace scheme. Tip: always confirm with your health fund. Treatment with fixed free braces usually takes 18–24 months.</p>
-          <h3 className="mt-8">Removable free brace</h3>
-          <p>Only effective if worn at least 12–14 hours per day. Duration about 1 year.</p>
-          <h2 className="mt-10">Free braces Vienna: important steps for reimbursement</h2>
-          <ol>
-            <li>Free initial consultation. By appointment only!</li>
-            <li>Treatment records. Diagnosis with X-rays, photos and digital scans. Without impressions.</li>
-            <li>Planning discussion. X-ray review and analysis of which brace/brackets are needed.</li>
-            <li>Start of treatment. Fitting and advice on cleaning and wear.</li>
-            <li>Check-ups every 6–8 weeks.</li>
-            <li>End of treatment. Removal and discussion of the result.</li>
-            <li><strong>Retention</strong> – stabilising the result.</li>
-          </ol>
-          <h2 className="mt-10">Treatment options when reimbursement is not possible</h2>
-          <p>If severity is only IOTN 2 or 3: we can offer ceramic brackets, clear aligners, or lingual (invisible) braces.</p>
-          <h2 className="mt-10">Orthodontics and the treatment process</h2>
-          <p>Same 7 steps as above.</p>
-          <p className="mt-6 text-gray-600">
-            <Link href={ablaufHref} className="text-accent font-medium hover:underline">Full details of the treatment process at our practice</Link>.
+      {/* INTRODUCTION */}
+      <section id="gratis-intro" className="mt-10 sm:mt-12 text-center">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-[#0f2e5c]">{introHeading}</h2>
+        <div className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-slate-700 leading-relaxed space-y-3">
+          <p>{introText1}</p>
+          <p>{introText2}</p>
+          <p>
+            {isDe ? (
++              <span>
++                <strong>PatientInnen bekommen 80% – 100% des Kassentarifs refundiert.</strong>
++              </span>
+            ) : (
+              <span>{introText3}</span>
+            )}
           </p>
-        </>
-      )}
+        </div>
+      </section>
+
+      {/* IMAGE GRID */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c] text-center">
+          {isDe ? "Einblicke in unsere Behandlung" : "A look into our treatments"}
+        </h2>
+        <p className="mt-3 text-sm sm:text-base text-slate-600 text-center max-w-2xl mx-auto">
+          {isDe
+            ? "Moderne Kieferorthopädie mit Fokus auf schonende Behandlung, kindgerechte Betreuung und langfristig stabile Ergebnisse."
+            : "Modern orthodontics with gentle treatment, child-friendly care and long-lasting results."}
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              src: "/gratis-zahnspange/Kind-Laecheln.png",
+              alt: "Kind mit Zahnspange",
+            },
+            {
+              src: "/gratis-zahnspange/jugendliche-skaliert.png",
+              alt: "Jugendliche mit Zahnspange",
+            },
+            {
+              src: "/gratis-zahnspange/beautiful-young-woman-is-dentist-she-is-open-mouthed-shows-newly-fixed-aesthetic-self-aligning-lingual-locks-close-up-860x649.jpg",
+              alt: "Erwachsene mit Zahnspange in Behandlung",
+            },
+            {
+              src: "/gratis-zahnspange/Zahnarzt-1-e1671695799854.png",
+              alt: "Zahnarzt bei der Behandlung",
+            },
+            {
+              src: "/gratis-zahnspange/spiegle-etc-klein.png",
+              alt: "Kieferorthopädische Instrumente",
+            },
+            {
+              src: "/gratis-zahnspange/Zahnspange-1-pzjfyo51j40kv49z4w8mofsr7omfkjws47rwkxmwx8.png",
+              alt: "Detailansicht einer Zahnspange",
+            },
+          ].map((img) => (
+            <figure
+              key={img.src}
+              className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft"
+            >
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* INFORMATION CARDS */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c] text-center">
+          {isDe ? "Wer hat Anspruch auf die Gratis Zahnspange?" : "Who is eligible for free braces?"}
+        </h2>
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          <div className="rounded-2xl border border-gray-100 bg-white px-5 py-6 shadow-soft">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-[#0f3c6e] text-lg mb-3">
+              🧒
+            </div>
+            <h3 className="text-base font-semibold text-[#0f2e5c]">
+              {isDe ? "Wer bekommt die Gratis Zahnspange?" : "Who can receive free braces?"}
+            </h3>
+            <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+              {isDe
+                ? "Kinder und Jugendliche während und nach dem Zahnwechsel bis zur Vollendung des 18. Lebensjahres können – bei vorliegender schwerer Fehlstellung – Anspruch auf die Gratis Zahnspange haben."
+                : "Children and teenagers during and after the mixed dentition phase up to their 18th birthday may be eligible if a severe malocclusion is present."}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-gray-100 bg-white px-5 py-6 shadow-soft">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-[#0f3c6e] text-lg mb-3">
+              📊
+            </div>
+            <h3 className="text-base font-semibold text-[#0f2e5c]">
+              {isDe ? "Voraussetzungen (IOTN 4 & 5)" : "Requirements (IOTN 4 & 5)"}
+            </h3>
+            <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+              {isDe
+                ? "Die Zahn- bzw. Kieferfehlstellung muss einen Schweregrad von IOTN 4 oder 5 aufweisen. Dies wird im Rahmen der Erstberatung und Befundaufnahme exakt festgestellt."
+                : "The dental or jaw misalignment must reach severity level IOTN 4 or 5, determined precisely during the initial consultation and diagnostic work-up."}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-gray-100 bg-white px-5 py-6 shadow-soft">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-[#0f3c6e] text-lg mb-3">
+              📅
+            </div>
+            <h3 className="text-base font-semibold text-[#0f2e5c]">
+              {isDe ? "Alter der Kinder" : "Age of children"}
+            </h3>
+            <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+              {isDe
+                ? "Je nach Befund beginnt die Behandlung im Wechselgebiss (ca. 6–10 Jahre) oder im bleibenden Gebiss. Wir beraten Sie persönlich, welches Timing für Ihr Kind optimal ist."
+                : "Depending on the findings, treatment starts in the mixed dentition (approx. 6–10 years) or in the permanent dentition. We advise you personally on the best timing."}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS SECTION */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c] text-center">
+          {isDe ? "Ihre Vorteile in unserer Kieferorthopädie" : "Your benefits at our orthodontic practice"}
+        </h2>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              icon: "💶",
+              title: isDe ? "Kostenübernahme durch Krankenkasse" : "Cost coverage by health fund",
+              text: isDe
+                ? "Wir helfen bei Antragstellung und Rückerstattung durch die Krankenkasse."
+                : "We support you with applications and reimbursement by the insurance fund.",
+            },
+            {
+              icon: "🦷",
+              title: isDe ? "Moderne Behandlungsmethoden" : "Modern treatment methods",
+              text: isDe
+                ? "Festsitzende Zahnspangen, Aligner und Keramikbrackets je nach Situation."
+                : "Fixed appliances, aligners and ceramic brackets depending on the case.",
+            },
+            {
+              icon: "💻",
+              title: isDe ? "Digitale Planung" : "Digital planning",
+              text: isDe
+                ? "Digitale Scans statt Abdruck, präzise Planung und Verlaufskontrolle."
+                : "Digital scans instead of impressions, precise planning and progress tracking.",
+            },
+            {
+              icon: "👨‍👩‍👧",
+              title: isDe ? "Individuelle Betreuung" : "Individual care",
+              text: isDe
+                ? "Ausführliche Beratung für Kinder und Eltern – verständlich und transparent."
+                : "Comprehensive counselling for children and parents – clear and transparent.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-gray-100 bg-white px-5 py-6 shadow-soft flex flex-col"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-[#0f3c6e] text-lg mb-3">
+                {item.icon}
+              </div>
+              <h3 className="text-sm font-semibold text-[#0f2e5c]">{item.title}</h3>
+              <p className="mt-2 text-sm text-slate-700 leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="mt-14 mb-2 rounded-3xl bg-[#0f3c6e] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 text-white text-center">
+        <h2 className="text-2xl sm:text-3xl font-semibold">
+          {isDe ? "Jetzt kostenlose Erstberatung vereinbaren" : "Book your free initial consultation now"}
+        </h2>
+        <p className="mt-3 text-sm sm:text-base text-sky-100 max-w-xl mx-auto leading-relaxed">
+          {isDe
+            ? "Wir prüfen, ob Ihr Kind Anspruch auf die Gratis Zahnspange hat und welche Behandlungsmöglichkeiten in Frage kommen – transparent und verständlich."
+            : "We check whether your child is eligible for the Austrian free braces scheme and discuss all suitable treatment options – clearly and transparently."}
+        </p>
+        <div className="mt-5 flex justify-center">
+          <Link
+            href={terminHref}
+            className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm sm:text-base font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
+          >
+            {isDe ? "Termin online buchen" : "Book appointment online"}
+          </Link>
+        </div>
+      </section>
     </PageContent>
   );
 }
