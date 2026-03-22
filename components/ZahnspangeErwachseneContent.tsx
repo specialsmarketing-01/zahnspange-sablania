@@ -77,7 +77,7 @@ export default function ZahnspangeErwachseneContent({
       <div className="mt-4 max-w-2xl mx-auto">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
           <Image
-            src="/zahnspange-fuer-erwachsene/Lingualtechnik-640-\u00d7-500-px-e1670235670602.png"
+            src="/zahnspange-fuer-erwachsene/Lingualtechnik-640-%C3%97-500-px-e1670235670602.png"
             alt="Lingualtechnik Zahnspange – innenliegende Zahnspange"
             fill
             className="object-cover"
@@ -96,6 +96,18 @@ export default function ZahnspangeErwachseneContent({
         Nacht getragen werden. Zum Essens und Zähneputzens werden die Invisalign Clear Aligner
         Schienen herausgenommen.
       </p>
+
+      <div className="mt-4 max-w-2xl mx-auto">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
+          <Image
+            src="/zahnspange-fuer-erwachsene/SDC12926-.jpg"
+            alt="Erwachsene Patientin mit Invisalign Clear Alignern"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 768px"
+          />
+        </div>
+      </div>
 
       <h2 className="mt-10">Rückerstattungsmöglichkeiten bei Zahnspangen für Erwachsene</h2>
       <p>

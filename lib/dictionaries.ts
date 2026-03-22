@@ -177,11 +177,6 @@ export const dictionaries = {
       whySub: "Qualität, Vertrauen und Ergebnisse – dafür stehen wir.",
       whyFeatures: [
         {
-          title: "Modernste Technik",
-          description:
-            "Digitale Abformung, 3D-Scans und präzise Planung für optimale Ergebnisse.",
-        },
-        {
           title: "Individuelle Betreuung",
           description:
             "Behandlungspläne abgestimmt auf Ihre Bedürfnisse – mit persönlicher Begleitung.",
@@ -684,11 +679,6 @@ export const dictionaries = {
       whyTitle: "Why Choose Us",
       whySub: "Quality, trust and results – that is what we stand for.",
       whyFeatures: [
-        {
-          title: "State-of-the-Art Technology",
-          description:
-            "Digital impressions, 3D scans and precise planning for reliable results.",
-        },
         {
           title: "Individual Care",
           description:
