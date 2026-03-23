@@ -54,7 +54,7 @@ export const ALL_ROUTES: RouteItem[] = [
   { path: "/sportschutz-mouthguards", title: "Sportschutz Mouthguards" },
   { path: "/vorher-nachher-fotos", title: "Vorher & Nachher Fotos" },
   { path: "/faqs", title: "FAQs" },
-  { path: "/online-termin", title: "Online Termin" },
+  { path: "/online-termine", title: "Online Termin" },
   { path: "/impressum", title: "Impressum" },
   { path: "/datenschutz", title: "Datenschutz" },
 ];
@@ -83,7 +83,7 @@ export const NAV_MAIN = [
   { href: "/unser-team", label: "Unser Team" },
   { href: "/vorher-nachher-fotos", label: "Vorher & Nachher" },
   { href: "/faqs", label: "FAQs" },
-  { href: "/online-termin", label: "Online Termin" },
+  { href: "/online-termine", label: "Online Termin" },
   { href: "/impressum", label: "Impressum" },
   { href: "/datenschutz", label: "Datenschutz" },
 ];
@@ -97,7 +97,7 @@ export const FOOTER_LINKS = [
   { href: "/unser-team", label: "Unser Team" },
   { href: "/vorher-nachher-fotos", label: "Vorher & Nachher" },
   { href: "/faqs", label: "FAQs" },
-  { href: "/online-termin", label: "Online Termin" },
+  { href: "/online-termine", label: "Online Termin" },
   { href: "/impressum", label: "Impressum" },
   { href: "/datenschutz", label: "Datenschutz" },
 ];

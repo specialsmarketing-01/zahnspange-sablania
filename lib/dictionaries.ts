@@ -115,6 +115,7 @@ export const dictionaries = {
       "/unsere-ordination": "Unsere Ordination",
       "/unser-team": "Unser Team",
       "/vorher-nachher-fotos": "Vorher & Nachher",
+      "/online-termine": "Online Termin",
       "/online-termin": "Online Termin",
       "/faqs": "FAQs",
       "/impressum": "Impressum",
@@ -149,7 +150,7 @@ export const dictionaries = {
       heroHeadlineMain: "Allgemein Zahnarzt und",
       heroHeadlineAccent: "Fachzahnarzt für Kieferorthopädie",
       heroDescription:
-        "Wir bieten moderne Zahnkorrekturen für Kinder, Jugendliche und Erwachsene – von klassischen Zahnspangen bis zu unsichtbaren Alignern.",
+        "Wir bieten Zahnkorrekturen für Kinder, Jugendliche und Erwachsene – von klassischen Zahnspangen bis zu unsichtbaren Alignern.",
       heroCtaPrimary: "Jetzt Termin vereinbaren",
       heroCtaSecondary: "Leistungen entdecken",
       heroInfo: "Persönliche Beratung • Moderne Technik • Digitale Diagnostik",
@@ -243,7 +244,7 @@ export const dictionaries = {
       firstVisitText1:
         "Dabei prüfen wir den aktuellen Zustand Ihrer Zähne und besprechen gemeinsam Ihre Wünsche und Ziele für Ihre Zahngesundheit.",
       firstVisitText2:
-        "Ob professionelle Zahnreinigung, hochwertiger Zahnersatz oder moderne Zahnkorrekturen - auf Basis der Analyse erstellen wir einen individuellen Behandlungsplan, der optimal zu Ihnen passt.",
+        "Ob professionelle Zahnreinigung, hochwertiger Zahnersatz oder Zahnkorrekturen - auf Basis der Analyse erstellen wir einen individuellen Behandlungsplan, der optimal zu Ihnen passt.",
       firstVisitBadgeLeading: "The Leading Dentists of the World",
       firstVisitBadgeHygiene: "Hygiene-Prädikat 2025",
       firstVisitQuickAppointments: "Schnelle Termine online oder telefonisch",
@@ -618,6 +619,7 @@ export const dictionaries = {
       "/unsere-ordination": "Our Practice",
       "/unser-team": "Our Team",
       "/vorher-nachher-fotos": "Before & After",
+      "/online-termine": "Book Appointment",
       "/online-termin": "Book Appointment",
       "/faqs": "FAQs",
       "/impressum": "Imprint",
@@ -652,7 +654,7 @@ export const dictionaries = {
       heroHeadlineMain: "Your Specialist for Braces –",
       heroHeadlineAccent: "aesthetic, precise & individual.",
       heroDescription:
-        "We offer modern orthodontic treatment for children, teenagers and adults – from classic braces to invisible aligners.",
+        "We offer orthodontic treatment for children, teenagers and adults – from classic braces to invisible aligners.",
       heroCtaPrimary: "Book Appointment Now",
       heroCtaSecondary: "Discover Services",
       heroInfo: "Personal Consultation • Modern Technology • Digital Diagnostics",
@@ -746,7 +748,7 @@ export const dictionaries = {
       firstVisitText1:
         "We check the current condition of your teeth and discuss your wishes and goals for your dental health together.",
       firstVisitText2:
-        "Whether professional teeth cleaning, high-quality dental restorations or modern orthodontics – based on the analysis we create an individual treatment plan that suits you best.",
+        "Whether professional teeth cleaning, high-quality dental restorations or orthodontics – based on the analysis we create an individual treatment plan that suits you best.",
       firstVisitBadgeLeading: "The Leading Dentists of the World",
       firstVisitBadgeHygiene: "Hygiene seal 2025",
       firstVisitQuickAppointments: "Quick appointments online or by phone",

@@ -26,6 +26,7 @@ export const DE_TO_EN: Record<string, string> = {
   "/vorher-nachher": "/en/before-after",
   "/vorher-nachher-fotos": "/en/before-after",
   "/kontakt": "/en/contact",
+  "/online-termine": "/en/book-appointment",
   "/online-termin": "/en/book-appointment",
   "/faqs": "/en/faqs",
   "/impressum": "/en/imprint",
@@ -87,5 +88,6 @@ export function getLocaleFromPathname(pathname: string): Locale {
  * Href for a given German path and locale. Use for nav/footer links.
  */
 export function getHref(dePath: string, locale: Locale): string {
-  return locale === "de" ? dePath : (DE_TO_EN[dePath] ?? "/en");
+  const normalizedDePath = dePath === "/online-termin" ? "/online-termine" : dePath;
+  return locale === "de" ? normalizedDePath : (DE_TO_EN[normalizedDePath] ?? "/en");
 }

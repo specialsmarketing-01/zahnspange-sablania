@@ -37,7 +37,7 @@ export default function EnHomePage() {
       <HeroSpecialtiesSection locale={locale} dict={dict} />
       <ServicesSimple locale={locale} dict={dict} />
       <DigitalPracticeSection locale={locale} dict={dict} />
-      <Services locale={locale} dict={dict} />
+      <Services locale={locale} />
       <WhyChooseUs dict={dict} />
       <BracesCategoriesSection locale={locale} dict={dict} />
       <ServicesSection locale={locale} dict={dict} />

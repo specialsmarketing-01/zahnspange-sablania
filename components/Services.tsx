@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
-import type { Dictionary } from "@/lib/dictionaries";
+import { dictionaries } from "@/lib/dictionaries";
 import { getHref } from "@/lib/paths";
 
-export default function Services({ locale, dict }: { locale: Locale; dict: Dictionary }) {
-  const h = dict.homepage as Record<string, unknown>;
+export default function Services({ locale }: { locale: Locale }) {
+  const h = dictionaries[locale].homepage as Record<string, unknown>;
+  const ctaBook = dictionaries[locale].common.ctaBook;
 
   const title = (h.firstVisitTitle as string) ?? "Sie sind zum ersten Mal bei uns? Wir machen eine umfangreiche Zahnanalyse!";
   const text1 =
@@ -46,7 +47,7 @@ export default function Services({ locale, dict }: { locale: Locale; dict: Dicti
                     href={getHref("/online-termin", locale)}
                     className="inline-flex items-center justify-center rounded-xl bg-[#0f2e5c] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#163d78]"
                   >
-                    {dict.common.ctaBook}
+                    {ctaBook}
                   </Link>
                 </div>
               </div>

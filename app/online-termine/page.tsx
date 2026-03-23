@@ -5,14 +5,14 @@ import { bookingServices } from "@/data/bookingServices";
 import type { Locale } from "@/lib/i18n";
 import BookingCard from "@/components/BookingCard";
 
-const locale: Locale = "en";
+const locale: Locale = "de";
 
 export const metadata: Metadata = {
-  title: "Book Appointment",
+  title: "Online Termin",
   description:
-    "Book a consultation online at Zahnspange Sablania in Vienna. Quick and easy.",
+    "Vereinbaren Sie online einen Beratungstermin in der Praxis Zahnspange Sablania in Wien. Schnell und unkompliziert.",
   alternates: {
-    canonical: `${SITE_URL}/en/book-appointment`,
+    canonical: `${SITE_URL}/online-termine`,
     languages: {
       de: `${SITE_URL}/online-termine`,
       en: `${SITE_URL}/en/book-appointment`,
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BookAppointmentPage() {
+export default function OnlineTerminePage() {
   const dict = getDictionary(locale);
   const { sectionTitle, ctaFreeConsult } = dict.booking;
   return (
@@ -34,8 +34,8 @@ export default function BookAppointmentPage() {
             {bookingServices.map((service) => (
               <BookingCard
                 key={service.slug}
-                title={service.title_en}
-                description={service.desc_en}
+                title={service.title_de}
+                description={service.desc_de}
                 image={service.image}
                 buttonLabel={ctaFreeConsult}
               />
