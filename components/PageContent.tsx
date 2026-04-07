@@ -8,6 +8,8 @@ interface PageContentProps {
   children: React.ReactNode;
   showCta?: boolean;
   hideHeader?: boolean;
+  /** When true, children are not wrapped in `prose` (use for heavy custom layouts; prefer default prose for text pages). */
+  skipProse?: boolean;
   locale: Locale;
   dict: Dictionary;
 }
@@ -18,9 +20,14 @@ export default function PageContent({
   children,
   showCta = true,
   hideHeader = false,
+  skipProse = false,
   locale,
   dict,
 }: PageContentProps) {
+  const contentClassName = skipProse
+    ? "mt-10 min-w-0 overflow-x-hidden max-w-none break-words text-gray-800"
+    : "mt-10 min-w-0 overflow-x-hidden prose prose-lg max-w-none prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline break-words";
+
   return (
     <div className="min-w-0 overflow-x-hidden bg-white">
       <div className="mx-auto min-w-0 max-w-7xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8">
@@ -34,9 +41,7 @@ export default function PageContent({
             )}
           </header>
         )}
-        <div className="mt-10 min-w-0 overflow-x-hidden prose prose-lg max-w-none prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline break-words">
-          {children}
-        </div>
+        <div className={contentClassName}>{children}</div>
       </div>
       {showCta && <CTASection locale={locale} dict={dict} />}
     </div>

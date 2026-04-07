@@ -28,3 +28,9 @@ When editing this project:
    - This component wraps the app with Navbar, Footer, and Breadcrumb. Do not remove it from the root layout.
 
 If you are asked to "simplify" or "clean up" the layout or CSS, preserve the above. See `STYLING.md` in the project root for full rules.
+
+5. **Page content vs global shell**
+   - Copying or migrating text from old sites must go into **route-specific** components (e.g. `*Content.tsx` under `components/`) or the route `page.tsx` only.
+   - Prefer `PageContent` with the default **prose** wrapper for text-heavy pages; use `skipProse` only when the page needs full Tailwind control (cards, custom heroes).
+   - Do **not** use `hideHeader` unless there is a strong reason; keep one **H1** via `PageContent` title for SEO and consistent layout.
+   - Do not paste raw unstyled HTML into `app/layout.tsx` or replace `LocaleShell` / `Navbar` / `Footer` for content imports.
