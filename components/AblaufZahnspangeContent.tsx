@@ -405,8 +405,7 @@ export default function AblaufZahnspangeContent({
               </svg>
             </div>
             <div>
-              <p className="text-sm font-semibold text-[#0f2e5c]">5 / 5 Google-Bewertung</p>
-              <p className="text-xs sm:text-sm text-slate-600">Faire Preise</p>
+              <p className="text-sm font-semibold text-[#0f2e5c]">Faire Preise</p>
             </div>
           </div>
           <div className="flex gap-6 text-xs sm:text-sm text-slate-600">
