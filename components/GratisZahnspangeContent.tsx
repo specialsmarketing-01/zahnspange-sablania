@@ -147,7 +147,7 @@ export default function GratisZahnspangeContent({
         ),
         fehlH2: "Kiefer- und Zahnfehlstellungen, die unbedingt eine Behandlung erfordern",
         fehlIntro:
-          "Zum Beispiel: Habits oder schlechte Gewohnheiten (Zungenpressen, falsche Schluckmuster, Daumenlutschen, Lippenpressen, Fingernägelkauen usw.); Kreuzbiss seitlich beidseitig oder einseitig; Kreuzbiss der Frontzähne / Progener Zwangsbiss.",
+          "Zum Beispiel: Habits oder schlechte Gewohnheiten (Zungenpressen, falsche Schluckmuster, Daumenlutschen, Lippenpressen, Fingernägelkauen usw.).",
         fehlCards: [
           {
             title: "Offener Biss",
@@ -330,7 +330,7 @@ export default function GratisZahnspangeContent({
         ),
         fehlH2: "Malocclusions that require treatment",
         fehlIntro:
-          "Including harmful habits (tongue thrust, incorrect swallowing, thumb sucking, etc.), crossbite, anterior crossbite / edge-to-edge problems.",
+          "Including harmful habits (tongue thrust, incorrect swallowing, thumb sucking, etc.).",
         fehlCards: [
           {
             title: "Open bite",
