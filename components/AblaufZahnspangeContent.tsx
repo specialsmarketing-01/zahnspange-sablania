@@ -74,15 +74,6 @@ export default function AblaufZahnspangeContent({
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-sky-50/90">
             <div className="flex items-center gap-2">
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-sm">
-                ⭐
-              </span>
-              <span>
-                5&nbsp;/&nbsp;5 Google-Bewertung <span className="opacity-80">· 70+ Patientenbewertungen</span>
-              </span>
-            </div>
-            <div className="h-4 w-px bg-sky-100/30 hidden sm:block" />
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-sm">
                 🕒
               </span>
               <span>Kurzfristige Termine &amp; digitale Kontrolltermine möglich</span>
@@ -220,7 +211,7 @@ export default function AblaufZahnspangeContent({
           <div className="order-first lg:order-last">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
               <Image
-                src="/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (6).jpg"
+                src="/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (5).jpg"
                 alt="Behandlungsunterlagen für den individuellen Behandlungsverlauf"
                 fill
                 className="object-cover"
@@ -249,7 +240,7 @@ export default function AblaufZahnspangeContent({
           <div className="order-first lg:order-last">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
               <Image
-                src="/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (5).jpg"
+                src="/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (6).jpg"
                 alt="Kieferorthopädische Besprechung der Zahnfehlstellung"
                 fill
                 className="object-cover"
@@ -397,12 +388,25 @@ export default function AblaufZahnspangeContent({
       <section className="mt-10 rounded-2xl border border-gray-100 bg-white px-4 py-5 sm:px-6 sm:py-6 shadow-soft">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-100 text-amber-500 text-xl">
-              ⭐
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                aria-hidden
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14.25 7.756a4.5 4.5 0 1 0 0 8.488M7.5 10.5h5.25m-5.25 3h5.25"
+                />
+              </svg>
             </div>
             <div>
               <p className="text-sm font-semibold text-[#0f2e5c]">5 / 5 Google-Bewertung</p>
-              <p className="text-xs sm:text-sm text-slate-600">Basierend auf über 70 Patientenbewertungen</p>
+              <p className="text-xs sm:text-sm text-slate-600">Faire Preise</p>
             </div>
           </div>
           <div className="flex gap-6 text-xs sm:text-sm text-slate-600">
@@ -460,13 +464,34 @@ export default function AblaufZahnspangeContent({
           Vereinbaren Sie Ihre kostenfreie Erstberatung und erhalten Sie einen individuellen Behandlungsplan
           für Ihre Zahnkorrektur – persönlich, verständlich und transparent.
         </p>
-        <div className="mt-5 flex justify-center">
+        <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
           <Link
             href={getHref("/online-termin", locale)}
-            className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm sm:text-base font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
+            className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm sm:text-base font-semibold text-[#0f3c6e] shadow-md transition hover:bg-sky-50 hover:shadow-lg"
           >
             Termin online buchen
           </Link>
+          <a
+            href="tel:+4313306090"
+            className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/85 bg-white/10 px-6 py-2.5 text-sm sm:text-base font-semibold text-white shadow-md transition hover:bg-white/20 hover:shadow-lg"
+            aria-label={locale === "de" ? "Anrufen: +43 1 3306090" : "Call +43 1 3306090"}
+          >
+            <svg
+              className="h-5 w-5 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V21a2 2 0 01-2 2h-1C9.716 23 3 16.284 3 8V5z"
+              />
+            </svg>
+            +43 1 3306090
+          </a>
         </div>
       </section>
     </PageContent>
