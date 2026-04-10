@@ -141,6 +141,11 @@ export default function GratisZahnspangeContent({
               Wechselgebiss
             </a>{" "}
             eine Behandlung geeignet für Kinder zwischen 6 und 10 Jahren. Es handelt sich um eine Behandlung in der Frühphase: eine begrenzte Therapie im Milch- oder Wechselgebiss. Dauer maximal 1 Jahr, danach Pause. Anschließend regelmäßige Kontrollen im Abstand von 4–6 Monaten. Kinder verlieren in dieser Phase Milchzähne, die bleibenden Zähne brechen durch. Mit 12–13 Jahren erfolgt eine erneute Kontrolle, ob eine weitere Zahnregulierung nötig ist; bei Bedarf Behandlung mit festsitzender Zahnspange.
+            <h3 className="mt-10 text-xl font-bold text-primary">Die abnehmbare Gratis Zahnspange</h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-800 sm:text-base">
+              Die abnehmbare Gratis-Zahnspange ist nur dann hilfreich, wenn sie mindestens 12–14 Stunden pro Tag getragen wird.
+              Behandlungsdauer: 1 Jahr.
+            </p>
           </>
         ),
         fehlH2: "Kiefer- und Zahnfehlstellungen, die unbedingt eine Behandlung erfordern",
@@ -162,9 +167,6 @@ export default function GratisZahnspangeContent({
           "Tipp: Auch wenn der Schweregrad der Fehlstellung (IOTN) schon feststeht, empfehle ich immer eine Rücksprache mit der Krankenkasse.",
         hauptDauer:
           "Die Behandlungsdauer ist vom Schweregrad abhängig. Die Behandlung mit einer festsitzenden Gratis Zahnspange dauert etwa 18–24 Monate.",
-        abnehmbarH2: "Die abnehmbare Gratis Zahnspange",
-        abnehmbarBody:
-          "Die abnehmbare Gratis-Zahnspange ist nur dann hilfreich, wenn sie mindestens 12–14 Stunden pro Tag getragen wird. Behandlungsdauer: 1 Jahr.",
         kostenH2: "Kosten, Erstattung und wichtige Rahmenbedingungen",
         kostenSub: "Kostenüberblick Gratiszahnspange zwischen 6–18 LJ nur mit IOTN 4/5",
         kostenRows: [
@@ -216,7 +218,7 @@ export default function GratisZahnspangeContent({
         arztLi1:
           "Qualifizierter Wahlkieferorthopäde für „Krankenkasse-Gratis Zahnspange“, spezialisiert in Kieferorthopädie und Orthodontie.",
         arztLi2:
-          "Über 25 Jahre Erfahrung und mehr als 7000 Zahnregulierungen und Zahnspangenbehandlungen – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten.",
+          "Über 28 Jahre Erfahrung und 7800+ Zahnregulierungen und Zahnspangenbehandlungen – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten.",
         arztCta: "Termin zur kostenlosen Erstberatung",
         finalH2: "Jetzt kostenlose Erstberatung vereinbaren",
         finalP:
@@ -301,6 +303,10 @@ export default function GratisZahnspangeContent({
               mixed dentition
             </a>
             , early-phase treatment for children around 6–10: limited therapy in primary/mixed dentition, max. about 1 year, then a break, then checks every 4–6 months. Around ages 12–13 we review whether further treatment is needed, including fixed braces if appropriate.
+            <h3 className="mt-10 text-xl font-bold text-primary">Removable appliance under the scheme</h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-800 sm:text-base">
+              The removable option only works if worn at least about 12–14 hours per day. Typical duration: about 1 year.
+            </p>
           </>
         ),
         fehlH2: "Malocclusions that require treatment",
@@ -320,9 +326,6 @@ export default function GratisZahnspangeContent({
           "If IOTN 4 or 5 applies, reimbursement may be available. Publicly funded treatment for children uses fixed metal appliances only.",
         hauptTipp: "Tip: confirm details with your insurer even if the IOTN severity is already known.",
         hauptDauer: "Duration depends on severity; fixed treatment often lasts about 18–24 months.",
-        abnehmbarH2: "Removable appliance under the scheme",
-        abnehmbarBody:
-          "The removable option only works if worn at least about 12–14 hours per day. Typical duration: about 1 year.",
         kostenH2: "Costs and reimbursement",
         kostenSub: "Overview for ages 6–18 with IOTN 4/5 only",
         kostenRows: [
@@ -371,7 +374,7 @@ export default function GratisZahnspangeContent({
         arztH2: "Dr Manish Sablania M.Sc. Orthodontics",
         arztSub: "Specialist orthodontist Vienna 1200",
         arztLi1: "Qualified partner for publicly funded braces.",
-        arztLi2: "25+ years of experience with thousands of orthodontic cases, patient-centred care.",
+        arztLi2: "28+ years of experience and 7800+ orthodontic treatments, patient-centred care.",
         arztCta: "Book a free initial consultation",
         finalH2: "Book your free consultation",
         finalP: "We will explain suitable treatment and your options under the public braces scheme.",
@@ -673,7 +676,7 @@ export default function GratisZahnspangeContent({
           </div>
         </section>
 
-        {/* Hauptbehandlung + abnehmbar */}
+        {/* Hauptbehandlung */}
         <section className="mt-16 sm:mt-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="order-2 lg:order-1">
@@ -681,8 +684,6 @@ export default function GratisZahnspangeContent({
               <p className="mt-4 text-sm leading-relaxed text-slate-800 sm:text-base">{copy.hauptBody}</p>
               <p className="mt-4 rounded-xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-sm text-amber-950">{copy.hauptTipp}</p>
               <p className="mt-4 text-sm leading-relaxed text-slate-700">{copy.hauptDauer}</p>
-              <h3 className="mt-10 text-xl font-bold text-primary">{copy.abnehmbarH2}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-800 sm:text-base">{copy.abnehmbarBody}</p>
             </div>
             <div className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 shadow-soft-lg lg:order-2">
               <Image
