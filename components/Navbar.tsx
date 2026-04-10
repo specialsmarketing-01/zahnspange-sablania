@@ -26,7 +26,6 @@ const ABOUT_NAV_PATHS = [
   { path: "/ueber-mich", labelKey: "aboutTheDoctor" as const },
   { path: "/ueber-uns", labelKey: "ourPractice" as const },
   { path: "/unser-team", labelKey: "ourTeam" as const },
-  { path: "/vorher-nachher", labelKey: "beforeAfter" as const },
 ];
 
 type NavbarProps = { locale: Locale; dict: Dictionary };
@@ -65,7 +64,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
   };
 
   const navLinkClass =
-    "font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors duration-200 whitespace-nowrap";
+    "font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors duration-200 whitespace-nowrap text-[0.8125rem] xl:text-sm";
   const navLinkActiveClass = "text-[#0f2e5c] font-semibold";
 
   const isActive = (path: string) => {
@@ -74,16 +73,19 @@ export default function Navbar({ locale, dict }: NavbarProps) {
     return current === href || current === path;
   };
 
+  const isGalleryActive =
+    pathname.startsWith("/vorher-nachher") || pathname.startsWith("/en/before-after");
+
   return (
     <header className="sticky top-0 z-50 w-full min-w-0 bg-white shadow-sm">
       <nav
-        className="mx-auto flex min-w-0 max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 lg:px-8"
+        className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2 gap-y-1 px-4 py-3 sm:px-6 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-x-3 lg:px-6 xl:gap-x-5 xl:px-8"
         aria-label={dict.nav.ariaNav}
       >
         {/* LEFT: Fav icon + doctor name + credentials (logo area) */}
         <Link
           href={homeHref}
-          className="flex min-w-0 shrink flex-row items-center gap-3 sm:gap-4 min-h-[52px]"
+          className="flex min-w-0 max-w-[min(100%,18rem)] flex-row items-center gap-2 sm:gap-3 sm:max-w-[20rem] lg:max-w-[min(100%,15.5rem)] xl:max-w-[min(100%,18rem)] 2xl:max-w-[22rem] min-h-[48px] lg:shrink-0"
           aria-label={`${dict.nav.brandName} – ${dict.nav.home}`}
         >
           <Image
@@ -91,27 +93,27 @@ export default function Navbar({ locale, dict }: NavbarProps) {
             alt=""
             width={88}
             height={88}
-            className="h-14 w-14 shrink-0 object-contain sm:h-[72px] sm:w-[72px] lg:h-[88px] lg:w-[88px]"
+            className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14 lg:h-[3.25rem] lg:w-[3.25rem] xl:h-[4.25rem] xl:w-[4.25rem] 2xl:h-[5.5rem] 2xl:w-[5.5rem]"
             unoptimized
           />
-          <div className="flex min-w-0 flex-1 flex-col items-start justify-center text-left gap-1">
-            <span className="text-[10px] sm:text-[11px] font-normal text-[#0f2e5c] leading-none uppercase tracking-wide">
+          <div className="flex min-w-0 flex-1 flex-col items-start justify-center text-left gap-0.5 sm:gap-1">
+            <span className="text-[9px] sm:text-[10px] xl:text-[11px] font-normal text-[#0f2e5c] leading-none uppercase tracking-wide truncate w-full">
               {(dict.nav as { brandTitle?: string }).brandTitle}
             </span>
-            <span className="truncate text-base font-bold tracking-tight text-[#0f2e5c] leading-tight sm:text-[20px] lg:text-[22px]">
+            <span className="truncate text-sm font-bold tracking-tight text-[#0f2e5c] leading-tight sm:text-base xl:text-[20px] 2xl:text-[22px] w-full">
               {dict.nav.brandName}
             </span>
-            <span className="text-[10px] sm:text-[11px] font-normal text-[#0f2e5c] leading-snug">
+            <span className="line-clamp-2 text-[9px] sm:text-[10px] xl:text-[11px] font-normal text-[#0f2e5c] leading-snug max-[380px]:hidden">
               {(dict.nav as { brandCredentials?: string }).brandCredentials}
             </span>
           </div>
         </Link>
 
         {/* CENTER: Navigation */}
-        <div className="hidden lg:flex lg:items-center lg:gap-8 lg:flex-1 lg:justify-center">
+        <div className="hidden min-w-0 justify-center justify-self-center lg:flex lg:items-center lg:gap-x-2 xl:gap-x-4 2xl:gap-x-6 lg:px-1">
           <Link
             href={homeHref}
-            className={`text-sm ${navLinkClass} ${pathname === "/" || pathname === "/en" ? navLinkActiveClass : ""}`}
+            className={`${navLinkClass} ${pathname === "/" || pathname === "/en" ? navLinkActiveClass : ""}`}
           >
             {dict.nav.home}
           </Link>
@@ -123,7 +125,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
           >
             <Link
               href={getHref("/leistungen", locale)}
-              className={`inline-flex items-center gap-0.5 text-sm ${navLinkClass} ${pathname?.startsWith("/leistungen") || pathname?.startsWith("/en/services") || pathname?.startsWith("/en/orthodontics") || pathname?.startsWith("/kieferorthopaedie") ? navLinkActiveClass : ""}`}
+              className={`inline-flex items-center gap-0.5 ${navLinkClass} ${pathname?.startsWith("/leistungen") || pathname?.startsWith("/en/services") || pathname?.startsWith("/en/orthodontics") || pathname?.startsWith("/kieferorthopaedie") ? navLinkActiveClass : ""}`}
             >
               {dict.nav.services}
               <svg
@@ -231,6 +233,13 @@ export default function Navbar({ locale, dict }: NavbarProps) {
             )}
           </div>
 
+          <Link
+            href={getHref("/vorher-nachher", locale)}
+            className={`${navLinkClass} ${isGalleryActive ? navLinkActiveClass : ""}`}
+          >
+            {dict.nav.gallery}
+          </Link>
+
           <div
             className="relative"
             onMouseEnter={() => setAboutOpen(true)}
@@ -238,7 +247,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
           >
             <Link
               href={getHref("/ueber-mich", locale)}
-              className={`inline-flex items-center gap-0.5 text-sm ${navLinkClass} ${pathname?.startsWith("/ueber-mich") || pathname?.startsWith("/ueber-uns") || pathname?.startsWith("/en/about") || pathname?.startsWith("/en/about-practice") || pathname?.startsWith("/unsere-ordination") || pathname?.startsWith("/en/practice") || pathname?.startsWith("/unser-team") || pathname?.startsWith("/en/team") || pathname?.startsWith("/vorher-nachher") || pathname?.startsWith("/en/before-after") ? navLinkActiveClass : ""}`}
+              className={`inline-flex items-center gap-0.5 ${navLinkClass} ${pathname?.startsWith("/ueber-mich") || pathname?.startsWith("/ueber-uns") || pathname?.startsWith("/en/about") || pathname?.startsWith("/en/about-practice") || pathname?.startsWith("/unsere-ordination") || pathname?.startsWith("/en/practice") || pathname?.startsWith("/unser-team") || pathname?.startsWith("/en/team") ? navLinkActiveClass : ""}`}
             >
               {dict.nav.aboutUs}
               <svg
@@ -270,17 +279,17 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
           <Link
             href={getHref("/kontakt", locale)}
-            className={`text-sm ${navLinkClass} ${isActive("/kontakt") ? navLinkActiveClass : ""}`}
+            className={`${navLinkClass} ${isActive("/kontakt") ? navLinkActiveClass : ""}`}
           >
             {dict.nav.contact}
           </Link>
         </div>
 
-        {/* RIGHT: Language + CTA */}
-        <div className="flex items-center gap-4 shrink-0">
+        {/* RIGHT: Language + CTA + mobile menu */}
+        <div className="col-start-2 row-start-1 flex items-center justify-end gap-2 sm:gap-3 shrink-0 lg:col-start-3 lg:gap-2 xl:gap-4">
           <Link
             href={locale === "de" ? pathForEn : pathForDe}
-            className="hidden lg:inline-flex items-center gap-1.5 px-2 py-1.5 rounded text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors"
+            className="inline-flex items-center gap-1.5 px-1.5 py-1.5 rounded text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors shrink-0"
             aria-label={locale === "de" ? "Switch to English" : "Auf Deutsch wechseln"}
           >
             <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -294,29 +303,19 @@ export default function Navbar({ locale, dict }: NavbarProps) {
             href="https://powerforms.at/247674"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center justify-center rounded-full border-2 border-[#0f2e5c] px-5 py-2.5 text-sm font-semibold text-[#0f2e5c] transition-colors hover:bg-[#0f2e5c]/5"
+            className="hidden lg:inline-flex max-w-[9rem] xl:max-w-none items-center justify-center rounded-full border-2 border-[#0f2e5c] px-2 py-2 text-[0.7rem] font-semibold text-[#0f2e5c] transition-colors hover:bg-[#0f2e5c]/5 xl:px-5 xl:py-2.5 xl:text-sm leading-tight text-center"
           >
-            {locale === "de" ? "Gesundheitsfragebogen" : "Health Questionnaire"}
+            <span className="xl:hidden" title={locale === "de" ? "Gesundheitsfragebogen" : "Health Questionnaire"}>
+              {locale === "de" ? "Fragebogen" : "Health form"}
+            </span>
+            <span className="hidden xl:inline">
+              {locale === "de" ? "Gesundheitsfragebogen" : "Health Questionnaire"}
+            </span>
           </a>
 
-        </div>
-
-        {/* Mobile menu button */}
-        <div className="flex shrink-0 lg:hidden items-center gap-2">
-          <Link
-            href={locale === "de" ? pathForEn : pathForDe}
-            className="inline-flex items-center gap-1.5 px-2 py-1.5 rounded text-sm font-medium text-[#1e293b] hover:text-[#0f2e5c] transition-colors"
-            aria-label={locale === "de" ? "Switch to English" : "Auf Deutsch wechseln"}
-          >
-            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            <span>{locale === "de" ? "EN" : "DE"}</span>
-          </Link>
           <button
             type="button"
-            className="relative z-10 inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-lg p-2 text-[#1e293b] hover:bg-gray-100 transition-colors touch-manipulation"
+            className="relative z-10 inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-lg p-2 text-[#1e293b] hover:bg-gray-100 transition-colors touch-manipulation lg:hidden"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -430,6 +429,14 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                 </div>
               )}
             </div>
+
+            <Link
+              href={getHref("/vorher-nachher", locale)}
+              className={`block rounded-lg px-4 py-3 text-base font-medium text-[#1e293b] hover:bg-[#f8f9fb] hover:text-[#0f2e5c] ${isGalleryActive ? navLinkActiveClass : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              {dict.nav.gallery}
+            </Link>
 
             <div>
               <button
