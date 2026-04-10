@@ -43,14 +43,9 @@ export default function GoogleRating({ dict }: { dict: Dictionary }) {
   const reviews = h.googleRatingExampleReviews ?? [];
 
   return (
-    <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#f4f7fb] via-white to-[#f8fafc] py-16 sm:py-20"
-      aria-labelledby="google-rating-heading"
-    >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(15,46,92,0.06),transparent)]" />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-xl rounded-2xl border border-gray-100/80 bg-white p-8 shadow-[0_22px_50px_-12px_rgba(15,46,92,0.12)] ring-1 ring-gray-100 sm:rounded-xl sm:p-10">
+    <section className="bg-gray-50" aria-labelledby="google-rating-heading">
+      <div className="mx-auto max-w-6xl px-4 py-20">
+        <div className="mx-auto max-w-xl rounded-2xl border border-gray-100 bg-white p-8 shadow-lg sm:p-10">
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 sm:text-xs">
             {h.googleRatingTrust}
           </p>
@@ -59,7 +54,7 @@ export default function GoogleRating({ dict }: { dict: Dictionary }) {
             {Array.from({ length: 5 }).map((_, i) => (
               <StarIcon
                 key={i}
-                className="h-7 w-7 text-amber-400 drop-shadow-sm sm:h-8 sm:w-8"
+                className="h-7 w-7 text-amber-400 sm:h-8 sm:w-8"
               />
             ))}
           </div>
@@ -105,53 +100,53 @@ export default function GoogleRating({ dict }: { dict: Dictionary }) {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 max-w-6xl text-center">
+        <div className="mt-12 text-center">
           <h3
             id="google-reviews-block-heading"
-            className="text-2xl font-bold tracking-tight text-primary sm:text-3xl"
+            className="text-3xl font-bold tracking-tight text-gray-900"
           >
             {h.googleRatingReviewsBlockTitle}
           </h3>
-          <p className="mx-auto mt-2 max-w-2xl text-sm text-gray-500 sm:text-base">
+          <p className="mx-auto mt-3 max-w-2xl text-base text-gray-600">
             {h.googleRatingReviewsBlockSub}
           </p>
         </div>
 
         <ul
-          className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3"
+          className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           aria-labelledby="google-reviews-block-heading"
         >
           {reviews.map((review, index) => {
             const stars = review.rating ?? 5;
             return (
               <li key={`${review.name}-${index}`}>
-                <article className="group flex h-full flex-col rounded-xl border border-gray-100/90 bg-white p-6 text-left shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+                <article className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 text-left shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <div className="flex gap-3">
                     <div
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0f2e5c]/8 text-base font-bold text-[#0f2e5c]"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0f2e5c]/10 text-lg font-semibold text-[#0f2e5c]"
                       aria-hidden
                     >
                       {avatarLetter(review.name)}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="font-bold leading-snug text-gray-900">{review.name}</p>
+                      <p className="text-lg font-semibold leading-snug text-gray-900">{review.name}</p>
                       {review.badge ? (
-                        <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-orange-600">
+                        <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-orange-600">
                           {review.badge}
                         </p>
                       ) : null}
                     </div>
                   </div>
 
-                  <div className="mt-3 flex gap-0.5 text-[#f59e0b]">
+                  <div className="mt-3 flex gap-1 text-lg text-yellow-500">
                     {Array.from({ length: stars }).map((_, i) => (
-                      <StarIcon key={i} className="h-4 w-4" />
+                      <StarIcon key={i} className="h-[1.125rem] w-[1.125rem] shrink-0" />
                     ))}
                   </div>
 
-                  <p className="mt-2 text-xs text-gray-400">{review.date}</p>
+                  <p className="mt-2 text-sm text-gray-500">{review.date}</p>
 
-                  <p className="mt-4 text-sm leading-relaxed text-gray-600">{review.text}</p>
+                  <p className="mt-3 text-gray-700 leading-relaxed">{review.text}</p>
                 </article>
               </li>
             );
