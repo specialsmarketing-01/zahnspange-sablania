@@ -188,9 +188,9 @@ export const dictionaries = {
             "Jahrelange Expertise in der Kieferorthopädie und viele zufriedene Patienten.",
         },
         {
-          title: "Flexible Terminvergabe",
+          title: "Flexible und sofort",
           description:
-            "Wir finden Termine, die zu Ihrem Alltag passen – auch außerhalb üblicher Zeiten.",
+            "Wir finden Termine, die zu Ihrem Alltag passen – auch kurzfristig und außerhalb üblicher Zeiten.",
         },
         {
           title: "Ratenzahlung & Finanzierungsoptionen",
@@ -692,9 +692,9 @@ export const dictionaries = {
             "Long-standing orthodontic expertise and many satisfied patients.",
         },
         {
-          title: "Flexible Scheduling",
+          title: "Flexible & same-day booking",
           description:
-            "Appointment times that fit your schedule, even outside regular hours.",
+            "Appointments that fit your routine—including short-notice slots and times outside usual hours.",
         },
         {
           title: "Instalment & Financing Options",
