@@ -10,24 +10,21 @@ const BASE = "/asethetic-dental-services";
 
 /** Local assets — each file used at least once (see sections below). */
 const IMG = {
-  heroWide: `${BASE}/Untitled-2000-x-825-px.png`,
   smile: `${BASE}/Aesthetik.jpg`,
-  smileBanner: `${BASE}/Aesthetik-600x270.jpg`,
   bridgeWide: `${BASE}/dental-ga63c0bf75_1920-1536x864.png`,
   drSs: `${BASE}/DrSS-qccg77rgojbtrcav5z20egkfccceiwy9acpag4xm8o.png`,
   drMansi: `${BASE}/dr.Mansi_-qtukjg7rpcrvhxt5faunya6jmdtn8zsfshb8qy7fgk.png`,
   implant: `${BASE}/Implant-2.jpg`,
   implantSm: `${BASE}/Implant-2-300x241.jpg`,
   keramik: `${BASE}/Keramikkrone-1.png`,
-  keramikSm: `${BASE}/Keramikkrone-1-300x234.png`,
   lingual: `${BASE}/Lingualtechnik-640-×-500-px-e1670235670602.png`,
-  qualityDentist: `${BASE}/quality-dentist-600x314.jpg`,
+  qualityDentist: `/services/${encodeURIComponent(
+    "Practice for general, aesthetic dentistry, implantology & specialist dentist for orthodontic (6).png",
+  )}`,
   schiene: `${BASE}/Schiene.png`,
   bracesColor: `${BASE}/SDC12934.jpg`,
   sports: `${BASE}/Zaehne-Sportschutz.png`,
   bleaching: `${BASE}/Zahnbleichen.png`,
-  bleaching2: `${BASE}/Zahnbleichen-2-600x469.png`,
-  bleaching600: `${BASE}/Zahnbleichen-600x469.png`,
   hygiene: `${BASE}/zahnhygiene.png`,
 } as const;
 
@@ -95,8 +92,8 @@ export default function AestheticDentalServicesContent({
       ? "Allgemeine und ästhetische Leistungen der Kieferorthopädie Wien"
       : "General and aesthetic services in orthodontics, Vienna",
     orthoH: isDe
-      ? "Unsichtbare Zahnspange als wirksames Mittel für kieferorthopädische Probleme"
-      : "Invisible braces as an effective option for orthodontic issues",
+      ? "Die unsichtbare Zahnspange für selbstbewusstes Lächeln"
+      : "Invisible braces for a confident smile",
     orthoBody: isDe
       ? "Die Möglichkeit, Zahnspangen bei Zahnfehlstellungen zu nutzen, ist heute eines der effizientesten Mittel zur Lösung kieferorthopädischer Probleme. Zahnspangen für Kinder, Jugendliche oder Erwachsene sind mein langjähriges Spezialgebiet. Meine Erfahrung von über 23 Jahren aus mehr als 6.500 Zahnspangen-Behandlungen ist ein Mehrwert, den ich Ihnen ans Herz legen möchte. Mit Herz, Leidenschaft und fundiertem Wissen widme ich mich in meiner Kieferorthopädie-Ordination der Lösung kieferorthopädischer Probleme. Dieser Grundsatz bildet das Fundament meiner Arbeit und treibt mich jeden Tag an, meinen Patientinnen und Patienten die bestmögliche Behandlung zu bieten. Das Wohl meiner Patienten steht immer im Mittelpunkt meiner Tätigkeit. Ich setze alles daran, individuelle Bedürfnisse zu verstehen und eine maßgeschneiderte Behandlung anzubieten. Dabei arbeite ich eng mit Ihnen zusammen, höre zu und beantworte Ihre Fragen, damit Sie sich während des gesamten Behandlungsprozesses gut aufgehoben fühlen."
       : "Braces remain one of the most effective ways to treat malocclusion. Treating children, teens and adults has been my focus for many years—with over 23 years of experience and more than 6,500 brace treatments. Passion and sound knowledge guide every day in our practice. Your wellbeing is central: we listen, explain and support you throughout treatment.",
@@ -106,12 +103,7 @@ export default function AestheticDentalServicesContent({
     invisH: isDe ? "Unsichtbare Zahnspange Invisalign" : "Invisalign clear aligners",
     invisSub1: isDe ? "Unsichtbare Zahnspange Invisalign" : "Invisalign",
     invisSub2: isDe ? "Unsichtbare Lingualzahnspange" : "Lingual braces",
-    aesthH: isDe ? "Leistungen: Ästhetische Zahnmedizin" : "Aesthetic dentistry services",
-    fillH: isDe ? "Ästhetische zahnfarbige Füllungen" : "Tooth-coloured aesthetic fillings",
-    bleachH: isDe ? "Zahnbleaching" : "Teeth whitening",
-    profH: isDe ? "Professionelle Mundhygiene" : "Professional oral hygiene",
-    generalH: isDe ? "Ästhetische Zahnheilkunde" : "Aesthetic dentistry",
-    consultH: isDe ? "Kostenlose kieferorthopädische Erstberatung" : "Free initial orthodontic consultation",
+    consultH: isDe ? "Kostenlose Erstberatung" : "Free initial consultation",
     consultBody: isDe
       ? "Ich biete eine umfassende Beratung an, in der wir Ihre individuellen Bedürfnisse und Wünsche besprechen und alle möglichen Behandlungsoptionen aufzeigen. Meine Leidenschaft für die Kieferorthopädie treibt mich dazu an, stets auf dem neuesten Stand der Forschung und Technologie zu bleiben. Ich halte mich kontinuierlich über die neuesten Entwicklungen in meinem Fachgebiet auf dem Laufenden und nehme regelmäßig an Fortbildungen teil. Dadurch kann ich innovative und effektive Behandlungsmethoden einsetzen und erstklassige Ergebnisse bieten."
       : "We offer thorough consultations to discuss your goals and options. Continuous training keeps us at the forefront of research and technology so we can deliver up-to-date, effective care.",
@@ -169,15 +161,21 @@ export default function AestheticDentalServicesContent({
                 </Link>
               </div>
             </div>
-            <div className="relative min-h-[220px] lg:min-h-[320px]">
-              <Image
-                src={IMG.heroWide}
-                alt={isDe ? "Patientin in der Ordination – ästhetische Zahnmedizin" : "Patient at the practice"}
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
+            <div className="flex items-center justify-center px-4 pb-8 pt-4 sm:px-8 sm:pb-10 sm:pt-6 lg:justify-end lg:px-10 lg:pb-12 lg:pl-6 lg:pt-10">
+              <figure className="relative aspect-[4/5] w-full max-w-[min(100%,20rem)] overflow-hidden rounded-3xl border border-white/25 bg-white/[0.07] shadow-[0_24px_55px_-12px_rgba(0,0,0,0.45)] ring-1 ring-inset ring-white/15 sm:max-w-[22rem] lg:aspect-[3/4] lg:max-h-[min(26rem,52vh)] lg:w-full lg:max-w-md">
+                <Image
+                  src={IMG.smile}
+                  alt={isDe ? "Strahlendes Lächeln" : "Radiant smile"}
+                  fill
+                  className="object-cover object-[center_28%]"
+                  sizes="(max-width: 1024px) 90vw, (max-width: 1280px) 28rem, 24rem"
+                  priority
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/35 via-transparent to-white/[0.07]"
+                  aria-hidden
+                />
+              </figure>
             </div>
           </div>
         </section>
@@ -186,14 +184,6 @@ export default function AestheticDentalServicesContent({
         <div className="mx-auto mt-12 max-w-3xl space-y-6 text-base leading-relaxed text-gray-700 sm:mt-16">
           <p>{h.intro2}</p>
           <p>{h.intro3}</p>
-        </div>
-        <div className="mx-auto mt-8 grid max-w-4xl gap-6 sm:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-100 shadow-soft">
-            <Image src={IMG.smile} alt={isDe ? "Strahlendes Lächeln" : "Radiant smile"} fill className="object-cover" sizes="(max-width: 640px) 100vw, 400px" />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-100 shadow-soft">
-            <Image src={IMG.smileBanner} alt={isDe ? "Ästhetische Zahnmedizin" : "Aesthetic dentistry"} fill className="object-cover" sizes="(max-width: 640px) 100vw, 400px" />
-          </div>
         </div>
 
         <div className="mx-auto mt-12 max-w-3xl text-center">
@@ -256,13 +246,13 @@ export default function AestheticDentalServicesContent({
         {/* Orthodontics narrative + image */}
         <section className="mx-auto mt-16 max-w-3xl sm:mt-20">
           <h2 className="text-xl font-bold text-primary sm:text-2xl">{h.orthoH}</h2>
-          <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-100 shadow-soft">
+          <div className="relative mx-auto mt-6 aspect-[16/9] w-full max-w-xs overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-soft sm:max-w-sm">
             <Image
               src={IMG.qualityDentist}
               alt={isDe ? "Behandlung in der Zahnarztpraxis" : "Dental treatment"}
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-contain object-center"
+              sizes="(max-width: 640px) 85vw, 384px"
             />
           </div>
           <p className="mt-6 text-base leading-relaxed text-gray-700">{h.orthoBody}</p>
@@ -303,43 +293,6 @@ export default function AestheticDentalServicesContent({
               </div>
               <p className="p-4 text-center font-semibold text-primary group-hover:text-accent">{h.invisSub2}</p>
             </Link>
-          </div>
-        </section>
-
-        {/* Aesthetic services detail + images */}
-        <section className="mx-auto mt-16 max-w-3xl sm:mt-20">
-          <h2 className="text-xl font-bold text-primary sm:text-2xl">{h.aesthH}</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 shadow-soft">
-              <div className="relative aspect-square w-full max-w-[200px] mx-auto">
-                <Image src={IMG.keramikSm} alt="" fill className="object-contain" sizes="200px" />
-              </div>
-              <h3 className="mt-3 text-center font-semibold text-primary">{h.fillH}</h3>
-            </div>
-            <div className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 shadow-soft">
-              <div className="relative aspect-square w-full max-w-[200px] mx-auto">
-                <Image src={IMG.bleaching2} alt="" fill className="object-contain" sizes="200px" />
-              </div>
-              <h3 className="mt-3 text-center font-semibold text-primary">{h.bleachH}</h3>
-            </div>
-            <div className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 shadow-soft">
-              <div className="relative aspect-square w-full max-w-[200px] mx-auto">
-                <Image src={IMG.hygiene} alt={isDe ? "Mundhygiene" : "Oral hygiene"} fill className="object-contain" sizes="200px" />
-              </div>
-              <h3 className="mt-3 text-center font-semibold text-primary">{h.profH}</h3>
-            </div>
-            <div className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 shadow-soft">
-              <div className="relative aspect-square w-full max-w-[200px] mx-auto">
-                <Image
-                  src={IMG.smile}
-                  alt={isDe ? "Ästhetische Zahnheilkunde" : "Aesthetic dentistry"}
-                  fill
-                  className="object-cover"
-                  sizes="200px"
-                />
-              </div>
-              <h3 className="mt-3 text-center font-semibold text-primary">{h.generalH}</h3>
-            </div>
           </div>
         </section>
 
