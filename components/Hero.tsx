@@ -34,7 +34,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           {/* LEFT COLUMN */}
           <div className="text-center lg:text-left">
             {badge && (
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#0f2e5c]/10 px-4 py-2 text-sm font-medium text-[#0f2e5c]">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#0f2e5c]/10 px-4 py-2 text-sm font-bold text-[#0f2e5c]">
                 <span>
                   {badge.split("·")[0]?.trim()}
                 </span>
