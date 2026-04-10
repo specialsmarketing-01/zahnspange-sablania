@@ -20,21 +20,10 @@ const IMG = {
   aligners: "/gratis-zahnspange/Aligners-35-q1ah25wbsc1ausmvjri1zvu9hxd6rvlh3ro9a6rxnw.jpg",
   lingualAlt: "/gratis-zahnspange/Screenshot-5329-860x649.png",
   interzeptiv: "/gratis-zahnspange/11-vor-q631w2oyn5p9yfaqs77kgyk85kpfzfiqt43c3mh9s4.jpg",
-  fehl1: "/gratis-zahnspange/Tiefbiss-Deepbite-768x355-1-qcg52ofkkfiaqriegr6sa4qgpfa1jrebkrjcy9yklg.jpg",
-  fehl2: "/gratis-zahnspange/3-Vorher-q6504q6o4b8iy2af882n5v2y7pat2g3ggs57b57yys.jpg",
-  fehl3: "/gratis-zahnspange/1-Vorher-scaled-q64zyvmtlf8apes9dp27nc7p5e4l68vkzu0ft5w5ok.jpg",
   hauptbehandlung: "/gratis-zahnspange/Zahnarzt-1-e1671695799854.png",
   ablauf: "/gratis-zahnspange/spiegle-etc-klein.png",
   arzt: "/gratis-zahnspange/dr.Mansi_-qtukjg7rpcrvhxt5faunya6jmdtn8zsfshb8qy7fgk.png",
 } as const;
-
-function FehlstellungCardToothIcon() {
-  return (
-    <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M12 2C9.5 2 7.5 4 7 6.5c-.2 1.2-.8 2.1-1.5 3.2C4.3 11.8 3 14.2 3 17v5h4v-4c0-1.1.9-2 2-2s2 .9 2 2v4h2v-4c0-1.1.9-2 2-2s2 .9 2 2v4h4v-5c0-2.8-1.3-5.2-3.5-7.3-.7-1.1-1.3-2-1.5-3.2C16.5 4 14.5 2 12 2z" />
-    </svg>
-  );
-}
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
@@ -179,12 +168,17 @@ export default function GratisZahnspangeContent({
             description:
               "Ausgeprägte Frontzahnstufe, Rücklage im Oberkiefer oder Maxilla Klasse 3.",
           },
+          {
+            title: "Kreuzbiss (seitlich)",
+            description:
+              "Kreuzbiss im Seitenzahnbereich – einseitig oder beidseitig – kann zu asymmetrischer Belastung, Einschränkungen beim Kauen und langfristig zu Kiefergelenksbeschwerden führen und sollte kieferorthopädisch mitbehandelt werden.",
+          },
+          {
+            title: "Kreuzbiss (Front / Progenie)",
+            description:
+              "Kreuzbiss der Frontzähne bzw. ein Progener Zwangsbiss: die Frontzähne treffen nicht sauber aufeinander. Eine frühzeitige Diagnose und Therapie kann Funktion und Entwicklung von Ober- und Unterkiefer günstig beeinflussen.",
+          },
         ],
-        fehlImagePlaceholder: "Bild folgt",
-        capTief: "Beispiel: Tiefbiss / Deepbite",
-        cap3: "Beispielhafte Fehlstellung (Vorher)",
-        cap1: "Beispielhafte Dokumentation (Vorher)",
-        fehlGalleryH3: "Beispiele für Zahnfehlstellungen",
         hauptH2: "Gratis-Zahnspange: Hauptbehandlung mit festsitzender Zahnspange im bleibenden Gebiss",
         hauptBody:
           "Wenn eine Schweregrad-Fehlstellung von IOTN 4 oder IOTN 5 vorliegt, besteht Anspruch auf Rückerstattung. Die „Gratis-Zahnspange“ für Kinder hat eine wichtige Voraussetzung: Es dürfen nur festsitzende Zahnspangen aus Metall verwendet werden.",
@@ -354,12 +348,17 @@ export default function GratisZahnspangeContent({
             title: "Jaw discrepancy",
             description: "Pronounced incisor step, maxillary retrusion or Class III maxilla.",
           },
+          {
+            title: "Crossbite (posterior)",
+            description:
+              "A posterior crossbite (on one or both sides) can cause uneven loading, chewing problems, and over time TMJ issues; it usually needs orthodontic correction.",
+          },
+          {
+            title: "Crossbite (anterior / edge-to-edge)",
+            description:
+              "Anterior crossbite or a forced anterior bite: front teeth do not meet correctly. Early assessment and treatment can support jaw function and growth.",
+          },
         ],
-        fehlImagePlaceholder: "Image coming soon",
-        capTief: "Example: deep bite",
-        cap3: "Example documentation (before)",
-        cap1: "Example documentation (before)",
-        fehlGalleryH3: "Examples of malocclusions",
         hauptH2: "Main treatment with fixed braces in the permanent dentition",
         hauptBody:
           "If IOTN 4 or 5 applies, reimbursement may be available. Publicly funded treatment for children uses fixed metal appliances only.",
@@ -655,20 +654,14 @@ export default function GratisZahnspangeContent({
               <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 md:text-4xl">{copy.fehlH2}</h2>
               <p className="mx-auto mb-10 max-w-3xl text-center leading-relaxed text-gray-600">{copy.fehlIntro}</p>
 
-              <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-                {copy.fehlCards.map((card) => (
+              <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {copy.fehlCards.map((card, i) => (
                   <article
-                    key={card.title}
+                    key={`${card.title}-${i}`}
                     className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                      <FehlstellungCardToothIcon />
-                    </div>
                     <h3 className="text-lg font-semibold text-gray-900">{card.title}</h3>
                     <p className="mt-2 leading-relaxed text-gray-600">{card.description}</p>
-                    <div className="mt-4 flex h-32 items-center justify-center rounded-lg bg-gray-100 text-sm text-gray-400">
-                      {copy.fehlImagePlaceholder}
-                    </div>
                   </article>
                 ))}
               </div>
@@ -709,47 +702,6 @@ export default function GratisZahnspangeContent({
                   </>
                 )}
               </p>
-
-              <h3 className="mt-16 mb-6 text-center text-2xl font-semibold text-gray-900">{copy.fehlGalleryH3}</h3>
-
-              <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-                <figure className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
-                    <Image
-                      src={IMG.fehl1}
-                      alt={isDe ? "Schemadarstellung Tiefbiss (Deepbite)" : "Deep bite illustration"}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <figcaption className="p-4 text-center text-sm text-gray-600">{copy.capTief}</figcaption>
-                </figure>
-                <figure className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
-                    <Image
-                      src={IMG.fehl2}
-                      alt={isDe ? "Beispiel Zahnstellung Vorher" : "Example malocclusion before"}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <figcaption className="p-4 text-center text-sm text-gray-600">{copy.cap3}</figcaption>
-                </figure>
-                <figure className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
-                    <Image
-                      src={IMG.fehl3}
-                      alt={isDe ? "Beispiel Dokumentation Vorher" : "Clinical photo before"}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <figcaption className="p-4 text-center text-sm text-gray-600">{copy.cap1}</figcaption>
-                </figure>
-              </div>
             </div>
           </div>
         </section>
