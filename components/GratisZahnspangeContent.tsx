@@ -28,6 +28,14 @@ const IMG = {
   arzt: "/gratis-zahnspange/dr.Mansi_-qtukjg7rpcrvhxt5faunya6jmdtn8zsfshb8qy7fgk.png",
 } as const;
 
+function FehlstellungCardToothIcon() {
+  return (
+    <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12 2C9.5 2 7.5 4 7 6.5c-.2 1.2-.8 2.1-1.5 3.2C4.3 11.8 3 14.2 3 17v5h4v-4c0-1.1.9-2 2-2s2 .9 2 2v4h2v-4c0-1.1.9-2 2-2s2 .9 2 2v4h4v-5c0-2.8-1.3-5.2-3.5-7.3-.7-1.1-1.3-2-1.5-3.2C16.5 4 14.5 2 12 2z" />
+    </svg>
+  );
+}
+
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
     <details className="group rounded-2xl border border-gray-100 bg-white shadow-soft open:shadow-soft-lg">
@@ -151,15 +159,32 @@ export default function GratisZahnspangeContent({
         fehlH2: "Kiefer- und Zahnfehlstellungen, die unbedingt eine Behandlung erfordern",
         fehlIntro:
           "Zum Beispiel: Habits oder schlechte Gewohnheiten (Zungenpressen, falsche Schluckmuster, Daumenlutschen, Lippenpressen, Fingernägelkauen usw.); Kreuzbiss seitlich beidseitig oder einseitig; Kreuzbiss der Frontzähne / Progener Zwangsbiss.",
-        fehlSub: [
-          "Front offener Biss",
-          "Platzmangel durch verschiedene Gründe oder frühzeitiges Verlieren der Milchzähne",
-          "Tiefbiss, Deckbiss, Überbiss",
-          "Ausgeprägte Frontzahnstufe, Rücklage im Oberkiefer, Maxilla Klasse 3",
+        fehlCards: [
+          {
+            title: "Offener Biss",
+            description:
+              "Front offener Biss kann die Kaufunktion und das Sprechen beeinflussen.",
+          },
+          {
+            title: "Platzmangel",
+            description:
+              "Platzmangel durch verschiedene Gründe oder frühzeitiges Verlieren der Milchzähne.",
+          },
+          {
+            title: "Fehlbisse",
+            description: "Tiefbiss, Deckbiss und Überbiss können langfristige Probleme verursachen.",
+          },
+          {
+            title: "Kieferfehlstellung",
+            description:
+              "Ausgeprägte Frontzahnstufe, Rücklage im Oberkiefer oder Maxilla Klasse 3.",
+          },
         ],
+        fehlImagePlaceholder: "Bild folgt",
         capTief: "Beispiel: Tiefbiss / Deepbite",
         cap3: "Beispielhafte Fehlstellung (Vorher)",
         cap1: "Beispielhafte Dokumentation (Vorher)",
+        fehlGalleryH3: "Beispiele für Zahnfehlstellungen",
         hauptH2: "Gratis-Zahnspange: Hauptbehandlung mit festsitzender Zahnspange im bleibenden Gebiss",
         hauptBody:
           "Wenn eine Schweregrad-Fehlstellung von IOTN 4 oder IOTN 5 vorliegt, besteht Anspruch auf Rückerstattung. Die „Gratis-Zahnspange“ für Kinder hat eine wichtige Voraussetzung: Es dürfen nur festsitzende Zahnspangen aus Metall verwendet werden.",
@@ -312,15 +337,29 @@ export default function GratisZahnspangeContent({
         fehlH2: "Malocclusions that require treatment",
         fehlIntro:
           "Including harmful habits (tongue thrust, incorrect swallowing, thumb sucking, etc.), crossbite, anterior crossbite / edge-to-edge problems.",
-        fehlSub: [
-          "Open bite anterior",
-          "Crowding or early loss of primary teeth",
-          "Deep bite, overbite",
-          "Marked sagittal discrepancy (e.g. Class III pattern)",
+        fehlCards: [
+          {
+            title: "Open bite",
+            description: "An anterior open bite can affect chewing and speech.",
+          },
+          {
+            title: "Crowding",
+            description: "Crowding due to various causes or early loss of primary teeth.",
+          },
+          {
+            title: "Malocclusions",
+            description: "Deep bite, overbite and crossbite can cause long-term problems.",
+          },
+          {
+            title: "Jaw discrepancy",
+            description: "Pronounced incisor step, maxillary retrusion or Class III maxilla.",
+          },
         ],
+        fehlImagePlaceholder: "Image coming soon",
         capTief: "Example: deep bite",
         cap3: "Example documentation (before)",
         cap1: "Example documentation (before)",
+        fehlGalleryH3: "Examples of malocclusions",
         hauptH2: "Main treatment with fixed braces in the permanent dentition",
         hauptBody:
           "If IOTN 4 or 5 applies, reimbursement may be available. Publicly funded treatment for children uses fixed metal appliances only.",
@@ -611,68 +650,107 @@ export default function GratisZahnspangeContent({
 
         {/* 7. Fehlstellungen */}
         <section className="mt-16 sm:mt-24">
-          <h2 className="text-center text-2xl font-bold text-primary sm:text-3xl">{copy.fehlH2}</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-center text-sm leading-relaxed text-slate-700 sm:text-base">{copy.fehlIntro}</p>
-          <ul className="mx-auto mt-6 max-w-2xl list-inside list-disc space-y-2 text-sm text-slate-800 sm:text-base">
-            {copy.fehlSub.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-sm text-slate-600">
-            {isDe ? (
-              <>
-                Kreuzbiss:{" "}
-                <a
-                  href="https://de.wikipedia.org/wiki/Kreuzbiss"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-accent underline hover:text-primary"
-                >
-                  Wikipedia
-                </a>
-                {" · "}
-                Progener Zwangsbiss:{" "}
-                <Link href={durchsichtigHref} className="font-medium text-accent underline hover:text-primary">
-                  mehr zur durchsichtigen Zahnspange
-                </Link>
-              </>
-            ) : (
-              <>
-                More on related topics:{" "}
-                <a
-                  href="https://de.wikipedia.org/wiki/Kreuzbiss"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-accent underline hover:text-primary"
-                >
-                  crossbite (DE)
-                </a>
-                {" · "}
-                <Link href={durchsichtigHref} className="font-medium text-accent underline hover:text-primary">
-                  clear aligners
-                </Link>
-              </>
-            )}
-          </p>
-          <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
-            <figure className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
-              <div className="relative aspect-[768/355] w-full">
-                <Image src={IMG.fehl1} alt={isDe ? "Schemadarstellung Tiefbiss (Deepbite)" : "Deep bite illustration"} fill className="object-cover" sizes="33vw" />
+          <div className="rounded-3xl bg-gray-50 py-16">
+            <div className="mx-auto max-w-6xl px-4 py-20">
+              <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 md:text-4xl">{copy.fehlH2}</h2>
+              <p className="mx-auto mb-10 max-w-3xl text-center leading-relaxed text-gray-600">{copy.fehlIntro}</p>
+
+              <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+                {copy.fehlCards.map((card) => (
+                  <article
+                    key={card.title}
+                    className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
+                      <FehlstellungCardToothIcon />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900">{card.title}</h3>
+                    <p className="mt-2 leading-relaxed text-gray-600">{card.description}</p>
+                    <div className="mt-4 flex h-32 items-center justify-center rounded-lg bg-gray-100 text-sm text-gray-400">
+                      {copy.fehlImagePlaceholder}
+                    </div>
+                  </article>
+                ))}
               </div>
-              <figcaption className="px-3 py-2 text-center text-xs text-slate-600">{copy.capTief}</figcaption>
-            </figure>
-            <figure className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
-              <div className="relative aspect-square w-full">
-                <Image src={IMG.fehl2} alt={isDe ? "Beispiel Zahnstellung Vorher" : "Example malocclusion before"} fill className="object-cover" sizes="33vw" />
+
+              <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-relaxed text-gray-600">
+                {isDe ? (
+                  <>
+                    Kreuzbiss:{" "}
+                    <a
+                      href="https://de.wikipedia.org/wiki/Kreuzbiss"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-blue-600 hover:underline"
+                    >
+                      Wikipedia
+                    </a>
+                    {" · "}
+                    Progener Zwangsbiss:{" "}
+                    <Link href={durchsichtigHref} className="font-medium text-blue-600 hover:underline">
+                      mehr zur durchsichtigen Zahnspange
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    More on related topics:{" "}
+                    <a
+                      href="https://de.wikipedia.org/wiki/Kreuzbiss"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-blue-600 hover:underline"
+                    >
+                      crossbite (DE)
+                    </a>
+                    {" · "}
+                    <Link href={durchsichtigHref} className="font-medium text-blue-600 hover:underline">
+                      clear aligners
+                    </Link>
+                  </>
+                )}
+              </p>
+
+              <h3 className="mt-16 mb-6 text-center text-2xl font-semibold text-gray-900">{copy.fehlGalleryH3}</h3>
+
+              <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+                <figure className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
+                    <Image
+                      src={IMG.fehl1}
+                      alt={isDe ? "Schemadarstellung Tiefbiss (Deepbite)" : "Deep bite illustration"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-4 text-center text-sm text-gray-600">{copy.capTief}</figcaption>
+                </figure>
+                <figure className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
+                    <Image
+                      src={IMG.fehl2}
+                      alt={isDe ? "Beispiel Zahnstellung Vorher" : "Example malocclusion before"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-4 text-center text-sm text-gray-600">{copy.cap3}</figcaption>
+                </figure>
+                <figure className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
+                    <Image
+                      src={IMG.fehl3}
+                      alt={isDe ? "Beispiel Dokumentation Vorher" : "Clinical photo before"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-4 text-center text-sm text-gray-600">{copy.cap1}</figcaption>
+                </figure>
               </div>
-              <figcaption className="px-3 py-2 text-center text-xs text-slate-600">{copy.cap3}</figcaption>
-            </figure>
-            <figure className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
-              <div className="relative aspect-square w-full">
-                <Image src={IMG.fehl3} alt={isDe ? "Beispiel Dokumentation Vorher" : "Clinical photo before"} fill className="object-cover" sizes="33vw" />
-              </div>
-              <figcaption className="px-3 py-2 text-center text-xs text-slate-600">{copy.cap1}</figcaption>
-            </figure>
+            </div>
           </div>
         </section>
 
