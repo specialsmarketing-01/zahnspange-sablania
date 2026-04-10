@@ -7,8 +7,8 @@ import ServicesSimple from "@/components/ServicesSimple";
 import DigitalPracticeSection from "@/components/DigitalPracticeSection";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
+import GoogleRating from "@/components/GoogleRating";
 import ContactSection from "@/components/ContactSection";
 import { getDictionary } from "@/lib/dictionaries";
 import { SITE_URL } from "@/lib/site";
@@ -41,8 +41,8 @@ export default function HomePage() {
       <WhyChooseUs dict={dict} />
       <BracesCategoriesSection locale={locale} dict={dict} />
       <ServicesSection locale={locale} dict={dict} />
-      <Testimonials locale={locale} dict={dict} />
       <CTASection locale={locale} dict={dict} />
+      <GoogleRating dict={dict} />
       <ContactSection locale={locale} dict={dict} />
     </>
   );
