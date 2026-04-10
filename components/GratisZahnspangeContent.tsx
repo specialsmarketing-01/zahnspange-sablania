@@ -67,7 +67,7 @@ export default function GratisZahnspangeContent({
         heroKicker: "Kieferorthopädie Wien",
         heroTitle: "Gratis Zahnspange",
         heroLead:
-          "Gratis Zahnspange – Metal Brackets. Seit Juli 2015 gibt es neue Regeln für die Gratis-Zahnspange! Als Fachzahnarzt für Kieferorthopädie und qualifizierter Wahl-Kieferorthopäde der ÖGK biete ich auch die Gratiszahnspange an. Das bedeutet: PatientInnen bekommen 80% – 100% des Kassentarifs refundiert.",
+          "Gratis Zahnspange – Metal Brackets. Seit Juli 2015 gibt es neue Regeln für die Gratis-Zahnspange! Als Fachzahnarzt für Kieferorthopädie und qualifizierter Wahl-Kieferorthopäde der ÖGK biete ich auch die Gratiszahnspange an. Das bedeutet: PatientInnen bekommen 100% des Kassentarifs refundiert.",
         ctaPrimary: "Kostenlose Erstberatung vereinbaren",
         ctaSecondary: "Termin online buchen",
         introH2: "Gratis-Zahnspange Wien, Voraussetzungen und Ihr Anspruch auf Rückerstattung",
@@ -75,12 +75,12 @@ export default function GratisZahnspangeContent({
           "Anspruch haben Kinder und Jugendliche während und nach dem Zahnwechsel und bis zur Vollendung des 18. Lebensjahres.",
         introBoxTitle: "Das Wichtigste in Kürze",
         introBoxText:
-          "Die Korrektur muss aus medizinischen Gründen erforderlich sein (IOTN 4 oder 5). Vor Behandlungsbeginn ist ein Antrag bei der Krankenkasse einzureichen. Bei positiver Prüfung werden 80–100% des Kassentarifs der festsitzenden Gratis Zahnspange rückerstattet. Durchführung ausschließlich mit Metall-Brackets; Aufzahlungen für z. B. Keramik-Brackets sind bei der Krankenkasse nicht zulässig.",
+          "Die Korrektur muss aus medizinischen Gründen erforderlich sein (IOTN 4 oder 5). Vor Behandlungsbeginn ist ein Antrag bei der Krankenkasse einzureichen. Bei positiver Prüfung werden 100% des Kassentarifs der festsitzenden Gratis Zahnspange rückerstattet. Durchführung ausschließlich mit Metall-Brackets; Aufzahlungen für z. B. Keramik-Brackets sind bei der Krankenkasse nicht zulässig.",
         vorausH2: "Zahnregulierung: Gratis Zahnspange festsitzend oder abnehmbar – Voraussetzungen",
         vCheck1:
           "Es muss eine schwere Zahn-Fehlstellung und/oder Kiefer-Fehlstellung vorliegen, um Anspruch auf eine Gratiszahnspange zu erhalten. Die Korrektur muss aus medizinischen Gründen erforderlich sein (IOTN 4 oder 5). Das wird in einer Erstberatung festgestellt. Schweregrad-Feststellung: Termin für Erstberatung vereinbaren.",
         vCheck2:
-          "Vor Behandlungsbeginn (Gratis Zahnspange) ist ein Antrag bei der Krankenkasse einzureichen. Bei positiver Prüfung werden 80–100% des Kassentarifs der festsitzenden Gratis Zahnspange rückerstattet. Tipp: Erkundigen Sie sich mit der Krankenkasse bereits vor Beginn der Behandlung.",
+          "Vor Behandlungsbeginn (Gratis Zahnspange) ist ein Antrag bei der Krankenkasse einzureichen. Bei positiver Prüfung werden 100% des Kassentarifs der festsitzenden Gratis Zahnspange rückerstattet. Tipp: Erkundigen Sie sich mit der Krankenkasse bereits vor Beginn der Behandlung.",
         vCheck3: "Durchführung ausschließlich mit Metall-Brackets. Aufzahlungen für z. B. Keramik-Brackets sind bei der Krankenkasse nicht zulässig.",
         merkeTitle: "Merke",
         merkeText:
@@ -228,7 +228,7 @@ export default function GratisZahnspangeContent({
         heroKicker: "Orthodontics Vienna",
         heroTitle: "Publicly funded braces",
         heroLead:
-          "Publicly funded braces – metal brackets. Since July 2015, Austria has had updated rules for subsidised orthodontic treatment for children and teens. As a specialist orthodontist and contracted ÖGK partner, we offer treatment under this scheme. Patients can receive 80–100% of the statutory tariff back from the health insurance fund.",
+          "Publicly funded braces – metal brackets. Since July 2015, Austria has had updated rules for subsidised orthodontic treatment for children and teens. As a specialist orthodontist and contracted ÖGK partner, we offer treatment under this scheme. Patients can receive 100% of the statutory tariff back from the health insurance fund.",
         ctaPrimary: "Book a free initial consultation",
         ctaSecondary: "Book an appointment online",
         introH2: "Requirements and your entitlement to reimbursement",
@@ -236,12 +236,12 @@ export default function GratisZahnspangeContent({
           "Children and teenagers during and after the mixed dentition phase, up to age 18, may be eligible if the clinical criteria are met.",
         introBoxTitle: "Key points",
         introBoxText:
-          "Treatment must be medically necessary (IOTN 4 or 5). You must apply to your insurer before starting. If approved, 80–100% of the statutory tariff for fixed metal braces may be reimbursed. Treatment under the scheme uses metal brackets only; add-ons such as ceramic brackets are not covered.",
+          "Treatment must be medically necessary (IOTN 4 or 5). You must apply to your insurer before starting. If approved, 100% of the statutory tariff for fixed metal braces may be reimbursed. Treatment under the scheme uses metal brackets only; add-ons such as ceramic brackets are not covered.",
         vorausH2: "Fixed or removable publicly funded braces – requirements",
         vCheck1:
           "A severe dental and/or jaw misalignment (IOTN 4 or 5) must be present. Severity is assessed at the initial consultation.",
         vCheck2:
-          "Submit an application to your insurer before treatment begins. If approved, 80–100% of the tariff for fixed braces may be reimbursed. Check with your insurer early.",
+          "Submit an application to your insurer before treatment begins. If approved, 100% of the tariff for fixed braces may be reimbursed. Check with your insurer early.",
         vCheck3: "Treatment under the scheme uses metal brackets only; ceramic surcharges are not reimbursed.",
         merkeTitle: "Note",
         merkeText: "If IOTN 4 or 5 is present but parents prefer an alternative without insurer funding, we offer:",
@@ -547,16 +547,16 @@ export default function GratisZahnspangeContent({
           <p className="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-600 sm:text-base">{copy.behandlungLead}</p>
           <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2">
             {copy.beh.map((b, i) => {
-              const shots = [IMG.metall, IMG.keramik, IMG.aligners, IMG.lingualAlt];
+              const shots = [IMG.interzeptiv, IMG.keramik, IMG.aligners, IMG.lingualAlt];
               const behAlts = isDe
                 ? [
-                    "Metall-Brackets an den Frontzähnen",
+                    "Kieferorthopädische Frühbehandlung im Kindesalter",
                     "Keramik-Brackets – zahnfarbene Brackets",
                     "Durchsichtige Aligner-Schienen",
                     "Ästhetische festsitzende Zahnspange (Beispielabbildung)",
                   ]
                 : [
-                    "Metal brackets on front teeth",
+                    "Interceptive orthodontic treatment in childhood",
                     "Tooth-coloured ceramic brackets",
                     "Clear aligner trays",
                     "Aesthetic fixed appliance (illustration)",
@@ -595,8 +595,8 @@ export default function GratisZahnspangeContent({
               </div>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 shadow-soft-lg">
                 <Image
-                  src={IMG.interzeptiv}
-                  alt={isDe ? "Kieferorthopädische Frühbehandlung im Kindesalter" : "Interceptive orthodontic treatment"}
+                  src={IMG.metall}
+                  alt={isDe ? "Metall-Brackets an den Frontzähnen" : "Metal brackets on front teeth"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
