@@ -221,7 +221,8 @@ export const dictionaries = {
         },
       ],
       ctaTitle: "Vereinbaren Sie noch heute einen Beratungstermin",
-      ctaSub: "Wir freuen uns auf Sie und beraten Sie gerne unverbindlich zu allen Möglichkeiten der Kieferorthopädie in Wien.",
+      ctaSub:
+        "Wir freuen uns auf Sie und beraten Sie gerne unverbindlich zu allen Möglichkeiten der Kieferorthopädie und Zahnbehandlung in Wien.",
       ctaButton: "Online Termin buchen",
       contactTitle: "Kontakt",
       contactSub: "So erreichen Sie uns – wir freuen uns auf Ihre Nachricht.",
@@ -372,7 +373,7 @@ export const dictionaries = {
       success: "Vielen Dank! Ihre Anfrage wurde gesendet. Wir melden uns in Kürze.",
       error: "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       contactHours: "Kontakt & Öffnungszeiten",
-      hoursText: "Mo – Fr: 8:00 – 18:00 Uhr",
+      hoursText: "Mo – Fr: 10:00 – 17:00 Uhr",
       hoursNote: "Termine nach Vereinbarung",
     },
     ueberMich: {
@@ -603,7 +604,7 @@ export const dictionaries = {
     globalContactBar: {
       heading: "How can we help you?",
       openingHours: "Opening Hours",
-      hoursValue: "Mon–Fri: 10am – 5pm",
+      hoursValue: "Mon–Fri: 10:00 – 17:00",
       telephone: "Telephone",
       email: "Email",
       call: "Call",
@@ -725,7 +726,8 @@ export const dictionaries = {
         },
       ],
       ctaTitle: "Book a Consultation Today",
-      ctaSub: "We look forward to seeing you and are happy to advise you without obligation on all orthodontic options in Vienna.",
+      ctaSub:
+        "We look forward to seeing you and are happy to advise you without obligation on all options in orthodontics and dental treatment in Vienna.",
       ctaButton: "Book Online",
       contactTitle: "Contact",
       contactSub: "How to reach us – we look forward to your message.",
@@ -877,7 +879,7 @@ export const dictionaries = {
       success: "Thank you! Your request has been sent. We will be in touch shortly.",
       error: "Something went wrong. Please try again.",
       contactHours: "Contact & Opening hours",
-      hoursText: "Mon – Fri: 8:00 AM – 6:00 PM",
+      hoursText: "Mon – Fri: 10:00 – 17:00",
       hoursNote: "By appointment",
     },
     ueberMich: {

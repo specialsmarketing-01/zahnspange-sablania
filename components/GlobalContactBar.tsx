@@ -20,7 +20,7 @@ export default function GlobalContactBar({ dict }: { dict: Dictionary }) {
                 {g.openingHours ?? "Opening Hours"}
               </p>
               <p className="text-[#0f2e5c] font-medium">
-                {g.hoursValue ?? "Mon–Fri: 10am – 5pm"}
+                {g.hoursValue ?? "Mon–Fri: 10:00 – 17:00"}
               </p>
             </div>
 
