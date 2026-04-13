@@ -68,6 +68,7 @@ export const dictionaries = {
       ourTeam: "Unser Team",
       beforeAfter: "Vorher & Nachher",
       faqs: "FAQs",
+      articlePage: "Artikel",
       imprint: "Impressum",
       privacy: "Datenschutz",
       phone: "Telefon:",
@@ -141,6 +142,7 @@ export const dictionaries = {
       "/asethetic-dental-services": "Ästhetische Zahnärztliche Leistungen",
       "/implantat-wien": "Implantat Wien",
       "/zahnarzt-1200-wien": "Zahnarzt 1200 Wien",
+      "/artikel": "Artikel",
     } as Record<string, string>,
     homepage: {
       heroTitle: "Ihre Spezialisten für moderne Zahnspangen in Wien",
@@ -508,6 +510,8 @@ export const dictionaries = {
       orthodontics: "Kieferorthopädie",
     },
     pageLeads: {
+      "/ueber-mich":
+        "Fachzahnarzt für Kieferorthopädie in Wien 1200: Qualifikationen, Erfahrung, Schwerpunkte Zahnspange & Aligner, Mitgliedschaften.",
       "/ablauf-zahnspange-kieferorthopaedie": "Transparenz von Anfang an: Erfahren Sie, welche Schritte bei einer kieferorthopädischen Behandlung in unserer Praxis auf Sie zukommen.",
       "/gratis-zahnspange": "In Österreich gibt es unter bestimmten Voraussetzungen eine finanzielle Förderung für kieferorthopädische Behandlungen bei Kindern und Jugendlichen. Wir erklären Ihnen die Grundlagen.",
       "/unsichtbare-zahnspange-wien": "Durchsichtige, herausnehmbare Aligner ermöglichen eine nahezu unsichtbare Zahnkorrektur – ideal für Beruf und Alltag. In unserer Praxis in Wien bieten wir Ihnen diese moderne Option.",
@@ -528,6 +532,8 @@ export const dictionaries = {
       "/implantat-wien": "Zahnimplantate in Wien: Festsitzender Zahnersatz als stabile und ästhetische Alternative zu Prothesen – von der Planung bis zur Nachsorge.",
       "/zahnarzt-1200-wien":
         "Ihre Zahnarztpraxis in Wien 1200 für allgemeine, ästhetische Zahnheilkunde und Kieferorthopädie – zentral gelegen und mit moderner Technik ausgestattet.",
+      "/artikel":
+        "Aktuelle Informationen und Hintergründe zu Kieferorthopädie, Zahnspangen und ästhetischer Zahnmedizin in unserer Praxis in Wien.",
     } as Record<string, string>,
     metadata: {
       defaultTitle: "Zahnspange Sablania | Kieferorthopädie & Zahnspangen Wien",
@@ -602,6 +608,7 @@ export const dictionaries = {
       ourTeam: "Our Team",
       beforeAfter: "Before & After",
       faqs: "FAQs",
+      articlePage: "Articles",
       imprint: "Imprint",
       privacy: "Privacy Policy",
       phone: "Phone:",
@@ -675,6 +682,7 @@ export const dictionaries = {
       "/asethetic-dental-services": "Aesthetic Dental Services",
       "/implantat-wien": "Implant Vienna",
       "/zahnarzt-1200-wien": "Dentist 1200 Vienna",
+      "/artikel": "Articles",
     } as Record<string, string>,
     homepage: {
       heroTitle: "Your Specialists for Modern Braces in Vienna",
@@ -1043,6 +1051,8 @@ export const dictionaries = {
       orthodontics: "Orthodontics",
     },
     pageLeads: {
+      "/ueber-mich":
+        "Specialist orthodontist in Vienna 1200: qualifications, experience, focus on braces & aligners, professional memberships.",
       "/ablauf-zahnspange-kieferorthopaedie": "Transparency from the start: find out what steps are involved in an orthodontic treatment at our practice.",
       "/gratis-zahnspange": "In Austria, under certain conditions, financial support is available for orthodontic treatment for children and teenagers. We explain the basics.",
       "/unsichtbare-zahnspange-wien": "Clear, removable aligners allow an almost invisible tooth correction – ideal for work and everyday life. We offer this modern option at our practice in Vienna.",
@@ -1059,10 +1069,12 @@ export const dictionaries = {
       "/krone-bruecke": "Crown and bridge for seamless, stable dental restorations. We advise on materials and process.",
       "/zahnersatz": "Modern dental prosthetics for aesthetics and function. From crown to bridge to denture – we find the right solution.",
       "/sportschutz-mouthguards": "Custom sports mouthguards to protect teeth during sport. Fitted for maximum comfort and protection.",
-      "/asethetic-dental-services": "Aesthetic dental services in Vienna – an overview of whitening, fillings, oral hygiene, sports mouthguards and more.",
+      "/asethetic-dental-services": "Aesthetic dental services in Vienna – an overview of whitening, fillings, oral hygiene and more.",
       "/implantat-wien": "Dental implants in Vienna: fixed, natural-looking replacement for missing teeth – from assessment and planning to long-term maintenance.",
       "/zahnarzt-1200-wien":
         "General and aesthetic dentistry plus orthodontics in Vienna 1200 – centrally located practice with modern technology.",
+      "/artikel":
+        "News and background on orthodontics, braces and aesthetic dentistry at our practice in Vienna.",
     } as Record<string, string>,
     metadata: {
       defaultTitle: "Zahnspange Sablania | Orthodontics & Braces Vienna",

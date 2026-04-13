@@ -41,6 +41,7 @@ export const DE_TO_EN: Record<string, string> = {
   "/asethetic-dental-services": "/en/aesthetic-dental-services",
   "/implantat-wien": "/en/implant-vienna",
   "/zahnarzt-1200-wien": "/en/dentist-1200-vienna",
+  "/artikel": "/en/article",
 };
 
 /** English path -> German path (root) */

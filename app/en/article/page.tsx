@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import UeberMichPageContent from "@/components/UeberMichPageContent";
+import ArticlePageContent from "@/components/ArticlePageContent";
 import { getDictionary } from "@/lib/dictionaries";
 import { getServicePageMetadata } from "@/lib/servicePageMetadata";
 
-const DE_PATH = "/ueber-mich";
+const DE_PATH = "/artikel";
 const locale = "en" as const;
 
 export async function generateMetadata(): Promise<Metadata> {
   return getServicePageMetadata(DE_PATH, locale);
 }
 
-export default function AboutPage() {
+export default function Page() {
   const dict = getDictionary(locale);
-  return <UeberMichPageContent locale={locale} dict={dict} />;
+  return <ArticlePageContent locale={locale} dict={dict} />;
 }

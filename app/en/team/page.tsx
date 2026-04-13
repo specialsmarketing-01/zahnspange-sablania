@@ -14,7 +14,7 @@ const DOCTOR_IMAGE =
 const DOCTOR = {
   title: "Specialist dentist in orthodontics Dr.med.dent Manish Sablania BDS M.Sc. Orthodontic dentist Vienna 1200",
   line2: "Qualified orthodontist for \"health insurance – free braces\" specialized in orthodontics and orthodontics.",
-  bio: "Has over 25 years of experience and more than 7000 dental adjustments and braces treatments, cooperation , which makes him an expert in his field who cares deeply about the well-being of his patients.",
+  bio: "Has over 28 years of experience and 7800+ dental adjustments and braces treatments, which makes him an expert in his field who cares deeply about the well-being of his patients.",
 };
 
 export const metadata: Metadata = {

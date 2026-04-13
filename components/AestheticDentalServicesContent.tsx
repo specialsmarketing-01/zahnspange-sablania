@@ -14,8 +14,6 @@ const IMG = {
   bridgeWide: `${BASE}/dental-ga63c0bf75_1920-1536x864.png`,
   drSs: `${BASE}/DrSS-qccg77rgojbtrcav5z20egkfccceiwy9acpag4xm8o.png`,
   drMansi: `${BASE}/dr.Mansi_-qtukjg7rpcrvhxt5faunya6jmdtn8zsfshb8qy7fgk.png`,
-  implant: `${BASE}/Implant-2.jpg`,
-  implantSm: `${BASE}/Implant-2-300x241.jpg`,
   keramik: `${BASE}/Keramikkrone-1.png`,
   lingual: `${BASE}/Lingualtechnik-640-×-500-px-e1670235670602.png`,
   qualityDentist: `/services/${encodeURIComponent(
@@ -23,7 +21,6 @@ const IMG = {
   )}`,
   schiene: `${BASE}/Schiene.png`,
   bracesColor: `${BASE}/SDC12934.jpg`,
-  sports: `${BASE}/Zaehne-Sportschutz.png`,
   bleaching: `${BASE}/Zahnbleichen.png`,
   hygiene: `${BASE}/zahnhygiene.png`,
 } as const;
@@ -124,8 +121,8 @@ export default function AestheticDentalServicesContent({
       ? "Qualifizierter Wahlkieferorthopäde für „Krankenkasse-Gratis Zahnspange“, spezialisiert in Kieferorthopädie und Orthodontie."
       : "Qualified partner for publicly funded braces and specialist orthodontics.",
     arztLi2: isDe
-      ? "Über 25 Jahre Erfahrung und mehr als 7.000 Zahnregulierungen und Zahnspangenbehandlungen – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten."
-      : "Over 25 years of experience and thousands of orthodontic treatments with patient wellbeing at the centre.",
+      ? "Über 28 Jahre Erfahrung und 7800+ Zahnregulierungen und Zahnspangenbehandlungen – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten."
+      : "Over 28 years of experience and 7800+ orthodontic treatments with patient wellbeing at the centre.",
     ctaAesthetic: isDe ? "Termin für ästhetische Zahnmedizin vereinbaren" : "Book an aesthetic dentistry appointment",
     ctaConsult: isDe ? "Kostenlose Erstberatung vereinbaren" : "Book a free consultation",
   };
@@ -191,8 +188,8 @@ export default function AestheticDentalServicesContent({
           <h2 className="mt-10 text-xl font-bold text-primary sm:text-2xl">{h.servicesH}</h2>
         </div>
 
-        {/* 8 service cards */}
-        <div className="mx-auto mt-10 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Service cards — 2×3 grid on md+ */}
+        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
           <ServiceCard
             href={u("/unsichtbare-zahnspange-wien")}
             title={isDe ? "Unsichtbare Zahnspange" : "Invisible braces"}
@@ -216,18 +213,6 @@ export default function AestheticDentalServicesContent({
             title={isDe ? "Ästhetische Zahnfüllungen" : "Aesthetic fillings"}
             imageSrc={IMG.keramik}
             alt={isDe ? "Keramik / ästhetische Versorgung" : "Ceramic restoration"}
-          />
-          <ServiceCard
-            href={u("/sportschutz-mouthguards")}
-            title={isDe ? "Sportschutz-Mouthguards" : "Sports mouthguards"}
-            imageSrc={IMG.sports}
-            alt={isDe ? "Sportschutz für die Zähne" : "Sports mouthguard"}
-          />
-          <ServiceCard
-            href={u("/implantat-wien")}
-            title={isDe ? "Zahn-Implantat" : "Dental implants"}
-            imageSrc={IMG.implant}
-            alt={isDe ? "Zahnimplantat" : "Dental implant"}
           />
           <ServiceCard
             href={u("/krone-bruecke")}

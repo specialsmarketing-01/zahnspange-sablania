@@ -34,13 +34,14 @@ const FOOTER_LINK_PATHS = [
   "/unser-team",
   "/vorher-nachher-fotos",
   "/faqs",
+  "/artikel",
 ];
 
 const LEGAL_PATHS = ["/impressum", "/datenschutz"];
 
 const dentistryKeys = ["aestheticFillings", "crownBridge", "professionalOralHygiene", "teethWhitening", "sportsGuards"] as const;
 const orthoKeys = ["bracesChildren", "bracesTeens", "bracesAdults", "freeBraces", "invisibleBracesInvisalign", "invisibleLingual"] as const;
-const linkKeys = ["contact", "aboutMe", "ourPractice", "ourTeam", "beforeAfter", "faqs"] as const;
+const linkKeys = ["contact", "aboutMe", "ourPractice", "ourTeam", "beforeAfter", "faqs", "articlePage"] as const;
 const legalKeys = ["imprint", "privacy"] as const;
 
 export default function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {

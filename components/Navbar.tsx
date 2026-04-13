@@ -23,7 +23,7 @@ const DROPDOWN_DE_PATHS = [
 ] as const;
 
 const ABOUT_NAV_PATHS = [
-  { path: "/ueber-mich", labelKey: "aboutTheDoctor" as const },
+  { path: "/ueber-mich", labelKey: "aboutMe" as const },
   { path: "/ueber-uns", labelKey: "ourPractice" as const },
   { path: "/unser-team", labelKey: "ourTeam" as const },
 ];
