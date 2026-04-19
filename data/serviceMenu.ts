@@ -9,6 +9,8 @@ export interface ServiceItemConfig {
   dePath: string;
   /** Optional icon filename in /public/icons used for cards & menus */
   iconFile?: string;
+  /** If set, nav links open this URL instead of the internal dePath page */
+  externalUrl?: string;
 }
 
 export interface ServiceCategoryConfig {
@@ -36,7 +38,13 @@ export const SERVICE_CATEGORIES: ServiceCategoryConfig[] = [
   },
   {
     id: "dentist",
-    items: [{ dePath: "/zahnarzt-1200-wien", iconFile: "Veneers Crown Bridge.png" }],
+    items: [
+      {
+        dePath: "/zahnarzt-1200-wien",
+        iconFile: "Veneers Crown Bridge.png",
+        externalUrl: "https://wienzahnaerzte.at/",
+      },
+    ],
   },
   {
     id: "orthodontics",

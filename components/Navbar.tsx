@@ -3,11 +3,48 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import { getPathForLocale, getHref } from "@/lib/paths";
-import { SERVICE_CATEGORIES, type ServiceCategoryId } from "@/data/serviceMenu";
+import {
+  SERVICE_CATEGORIES,
+  type ServiceCategoryId,
+  type ServiceItemConfig,
+} from "@/data/serviceMenu";
+
+function ServiceMenuItemLink({
+  item,
+  locale,
+  className,
+  onClick,
+  children,
+}: {
+  item: ServiceItemConfig;
+  locale: Locale;
+  className: string;
+  onClick?: () => void;
+  children: ReactNode;
+}) {
+  if (item.externalUrl) {
+    return (
+      <a
+        href={item.externalUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={getHref(item.dePath, locale)} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 const DROPDOWN_DE_PATHS = [
   "/kieferorthopaedie",
@@ -149,20 +186,32 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                     <ul className="space-y-0.5">
                       {SERVICE_CATEGORIES.map((category) => {
                         if (category.items.length <= 1) {
+                          const firstItem = category.items[0];
                           const targetPath =
-                            category.items[0]?.dePath ??
+                            firstItem?.dePath ??
                             (category.id === "procedure"
                               ? "/ablauf-zahnspange-kieferorthopaedie"
                               : "/ueber-mich");
                           return (
                             <li key={category.id}>
-                              <Link
-                                href={getHref(targetPath, locale)}
-                                className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-sm text-left text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
-                                onClick={() => setLeistungenOpen(false)}
-                              >
-                                <span>{getCategoryLabel(category.id)}</span>
-                              </Link>
+                              {firstItem ? (
+                                <ServiceMenuItemLink
+                                  item={firstItem}
+                                  locale={locale}
+                                  className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-sm text-left text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
+                                  onClick={() => setLeistungenOpen(false)}
+                                >
+                                  <span>{getCategoryLabel(category.id)}</span>
+                                </ServiceMenuItemLink>
+                              ) : (
+                                <Link
+                                  href={getHref(targetPath, locale)}
+                                  className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-sm text-left text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
+                                  onClick={() => setLeistungenOpen(false)}
+                                >
+                                  <span>{getCategoryLabel(category.id)}</span>
+                                </Link>
+                              )}
                             </li>
                           );
                         }
@@ -204,15 +253,17 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                     </p>
                     <div className="grid gap-1">
                       {SERVICE_CATEGORIES.find((c) => c.id === activeServiceCategory)?.items.map((item) => (
-                        <Link
+                        <ServiceMenuItemLink
                           key={item.dePath}
-                          href={getHref(item.dePath, locale)}
+                          item={item}
+                          locale={locale}
                           className="flex items-center rounded-lg px-3 py-2 text-sm text-[#1e293b] hover:bg-gray-50 hover:text-[#0f2e5c] transition-colors"
+                          onClick={() => setLeistungenOpen(false)}
                         >
                           <span className="truncate">
                             {(dict.routeTitles as Record<string, string>)[item.dePath] ?? item.dePath}
                           </span>
-                        </Link>
+                        </ServiceMenuItemLink>
                       ))}
                     </div>
                     <div className="mt-3 flex gap-2 text-xs text-gray-500">
@@ -368,12 +419,23 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                 <div className="ml-4 border-l border-gray-200 pl-3 space-y-1 py-1">
                   {SERVICE_CATEGORIES.map((category) => {
                     if (category.items.length <= 1) {
+                      const firstItem = category.items[0];
                       const targetPath =
-                        category.items[0]?.dePath ??
+                        firstItem?.dePath ??
                         (category.id === "procedure"
                           ? "/ablauf-zahnspange-kieferorthopaedie"
                           : "/ueber-mich");
-                      return (
+                      return firstItem ? (
+                        <ServiceMenuItemLink
+                          key={category.id}
+                          item={firstItem}
+                          locale={locale}
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-[#1e293b]/90 hover:bg-[#f8f9fb] hover:text-[#0f2e5c]"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {getCategoryLabel(category.id)}
+                        </ServiceMenuItemLink>
+                      ) : (
                         <Link
                           key={category.id}
                           href={getHref(targetPath, locale)}
@@ -412,14 +474,15 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                         {mobileActiveServiceCategory === category.id && (
                           <div className="ml-3 border-l border-gray-200 pl-3 space-y-0.5 py-1">
                             {category.items.map((item) => (
-                              <Link
+                              <ServiceMenuItemLink
                                 key={item.dePath}
-                                href={getHref(item.dePath, locale)}
+                                item={item}
+                                locale={locale}
                                 className="block rounded-lg px-3 py-1.5 text-sm text-[#1e293b]/80 hover:bg-[#f8f9fb] hover:text-[#0f2e5c]"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {(dict.routeTitles as Record<string, string>)[item.dePath] ?? item.dePath}
-                              </Link>
+                              </ServiceMenuItemLink>
                             ))}
                           </div>
                         )}
