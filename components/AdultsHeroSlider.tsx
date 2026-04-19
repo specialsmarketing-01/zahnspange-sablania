@@ -25,9 +25,16 @@ const labels = {
 export default function AdultsHeroSlider({
   slides,
   locale,
+  carouselAriaLabel,
+  aspectClassName = "aspect-[21/9] min-h-[200px] w-full sm:min-h-[240px]",
+  imageClassName = "object-cover object-[center_25%]",
 }: {
   slides: HeroSlide[];
   locale: "de" | "en";
+  /** Overrides default carousel label for accessibility (e.g. topic-specific pages). */
+  carouselAriaLabel?: string;
+  aspectClassName?: string;
+  imageClassName?: string;
 }) {
   const L = labels[locale];
   const [index, setIndex] = useState(0);
@@ -83,13 +90,13 @@ export default function AdultsHeroSlider({
     <section
       className="relative overflow-hidden rounded-3xl border border-gray-100 bg-gray-100 shadow-soft-lg"
       aria-roledescription="carousel"
-      aria-label={slides.length > 1 ? L.carousel : undefined}
+      aria-label={slides.length > 1 ? carouselAriaLabel ?? L.carousel : undefined}
     >
       <div
         role="region"
         tabIndex={0}
         onKeyDown={onKeyDown}
-        className="relative aspect-[21/9] min-h-[200px] w-full outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 sm:min-h-[240px]"
+        className={`relative outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 ${aspectClassName}`}
         onTouchStart={(e) => {
           touchStartX.current = e.targetTouches[0]?.clientX ?? null;
         }}
@@ -111,7 +118,7 @@ export default function AdultsHeroSlider({
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className="object-cover object-[center_25%]"
+                className={imageClassName}
                 sizes="(max-width: 1024px) 100vw, 80vw"
                 priority={i === 0}
                 fetchPriority={i === 0 ? "high" : "auto"}
