@@ -3,12 +3,43 @@ import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import PageContent from "./PageContent";
+import AdultsHeroSlider from "./AdultsHeroSlider";
 import { getHref } from "@/lib/paths";
 import { BOOKING_URL } from "@/lib/site";
 
+const ADULTS_HERO_BRACES =
+  "/zahnspange-fuer-erwachsene/woman-with-dental-braces-teeth-glitter-lipstick-lips-talks-smiling-widely-blurred-background-room-home-extreme-closeup-scaled.jpg";
+
+const ADULTS_HERO_SLIDES_META = [
+  {
+    src: ADULTS_HERO_BRACES,
+    altDe: "Erwachsene Patientin mit fester Zahnspange und Lächeln",
+    altEn: "Adult patient with fixed braces, smiling",
+  },
+  {
+    src: "/zahnspange-fuer-erwachsene/hero-slide-aligners.png",
+    altDe: "Nahaufnahme: durchsichtige Aligner-Schiene vor dem Gebiss",
+    altEn: "Close-up: clear aligner tray in front of the teeth",
+  },
+  {
+    src: "/zahnspange-fuer-erwachsene/hero-slide-keramik.png",
+    altDe: "Keramikbrackets mit dünnem Metallbogen",
+    altEn: "Ceramic brackets with a slim metal archwire",
+  },
+  {
+    src: "/zahnspange-fuer-erwachsene/hero-slide-lingual.png",
+    altDe: "Lingualtechnik: Brackets an der Innenseite der Oberzähne",
+    altEn: "Lingual braces on the inside of the upper teeth",
+  },
+  {
+    src: "/zahnspange-fuer-erwachsene/hero-slide-treatments-collage.png",
+    altDe: "Übersicht: verschiedene kieferorthopädische Behandlungsoptionen",
+    altEn: "Overview of different orthodontic treatment options",
+  },
+] as const;
+
 const IMG = {
-  hero: "/zahnspange-fuer-erwachsene/woman-with-dental-braces-teeth-glitter-lipstick-lips-talks-smiling-widely-blurred-background-room-home-extreme-closeup-scaled.jpg",
-  keramik: "/braces-for-teen/Braces-1-628x649.png",
+  keramik: ADULTS_HERO_BRACES,
   lingual: "/zahnspange-fuer-erwachsene/Lingualtechnik-640-%C3%97-500-px-e1670235670602.png",
   invisalign: "/zahnspange-fuer-erwachsene/SDC12926-.jpg",
 } as const;
@@ -70,8 +101,8 @@ const COPY: Record<"de" | "en", Copy> = {
       p1Rest:
         " – die festsitzende Zahnspange für Erwachsene. Bei der Verwendung von durchsichtigen Keramikbrackets profitieren Sie von einer deutlich verbesserten Optik.",
       p2: "Die Brackets werden direkt auf die Außenseite der Zähne geklebt und sind bei Jugendlichen und Erwachsenen besonders beliebt. Auch können Bögen in Zahnfarbe verwendet werden.",
-      imageAlt: "Keramikbrackets mit Bögen in Zahnfarbe",
-      caption: "Keramikbrackets mit Bögen in Zahnfarbe",
+      imageAlt: "Erwachsene Patientin mit fester Zahnspange, lächelnd",
+      caption: "Feste Zahnspange bei Erwachsenen",
     },
     lingual: {
       title: "Lingualzahnspange",
@@ -133,8 +164,8 @@ const COPY: Record<"de" | "en", Copy> = {
       p1Rest:
         " – the fixed brace for adults. With clear ceramic brackets you benefit from a much improved appearance.",
       p2: "Brackets are bonded directly to the outside of the teeth and are popular with both teenagers and adults. Archwires in tooth colour can also be used.",
-      imageAlt: "Ceramic brackets with tooth-coloured archwires",
-      caption: "Braces for adults",
+      imageAlt: "Adult patient with fixed braces, smiling",
+      caption: "Fixed braces for adults",
     },
     lingual: {
       title: "Lingual brace",
@@ -204,23 +235,14 @@ export default function ZahnspangeErwachseneContent({
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict} skipProse>
       <div className="space-y-0">
-        {/* Hero — visual only (title & lead come from PageContent header) */}
-        <section className="relative overflow-hidden rounded-3xl border border-gray-100 bg-gray-100 shadow-soft-lg">
-          <div className="relative aspect-[21/9] min-h-[200px] w-full sm:min-h-[240px]">
-            <Image
-              src={IMG.hero}
-              alt=""
-              fill
-              className="object-cover object-[center_25%]"
-              sizes="(max-width: 1024px) 100vw, 80vw"
-              priority
-            />
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"
-              aria-hidden
-            />
-          </div>
-        </section>
+        {/* Hero — image slider (title & lead come from PageContent header) */}
+        <AdultsHeroSlider
+          locale={lang}
+          slides={ADULTS_HERO_SLIDES_META.map((s) => ({
+            src: s.src,
+            alt: lang === "de" ? s.altDe : s.altEn,
+          }))}
+        />
 
         {/* Intro (full text) */}
         <section className="mx-auto mt-12 max-w-3xl sm:mt-16">
@@ -243,7 +265,7 @@ export default function ZahnspangeErwachseneContent({
                   src={IMG.keramik}
                   alt={c.keramik.imageAlt}
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_25%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
