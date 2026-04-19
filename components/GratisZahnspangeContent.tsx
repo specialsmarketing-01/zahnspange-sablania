@@ -19,7 +19,7 @@ const IMG = {
   keramik: "/gratis-zahnspange/girl-eating-chocolate-with-ceramic-teeth-braces_10069-205.png",
   aligners: "/gratis-zahnspange/Aligners-35-q1ah25wbsc1ausmvjri1zvu9hxd6rvlh3ro9a6rxnw.jpg",
   lingualAlt: "/gratis-zahnspange/Screenshot-5329-860x649.png",
-  interzeptiv: "/gratis-zahnspange/11-vor-q631w2oyn5p9yfaqs77kgyk85kpfzfiqt43c3mh9s4.jpg",
+  interzeptiv: "/gratis-zahnspange/patientin-strahlendes-laecheln.png",
   hauptbehandlung: "/gratis-zahnspange/Zahnarzt-1-e1671695799854.png",
   ablauf: "/gratis-zahnspange/spiegle-etc-klein.png",
   arzt: "/gratis-zahnspange/dr.Mansi_-qtukjg7rpcrvhxt5faunya6jmdtn8zsfshb8qy7fgk.png",
@@ -591,13 +591,13 @@ export default function GratisZahnspangeContent({
               const shots = [IMG.interzeptiv, IMG.keramik, IMG.aligners, IMG.lingualAlt];
               const behAlts = isDe
                 ? [
-                    "Kieferorthopädische Frühbehandlung im Kindesalter",
+                    "Junge Patientin mit selbstbewusstem, strahlendem Lächeln",
                     "Keramik-Brackets – zahnfarbene Brackets",
                     "Durchsichtige Aligner-Schienen",
                     "Ästhetische festsitzende Zahnspange (Beispielabbildung)",
                   ]
                 : [
-                    "Interceptive orthodontic treatment in childhood",
+                    "Young patient with a confident, bright smile",
                     "Tooth-coloured ceramic brackets",
                     "Clear aligner trays",
                     "Aesthetic fixed appliance (illustration)",
