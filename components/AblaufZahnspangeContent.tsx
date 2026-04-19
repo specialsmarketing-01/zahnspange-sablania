@@ -11,7 +11,7 @@ const GALLERY_IMAGES = [
   "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (2).png",
   "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (3).jpg",
   "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (3).png",
-  "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (4).jpg",
+  "/ablauf-zahnspange-kieferorthopaedie/behandlungsbeginn-einsetzen-zahnspange.png",
   "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (5).jpg",
   "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (6).jpg",
   "/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (7).jpg",
@@ -271,7 +271,7 @@ export default function AblaufZahnspangeContent({
           <div className="order-first lg:order-last">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft">
               <Image
-                src="/ablauf-zahnspange-kieferorthopaedie/ablauf-zahnspange-kieferorthopaedie (4).jpg"
+                src="/ablauf-zahnspange-kieferorthopaedie/behandlungsbeginn-einsetzen-zahnspange.png"
                 alt="Behandlungsbeginn – Einsetzen der Zahnspange"
                 fill
                 className="object-cover"
