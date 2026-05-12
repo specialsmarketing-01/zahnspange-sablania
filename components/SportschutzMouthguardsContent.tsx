@@ -8,7 +8,6 @@ import { BOOKING_URL } from "@/lib/site";
 
 const IMG = {
   hero: "/asethetic-dental-services/Zaehne-Sportschutz.png",
-  airflow: "/sportschutz-mouthguards/ems-airflow-prophylaxis-master.png",
 } as const;
 
 /** Page copy — verbatim from source (spelling unchanged). */
@@ -74,35 +73,6 @@ export default function SportschutzMouthguardsContent({
               <p className="leading-relaxed text-gray-800">{COPY.colors}</p>
             </div>
           </div>
-        </section>
-
-        <section className="mx-auto mt-12 max-w-3xl sm:mt-14" aria-labelledby="airflow-heading">
-          <h3
-            id="airflow-heading"
-            className="text-center text-xl font-bold leading-snug text-primary sm:text-2xl"
-          >
-            {isDe ? "AIRFLOW® Prophylaxe" : "AIRFLOW® prophylaxis"}
-          </h3>
-          <figure className="mt-6">
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-2xl border border-gray-100 bg-[#f5f6f8] shadow-soft">
-              <Image
-                src={IMG.airflow}
-                alt={
-                  isDe
-                    ? "EMS AIRFLOW Prophylaxis Master — Gerät für professionelle Prophylaxe"
-                    : "EMS AIRFLOW Prophylaxis Master — professional prophylaxis device"
-                }
-                fill
-                className="object-contain object-center p-6 sm:p-8"
-                sizes="(max-width: 768px) 100vw, 672px"
-              />
-            </div>
-            <figcaption className="mx-auto mt-4 max-w-prose text-center text-sm leading-relaxed text-gray-600 sm:text-base">
-              {isDe
-                ? "EMS AIRFLOW Prophylaxis Master – modernes System für eine schonende, effektive professionelle Mundhygiene und Prophylaxe."
-                : "EMS AIRFLOW Prophylaxis Master – advanced system for gentle, effective professional oral hygiene and preventive care."}
-            </figcaption>
-          </figure>
         </section>
 
         <section className="mx-auto mt-12 flex max-w-3xl flex-wrap gap-3 sm:mt-16">
