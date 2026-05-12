@@ -52,7 +52,7 @@ const COPY: Record<
 > = {
   de: {
     heroKicker: "Dr. Sablania Zahnspange Wien",
-    heroTitle: "+ Kieferorthopädie-Zahnspange Behandlungen",
+    heroTitle: "Fachzahnarzt für Kieferorthopädie und Zahnarzt Wien 1200",
     heroSub: "",
     statValue: "7.500",
     statPlus: "+",
@@ -132,7 +132,7 @@ const COPY: Record<
   },
   en: {
     heroKicker: "Dr. Sablania – Braces Vienna",
-    heroTitle: "+ Orthodontic brace treatments",
+    heroTitle: "Specialist orthodontist and dentist, Vienna 1200",
     heroSub: "",
     statValue: "7,500",
     statPlus: "+",
