@@ -255,20 +255,40 @@ function SectionFigure({
   src,
   alt,
   priority,
+  className,
+  compact,
+  transparentBg,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
+  /** Extra figure classes e.g. margin when placed after body text */
+  className?: string;
+  /** Narrower wrapper + shorter box for modest product shots */
+  compact?: boolean;
+  /** No gray card behind image (shows page background) */
+  transparentBg?: boolean;
 }) {
+  const figureShell = transparentBg
+    ? "border-0 bg-transparent shadow-none"
+    : "border border-gray-100 bg-gray-50 shadow-sm";
+  const innerShell = compact
+    ? "relative mx-auto aspect-[4/3] w-full max-w-[260px] sm:max-w-[300px]"
+    : "relative aspect-[4/3] w-full sm:aspect-[16/10]";
+  const imgPad = compact ? "p-2 sm:p-3" : "p-3 sm:p-5";
+  const imgSizes = compact
+    ? "(max-width: 640px) 70vw, 300px"
+    : "(max-width: 768px) 100vw, min(768px, 50vw)";
+
   return (
-    <figure className="mb-6 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-sm sm:mb-8">
-      <div className="relative aspect-[4/3] w-full sm:aspect-[16/10]">
+    <figure className={`mb-6 overflow-hidden rounded-2xl ${figureShell} sm:mb-8 ${className ?? ""}`}>
+      <div className={innerShell}>
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-contain object-center p-3 sm:p-5"
-          sizes="(max-width: 768px) 100vw, min(768px, 50vw)"
+          className={`object-contain object-center ${imgPad}`}
+          sizes={imgSizes}
           priority={priority}
         />
       </div>
@@ -338,7 +358,6 @@ export default function KfoRetainerContent({
         </section>
 
         <section className={sectionClass}>
-          <SectionFigure src={IMG.hawleyRemovable} alt={alt.hawley} priority />
           <div className={cardClass}>
             <h2 className={h2Class}>{c.removable.h2}</h2>
             <p className="mt-2 text-sm font-medium text-primary/90">{c.removable.lead}</p>
@@ -369,11 +388,15 @@ export default function KfoRetainerContent({
         </section>
 
         <section className={sectionClass}>
-          <SectionFigure src={IMG.removableBlue} alt={alt.blue} />
           <div className={cardClass}>
             <h3 className={h3Class}>{c.removable.myoH}</h3>
             <p className="mt-4 text-base leading-relaxed">{c.removable.myoP}</p>
           </div>
+          <SectionFigure
+            src={IMG.removableBlue}
+            alt={alt.blue}
+            className="mt-6 sm:mt-8"
+          />
         </section>
 
         <section className={sectionClass}>
@@ -405,14 +428,25 @@ export default function KfoRetainerContent({
             </ul>
             <p className="mt-6 text-base leading-relaxed">{c.fixed.p2}</p>
           </div>
+          <SectionFigure
+            src={IMG.hawleyRemovable}
+            alt={alt.hawley}
+            className="mt-6 sm:mt-8"
+          />
         </section>
 
         <section className={sectionClass}>
-          <SectionFigure src={IMG.clearPair} alt={alt.clear} />
           <div className={cardClass}>
             <h2 className={h2Class}>{c.aligners.h2}</h2>
             <p className="mt-4 text-base leading-relaxed">{c.aligners.p}</p>
           </div>
+          <SectionFigure
+            src={IMG.clearPair}
+            alt={alt.clear}
+            className="mt-6 sm:mt-8"
+            compact
+            transparentBg
+          />
         </section>
 
         <section className={sectionClass}>

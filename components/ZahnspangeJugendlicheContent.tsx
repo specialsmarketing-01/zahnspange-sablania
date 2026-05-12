@@ -290,25 +290,27 @@ export default function ZahnspangeJugendlicheContent({
             <h2 className="text-2xl md:text-3xl font-semibold text-[#0f2e5c]">
               Zahnspange bei Jugendlichen – Metall- und Keramikbrackets
             </h2>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="mt-4 grid gap-4 md:grid-cols-2 md:items-start">
               <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
-                <div className="relative h-48 w-full">
+                <div className="w-full bg-[#f8fafc]">
                   <Image
                     src="/braces-for-teen/Braces-1-628x649.png"
                     alt="Metallbrackets für Jugendliche"
-                    fill
-                    className="object-cover"
+                    width={628}
+                    height={649}
+                    className="h-auto w-full"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
                   />
                 </div>
               </div>
               <div className="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
-                <div className="relative h-48 w-full">
+                <div className="w-full bg-[#f8fafc]">
                   <Image
                     src="/braces-for-teen/close-up-portrait-young-cheerful-readhead-woman-orthodontist-1-scaled.jpg"
                     alt="Keramikbrackets und Clear Aligners"
-                    fill
-                    className="object-cover"
+                    width={2560}
+                    height={1708}
+                    className="h-auto w-full"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
                   />
                 </div>
@@ -427,7 +429,7 @@ export default function ZahnspangeJugendlicheContent({
                     src="/braces-for-teen/Braces-1-628x649.png"
                     alt="Metal brackets for teenagers"
                     fill
-                    className="object-cover"
+                    className="object-cover object-bottom"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 320px"
                   />
                 </div>

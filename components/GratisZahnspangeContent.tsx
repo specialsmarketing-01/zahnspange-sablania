@@ -100,8 +100,8 @@ export default function GratisZahnspangeContent({
             text: "Je nach Befund kann eine Behandlung im Wechselgebiss oder im bleibenden Gebiss sinnvoll sein – wir planen individuell.",
           },
           {
-            title: "Alternative Optionen",
-            text: "Wenn Eltern bewusst eine kassenfremde Lösung wählen (z. B. Keramik oder Aligner), beraten wir transparent zu Kosten und Ablauf.",
+            title: "Metall-Brackets (Gratis Zahnspange)",
+            text: "Die Kassenleistung für die Gratis Zahnspange sieht festsitzende Metall-Brackets vor – das ist die Basis der subventionierten Behandlung.",
           },
         ],
         behandlungH2: "Behandlungsarten & Optionen",
@@ -109,8 +109,8 @@ export default function GratisZahnspangeContent({
           "Die Gratis Zahnspange nach Kassentarif ist an Metall-Brackets gebunden. Für andere Wünsche gibt es private Alternativen.",
         beh: [
           {
-            title: "Metall-Brackets (Gratis Zahnspange)",
-            body: "Die Kassenleistung für die Gratis Zahnspange sieht festsitzende Metall-Brackets vor – das ist die Basis der subventionierten Behandlung.",
+            title: "Alternative Optionen",
+            body: "Wenn Eltern bewusst eine kassenfremde Lösung wählen (z. B. Keramik oder Aligner), beraten wir transparent zu Kosten und Ablauf.",
           },
           {
             title: "Keramik-Brackets",
@@ -284,8 +284,8 @@ export default function GratisZahnspangeContent({
             text: "Treatment may start in the mixed or permanent dentition depending on findings – we plan individually.",
           },
           {
-            title: "Private alternatives",
-            text: "If you choose a non-funded option (e.g. ceramic or aligners), we explain costs and process clearly.",
+            title: "Metal brackets (subsidised)",
+            text: "The statutory benefit for publicly funded braces is based on fixed metal appliances.",
           },
         ],
         behandlungH2: "Treatment options",
@@ -293,8 +293,8 @@ export default function GratisZahnspangeContent({
           "The subsidised scheme is tied to metal brackets. Other preferences can be addressed as private treatment.",
         beh: [
           {
-            title: "Metal brackets (subsidised)",
-            body: "The statutory benefit for publicly funded braces is based on fixed metal appliances.",
+            title: "Private alternatives",
+            body: "If you choose a non-funded option (e.g. ceramic or aligners), we explain costs and process clearly.",
           },
           {
             title: "Ceramic brackets",
@@ -544,19 +544,19 @@ export default function GratisZahnspangeContent({
           <h2 className="text-center text-2xl font-bold text-primary sm:text-3xl">{copy.werH2}</h2>
           <div className="mx-auto mt-10 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {copy.werCards.map((card, i) => {
-              const imgs = [IMG.wer1, IMG.wer2, IMG.wer3, IMG.wer4];
+              const imgs = [IMG.wer1, IMG.wer2, IMG.wer3, IMG.interzeptiv];
               const werAlts = isDe
                 ? [
                     "Lächelndes Kind in der Kieferorthopädie",
                     "Jugendliche mit festsitzender Zahnspange",
                     "Jugendlicher Patient mit Zahnspange",
-                    "Erwachsene Patientin mit Zahnspange bei der Kontrolle",
+                    "Junge Patientin mit selbstbewusstem, strahlendem Lächeln",
                   ]
                 : [
                     "Smiling child at the orthodontic practice",
                     "Teen with fixed braces",
                     "Teenage patient with braces",
-                    "Adult patient at an orthodontic check-up",
+                    "Young patient with a confident, bright smile",
                   ];
               return (
                 <article
@@ -588,16 +588,16 @@ export default function GratisZahnspangeContent({
           <p className="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-600 sm:text-base">{copy.behandlungLead}</p>
           <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2">
             {copy.beh.map((b, i) => {
-              const shots = [IMG.interzeptiv, IMG.keramik, IMG.aligners, IMG.lingualAlt];
+              const shots = [IMG.wer4, IMG.keramik, IMG.aligners, IMG.lingualAlt];
               const behAlts = isDe
                 ? [
-                    "Junge Patientin mit selbstbewusstem, strahlendem Lächeln",
+                    "Erwachsene Patientin mit Zahnspange bei der Kontrolle",
                     "Keramik-Brackets – zahnfarbene Brackets",
                     "Durchsichtige Aligner-Schienen",
                     "Ästhetische festsitzende Zahnspange (Beispielabbildung)",
                   ]
                 : [
-                    "Young patient with a confident, bright smile",
+                    "Adult patient at an orthodontic check-up",
                     "Tooth-coloured ceramic brackets",
                     "Clear aligner trays",
                     "Aesthetic fixed appliance (illustration)",

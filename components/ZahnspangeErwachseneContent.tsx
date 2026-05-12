@@ -227,6 +227,7 @@ export default function ZahnspangeErwachseneContent({
   const title = titles[dePath] ?? "Zahnspange für Erwachsene";
   const lead = leads[dePath];
   const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
+  const invisalignHref = getHref("/unsichtbare-zahnspange-wien", locale);
   const terminHref = getHref("/online-termin", locale);
   const kontaktHref = getHref("/kontakt", locale);
   const lang = locale === "de" ? "de" : "en";
@@ -341,6 +342,14 @@ export default function ZahnspangeErwachseneContent({
                     {p}
                   </p>
                 ))}
+                <div className="mt-6">
+                  <Link
+                    href={invisalignHref}
+                    className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-primary/90 sm:text-base"
+                  >
+                    {dict.common.learnMore}
+                  </Link>
+                </div>
               </div>
             </div>
           </article>
