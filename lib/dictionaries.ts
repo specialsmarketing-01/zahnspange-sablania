@@ -281,6 +281,8 @@ export const dictionaries = {
       firstVisitBadgeHygiene: "Hygiene-Prädikat 2025",
       firstVisitQuickAppointments: "Schnelle Termine online oder telefonisch",
       treatmentsTitle: "Alle Zahnbehandlungen in einer Praxis:",
+      treatmentsSub:
+        "Die Ordination bietet das gesamte Spektrum der allgemeinen Zahnheilkunde - von professioneller Mundhygiene über Kontrolluntersuchungen bis hin zu Füllungen und weiteren konservierenden Behandlungen.",
       treatmentsCards: [
         "Teil und Vollprothesen",
         "Ästhetische Zahnfarbige Füllungen",
@@ -731,7 +733,7 @@ export const dictionaries = {
             "Long-standing orthodontic expertise and many satisfied patients.",
         },
         {
-          title: "Flexible same-day appointments",
+          title: "Flexible, short-notice appointments",
           description:
             "Appointments that fit your routine—including short-notice slots and times outside usual hours.",
         },
@@ -777,7 +779,7 @@ export const dictionaries = {
       googleRatingExampleReviews: [
         {
           name: "Nikol Rastoka",
-          text: "Sie haben mir vollständig alles über die Zahnspange erklärt und was gemacht wird, Schritt für Schritt. Sehr vorsichtig im Umgang mit Patienten. Ich kann es nur weiterempfehlen.",
+          text: "They explained absolutely everything about the braces and what would be done, step by step. Very considerate with patients. I can only recommend.",
           date: "1 month ago",
           rating: 5,
         },
@@ -790,7 +792,7 @@ export const dictionaries = {
         },
         {
           name: "Christian GE.",
-          text: "Super Arzt, sehr freundlich und kompetent. Schmerzlose Behandlung. So ein Arzt macht mich glücklich.",
+          text: "Excellent dentist, very friendly and competent. Painless treatment. A doctor like this makes me happy.",
           date: "2 days ago",
           rating: 5,
         },
@@ -821,6 +823,8 @@ export const dictionaries = {
       firstVisitBadgeHygiene: "Hygiene seal 2025",
       firstVisitQuickAppointments: "Quick appointments online or by phone",
       treatmentsTitle: "All dental treatments in one practice:",
+      treatmentsSub:
+        "Our practice offers the full spectrum of general dentistry – from professional oral hygiene and check-ups to fillings and further conservative treatments.",
       treatmentsCards: [
         "Partial and full dentures",
         "Aesthetic tooth-coloured fillings",
@@ -832,13 +836,12 @@ export const dictionaries = {
       instalmentOptions: "Instalment options available",
       bracesCategoriesTitle: "Orthodontics in Vienna",
       bracesCategoriesSub:
-        "Invisalign, free braces, clear aligners, invisible braces – we offer the full range of modern orthodontic options.",
+        "Invisalign, eligibility-based free braces, clear fixed braces, invisible braces or Clear Aligners – transparent aligners.",
       bracesCategoriesPara1:
-        "As an experienced specialist in orthodontics in 1200 Vienna, I am one of the experts for a wide range of dental needs. I offer first-class treatments including invisible braces, specialised braces for children, teenagers and adults, and a broad range of further services.",
+        "As an experienced specialist orthodontist in 1200 Vienna, I belong among the specialists for a wide range of dental needs. I offer first-class treatments, including invisible braces, specialised braces for children, teenagers and adults, as well as a broad range of further services. My dental practice is your contact point for braces and general dentistry in Vienna. With my expertise I provide tailored solutions to correct misaligned teeth effectively – according to your individual needs. If you prefer a discreet, aesthetically pleasing option, advanced Invisalign invisible braces are available to you as well.",
       bracesCategoriesPara2:
-        "My practice in the 20th district of Vienna is your point of contact for braces in Vienna. With my expertise, I offer tailor-made solutions to correct misaligned teeth effectively. I provide both fixed braces and clear aligners.",
-      bracesCategoriesPara3:
-        "Our range of services also includes the option of free braces where applicable. We understand that orthodontic treatment can be a financial investment. We therefore offer you the possibility of free braces under certain conditions to make access to high-quality orthodontics easier.",
+        "Our services also include the option of eligibility-based free braces where applicable. We understand that orthodontic treatment can be a financial investment. Therefore we offer options such as instalment plans for invisible braces and Invisalign to make access to high-quality orthodontic care and braces easier.",
+      bracesCategoriesPara3: "",
       bracesCategoriesMore: "Learn more",
       bracesCategoriesCardChildren: "Braces for children correct jaw and tooth misalignments.",
       bracesCategoriesCardTeens: "Braces for teens correct tooth and jaw misalignments.",

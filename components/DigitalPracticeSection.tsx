@@ -2,7 +2,8 @@ import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import { BOOKING_URL } from "@/lib/site";
 
-function ToothIcon({ className }: { className?: string }) {
+/** Orthodontic treatment volume / collaboration — bar trend */
+function TreatmentsVolumeIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,8 +15,31 @@ function ToothIcon({ className }: { className?: string }) {
       strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M12 2c-1.5 0-2.5 1-3 2.5-.5 1.5-1 3.5-1 5.5 0 2 .5 4 1.5 5 .5.5 1 1 2 1s1.5-.5 2-1c1-1 1.5-3 1.5-5 0-2-.5-4-1-5.5C14.5 3 13.5 2 12 2z" />
-      <path d="M12 8v8M9 11h6M10 14h4" />
+      <path d="M4 19V5" />
+      <path d="M4 19h17" />
+      <path d="M8 19v-5" />
+      <path d="M12 19V9" />
+      <path d="M16 19v-8" />
+      <path d="M20 19V6" />
+    </svg>
+  );
+}
+
+/** Years of experience — clock / long-term care */
+function ExperienceYearsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="7.25" />
+      <path d="M12 12l3.25-3.25M12 7.25V12" />
     </svg>
   );
 }
@@ -89,7 +113,7 @@ export default function DigitalPracticeSection({
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-soft transition-shadow hover:shadow-soft-lg">
               <div className="flex items-start gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-white">
-                  <ToothIcon className="h-7 w-7" />
+                  <TreatmentsVolumeIcon className="h-7 w-7" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-serif text-2xl font-bold text-primary sm:text-3xl tabular-nums">
@@ -107,7 +131,7 @@ export default function DigitalPracticeSection({
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-soft transition-shadow hover:shadow-soft-lg">
               <div className="flex items-start gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-white">
-                  <ToothIcon className="h-7 w-7" />
+                  <ExperienceYearsIcon className="h-7 w-7" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-serif text-2xl font-bold text-primary sm:text-3xl tabular-nums">

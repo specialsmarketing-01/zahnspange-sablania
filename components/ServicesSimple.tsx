@@ -23,9 +23,10 @@ export default function ServicesSimple({
   const titles = h.treatmentsCards ?? [];
   const sectionTitle = h.treatmentsTitle ?? "Alle Zahnbehandlungen in einer Praxis:";
   const subtitle =
-    locale === "en"
+    h.treatmentsSub ??
+    (locale === "en"
       ? "From orthodontics to dental prosthetics – all under one roof."
-      : "Von Kieferorthopädie bis Zahnersatz – alles aus einer Hand.";
+      : "Von Kieferorthopädie bis Zahnersatz – alles aus einer Hand.");
 
   return (
     <section className="py-20 bg-[#F7F8FB]">

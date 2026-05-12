@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      // Legacy / indexed slug (was never a route; dentist page is `/en/dentist-1200-vienna`).
+      {
+        source: "/en/dentist-in-vienna",
+        destination: "/en",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
