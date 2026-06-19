@@ -405,7 +405,6 @@ export default function KfoRetainerContent({
         </section>
 
         <section className={sectionClass}>
-          <SectionFigure src={IMG.fixedLingual} alt={alt.fixed} />
           <div className={cardClass}>
             <h2 className={h2Class}>{c.fixed.h2}</h2>
             <div className="mt-4 space-y-4 text-base leading-relaxed">
@@ -433,6 +432,11 @@ export default function KfoRetainerContent({
             </ul>
             <p className="mt-6 text-base leading-relaxed">{c.fixed.p2}</p>
           </div>
+          <SectionFigure
+            src={IMG.fixedLingual}
+            alt={alt.fixed}
+            className="mt-6 sm:mt-8"
+          />
         </section>
 
         <section className={sectionClass}>
