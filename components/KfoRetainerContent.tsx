@@ -385,6 +385,11 @@ export default function KfoRetainerContent({
               ))}
             </ul>
           </div>
+          <SectionFigure
+            src={IMG.hawleyRemovable}
+            alt={alt.hawley}
+            className="mt-6 sm:mt-8"
+          />
         </section>
 
         <section className={sectionClass}>
@@ -428,11 +433,6 @@ export default function KfoRetainerContent({
             </ul>
             <p className="mt-6 text-base leading-relaxed">{c.fixed.p2}</p>
           </div>
-          <SectionFigure
-            src={IMG.hawleyRemovable}
-            alt={alt.hawley}
-            className="mt-6 sm:mt-8"
-          />
         </section>
 
         <section className={sectionClass}>

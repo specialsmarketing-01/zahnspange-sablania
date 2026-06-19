@@ -692,8 +692,8 @@ export const dictionaries = {
       heroCta: "Book Appointment Now",
       heroContact: "Contact Us",
       heroBadge: "All Health Insurance Companies & Private · Mon–Fri: 10:00 – 17:00",
-      heroHeadlineMain: "Your Specialist for Braces –",
-      heroHeadlineAccent: "aesthetic, precise & individual.",
+      heroHeadlineMain: "Specialist Orthodontist &",
+      heroHeadlineAccent: "General Dentist",
       heroDescription:
         "We offer orthodontic treatment for children, teenagers and adults – from classic braces to invisible aligners.",
       heroCtaPrimary: "Book Appointment Now",
