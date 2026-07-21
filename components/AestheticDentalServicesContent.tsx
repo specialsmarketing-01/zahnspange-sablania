@@ -151,7 +151,7 @@ export default function AestheticDentalServicesContent({
                   {h.ctaAesthetic}
                 </a>
                 <Link
-                  href={u("/online-termin")}
+                  href={u("/online-termine")}
                   className="inline-flex rounded-full border-2 border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20"
                 >
                   {isDe ? "Termin online" : "Book online"}

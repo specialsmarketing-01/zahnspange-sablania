@@ -18,7 +18,7 @@ export default function ZahnspangeJugendlicheContent({
   const title = titles[dePath] ?? "Zahnspange für Jugendliche";
   const lead = leads[dePath];
   const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
 
   return (
     <PageContent title={title} lead={lead} locale={locale} dict={dict}>

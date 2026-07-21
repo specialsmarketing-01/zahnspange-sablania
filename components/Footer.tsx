@@ -28,7 +28,7 @@ const ORTHO_PATHS = [
 ];
 
 const FOOTER_LINK_PATHS = [
-  "/online-termin",
+  "/online-termine",
   "/ueber-mich",
   "/unsere-ordination",
   "/unser-team",

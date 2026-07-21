@@ -228,7 +228,7 @@ export default function ZahnspangeErwachseneContent({
   const lead = leads[dePath];
   const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
   const invisalignHref = getHref("/unsichtbare-zahnspange-wien", locale);
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
   const kontaktHref = getHref("/kontakt", locale);
   const lang = locale === "de" ? "de" : "en";
   const c = COPY[lang];

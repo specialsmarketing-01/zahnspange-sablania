@@ -180,7 +180,7 @@ export default function DentistViennaContent({ locale, dict }: Props) {
           : "If you are looking for a reliable dentist and orthodontist in 1200 Vienna, you have come to the right place. Book an appointment – we look forward to meeting you."}
       </p>
       <p>
-        <Link href={getHref("/online-termin", locale)} className="text-accent font-semibold hover:underline">
+        <Link href={getHref("/online-termine", locale)} className="text-accent font-semibold hover:underline">
           {isDe ? "Online Termin vereinbaren" : "Book an appointment online"}
         </Link>
       </p>

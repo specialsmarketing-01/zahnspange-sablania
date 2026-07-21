@@ -31,7 +31,7 @@ export default function OnlineReceptionWidget({ locale, dict }: Props) {
       : undefined;
 
   const contactHref = getHref("/kontakt", locale);
-  const appointmentHref = BOOKING_URL ?? getHref("/online-termin", locale);
+  const appointmentHref = BOOKING_URL ?? getHref("/online-termine", locale);
   const prescriptionsHref = digitalUrl ?? getHref("/faqs", locale);
   const whatsappHref = "https://wa.me/4367764410301";
   const moreHref = getHref("/leistungen", locale);

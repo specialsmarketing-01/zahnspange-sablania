@@ -50,7 +50,7 @@ export default function UnsichtbareZahnspangeContent({
   const leads = dict.pageLeads as Record<string, string>;
   const title = titles[dePath] ?? "Unsichtbare Zahnspange Wien";
   const lead = leads[dePath];
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
   const kontaktHref = getHref("/kontakt", locale);
   const isDe = locale === "de";
 

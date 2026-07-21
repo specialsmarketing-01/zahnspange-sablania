@@ -282,7 +282,7 @@ export default function ZahnbleachingContent({
                 {isDe ? "Termin vereinbaren" : "Book an appointment"}
               </a>
               <Link
-                href={u("/online-termin")}
+                href={u("/online-termine")}
                 className="inline-flex w-full items-center justify-center rounded-full border border-primary/35 bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition hover:bg-primary/[0.06] sm:w-auto"
               >
                 {isDe ? "Online terminieren" : "Book online"}

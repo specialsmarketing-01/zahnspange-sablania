@@ -46,8 +46,36 @@ export const DE_TO_EN: Record<string, string> = {
   "/artikel": "/en/article",
 };
 
-/** Paths that redirect (excluded from sitemap) */
-export const REDIRECT_ONLY_DE_PATHS = ["/online-termin", "/kontaktiere-uns"] as const;
+/** Paths that redirect (excluded from sitemap; never add these to DE_TO_EN) */
+export const REDIRECT_ONLY_DE_PATHS = [
+  "/online-termin",
+  "/online-terme",
+  "/kontaktiere-uns",
+  "/retention",
+  "/invisalign-clear-aligner",
+] as const;
+
+/** English paths that redirect (excluded from sitemap) */
+export const REDIRECT_ONLY_EN_PATHS = [
+  "/en/dentist-in-vienna",
+  "/en/kontaktiere-uns",
+  "/en/tooth-implant",
+  "/en/teeth-bleaching",
+  "/en/sports-protection",
+  "/en/professional-oral-hygiene-mundhygiene",
+  "/en/our-practice",
+  "/en/invisible-brackets",
+  "/en/home-en-orthodontist-vienna",
+  "/en/fee-guide",
+  "/en/faqs-en",
+  "/en/esthetic-dentistry",
+  "/en/aesthetic-dentistry",
+  "/en/dentures",
+  "/en/contact-us",
+  "/en/ceramic-braces",
+  "/en/before-after-photos",
+  "/en/about-me",
+] as const;
 
 /**
  * German paths included in the sitemap (canonical indexable URLs).
@@ -98,7 +126,6 @@ export function getPathForLocale(pathname: string, targetLocale: Locale): string
     return EN_TO_DE[path] ?? "/";
   }
   if (path.startsWith("/en")) return path;
-  if (path === "/online-termin") return "/en/book-appointment";
   return DE_TO_EN[path] ?? "/en";
 }
 
@@ -114,6 +141,5 @@ export function getLocaleFromPathname(pathname: string): Locale {
  * Href for a given German path and locale. Use for nav/footer links.
  */
 export function getHref(dePath: string, locale: Locale): string {
-  const normalizedDePath = dePath === "/online-termin" ? "/online-termine" : dePath;
-  return locale === "de" ? normalizedDePath : (DE_TO_EN[normalizedDePath] ?? "/en");
+  return locale === "de" ? dePath : (DE_TO_EN[dePath] ?? "/en");
 }

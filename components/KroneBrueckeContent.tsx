@@ -33,7 +33,7 @@ export default function KroneBrueckeContent({ locale, dict }: { locale: Locale; 
   const title = titles[dePath] ?? "Krone & Brücke";
   const lead = leads[dePath];
   const isDe = locale === "de";
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
   const implantHref = getHref("/implantat-wien", locale);
 
   const de = {

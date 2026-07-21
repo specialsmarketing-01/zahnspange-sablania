@@ -60,7 +60,7 @@ export default function ArticlePageContent({
   const lead = leads[dePath];
   const lang = locale === "de" ? "de" : "en";
   const b = BODY[lang];
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
   const servicesHref = getHref("/leistungen", locale);
 
   return (

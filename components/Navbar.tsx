@@ -553,7 +553,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
             </a>
 
             <Link
-              href={getHref("/online-termin", locale)}
+              href={getHref("/online-termine", locale)}
               className="mt-3 flex items-center justify-center rounded-full bg-[#0f2e5c] px-6 py-3 text-base font-semibold text-white shadow-md transition-colors hover:bg-[#163d78]"
               onClick={() => setMobileOpen(false)}
             >

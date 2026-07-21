@@ -172,7 +172,7 @@ export default function MyofunktionelleTherapieContent({
   const title = titles[dePath] ?? "Myofunktionelle Therapie";
   const lead = leads[dePath];
   const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
   const lang: Lang = locale === "de" ? "de" : "en";
   const c = COPY[lang];
 

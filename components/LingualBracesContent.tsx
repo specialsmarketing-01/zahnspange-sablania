@@ -141,7 +141,7 @@ export default function LingualBracesContent({
   const c = COPY[lang];
 
   const ablaufHref = getHref("/ablauf-zahnspange-kieferorthopaedie", locale);
-  const terminHref = getHref("/online-termin", locale);
+  const terminHref = getHref("/online-termine", locale);
   const kontaktHref = getHref("/kontakt", locale);
 
   return (

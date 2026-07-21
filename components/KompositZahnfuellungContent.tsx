@@ -142,7 +142,7 @@ export default function KompositZahnfuellungContent({
             {isDe ? "Termin vereinbaren" : "Book an appointment"}
           </a>
           <Link
-            href={u("/online-termin")}
+            href={u("/online-termine")}
             className="inline-flex rounded-full border border-primary/30 px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/[0.06]"
           >
             {isDe ? "Online terminieren" : "Book online"}

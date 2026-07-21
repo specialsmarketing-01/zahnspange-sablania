@@ -59,7 +59,7 @@ export default function AblaufZahnspangeContent({
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
             <Link
-              href={getHref("/online-termin", locale)}
+              href={getHref("/online-termine", locale)}
               className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0f3c6e] shadow-md hover:bg-sky-50 hover:shadow-lg transition"
             >
               Kostenfreie Erstberatung vereinbaren
@@ -465,7 +465,7 @@ export default function AblaufZahnspangeContent({
         </p>
         <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
           <Link
-            href={getHref("/online-termin", locale)}
+            href={getHref("/online-termine", locale)}
             className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm sm:text-base font-semibold text-[#0f3c6e] shadow-md transition hover:bg-sky-50 hover:shadow-lg"
           >
             Termin online buchen
