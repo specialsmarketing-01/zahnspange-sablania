@@ -54,7 +54,7 @@ export default function ImpressumPage() {
             <strong>Aufsichtsbehörde/Gewerbebehörde:</strong> Bundesministerium für Soziales, Gesundheit, Pflege und
             Konsumentenschutz
             <br />
-            <strong>Berufsbezeichnung:</strong> Facharzt für Kieferorthopädie
+            <strong>Berufsbezeichnung:</strong> Fachzahnarzt für Kieferorthopädie
           </p>
         </section>
 

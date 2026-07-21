@@ -1,4 +1,6 @@
 import type { Dictionary } from "@/lib/dictionaries";
+import type { GoogleReview, GoogleReviewsData } from "@/lib/googleReviews";
+import { formatGoogleReviewCount, formatGoogleScore } from "@/lib/googleReviews";
 
 const GOOGLE_WRITE_REVIEW_URL = "https://g.page/r/Cd19fH_VsH0WEBM/review";
 
@@ -19,18 +21,14 @@ function avatarLetter(name: string) {
   return trimmed.charAt(0).toUpperCase() || "?";
 }
 
-type ReviewItem = {
-  name: string;
-  text: string;
-  date: string;
-  rating?: number;
-  badge?: string;
-};
+type ReviewItem = GoogleReview;
 
 type HomepageGoogle = {
   googleRatingTrust: string;
   googleRatingScore: string;
   googleRatingReviews: string;
+  googleRatingFallbackScore: number;
+  googleRatingFallbackCount: number;
   googleRatingCta: string;
   googleRatingCtaSub?: string;
   googleRatingReviewsBlockTitle: string;
@@ -38,9 +36,21 @@ type HomepageGoogle = {
   googleRatingExampleReviews: ReviewItem[];
 };
 
-export default function GoogleRating({ dict }: { dict: Dictionary }) {
+export default function GoogleRating({
+  dict,
+  live,
+}: {
+  dict: Dictionary;
+  live?: GoogleReviewsData | null;
+}) {
   const h = dict.homepage as typeof dict.homepage & HomepageGoogle;
-  const reviews = h.googleRatingExampleReviews ?? [];
+  const rating = live?.rating ?? h.googleRatingFallbackScore;
+  const total = live?.total ?? h.googleRatingFallbackCount;
+  const reviews =
+    live?.reviews?.length ? live.reviews : (h.googleRatingExampleReviews ?? []);
+
+  const scoreLabel = formatGoogleScore(h.googleRatingScore, rating);
+  const reviewsLabel = formatGoogleReviewCount(h.googleRatingReviews, total);
 
   return (
     <section className="bg-gray-50" aria-labelledby="google-rating-heading">
@@ -63,11 +73,11 @@ export default function GoogleRating({ dict }: { dict: Dictionary }) {
             id="google-rating-heading"
             className="mt-5 text-center text-5xl font-bold tabular-nums tracking-tight text-gray-900 sm:text-6xl"
           >
-            {h.googleRatingScore}
+            {scoreLabel}
           </h2>
 
           <p className="mt-3 text-center text-base text-gray-600 sm:text-lg">
-            {h.googleRatingReviews}
+            {reviewsLabel}
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3">

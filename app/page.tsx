@@ -10,26 +10,24 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import CTASection from "@/components/CTASection";
 import GoogleRating from "@/components/GoogleRating";
 import ContactSection from "@/components/ContactSection";
+import HomeInternalLinks from "@/components/HomeInternalLinks";
 import { getDictionary } from "@/lib/dictionaries";
-import { SITE_URL } from "@/lib/site";
+import { getGoogleReviews } from "@/lib/googleReviews";
+import { buildPageMetadata } from "@/lib/seo";
 
 const locale = "de" as const;
 
-export const metadata: Metadata = {
-  title: "Zahnspange Sablania | Kieferorthopädie & Zahnspangen Wien",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Kieferorthopäde Wien 1200 | Dr. Manish Sablania",
   description:
-    "Ihre Spezialisten für moderne Zahnspangen in Wien. Individuelle Beratung, moderne Technik und perfekte Ergebnisse für Kinder, Jugendliche und Erwachsene.",
-  alternates: {
-    canonical: SITE_URL,
-    languages: {
-      de: SITE_URL,
-      en: `${SITE_URL}/en`,
-    },
-  },
-};
+    "Dr. Manish Sablania ist Fachzahnarzt für Kieferorthopädie und Zahnarzt in 1200 Wien. Zahnspangen, Aligner und Behandlungen für Kinder, Jugendliche und Erwachsene.",
+  dePath: "/",
+  locale,
+});
 
-export default function HomePage() {
+export default async function HomePage() {
   const dict = getDictionary(locale);
+  const googleReviews = await getGoogleReviews(locale);
 
   return (
     <>
@@ -41,8 +39,9 @@ export default function HomePage() {
       <WhyChooseUs dict={dict} />
       <BracesCategoriesSection locale={locale} dict={dict} />
       <ServicesSection locale={locale} dict={dict} />
+      <HomeInternalLinks locale={locale} />
       <CTASection locale={locale} dict={dict} />
-      <GoogleRating dict={dict} />
+      <GoogleRating dict={dict} live={googleReviews} />
       <ContactSection locale={locale} dict={dict} />
     </>
   );

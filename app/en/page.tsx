@@ -10,26 +10,24 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import CTASection from "@/components/CTASection";
 import GoogleRating from "@/components/GoogleRating";
 import ContactSection from "@/components/ContactSection";
+import HomeInternalLinks from "@/components/HomeInternalLinks";
 import { getDictionary } from "@/lib/dictionaries";
-import { SITE_URL } from "@/lib/site";
+import { getGoogleReviews } from "@/lib/googleReviews";
+import { buildPageMetadata } from "@/lib/seo";
 
 const locale = "en" as const;
 
-export const metadata: Metadata = {
-  title: "Zahnspange Sablania | Orthodontics & Braces Vienna",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Orthodontist in Vienna | Dr. Manish Sablania",
   description:
-    "Your specialists for modern braces in Vienna. Individual consultation, modern technology and excellent results for children, teenagers and adults.",
-  alternates: {
-    canonical: `${SITE_URL}/en`,
-    languages: {
-      de: SITE_URL,
-      en: `${SITE_URL}/en`,
-    },
-  },
-};
+    "Dr. Manish Sablania is a specialist orthodontist and general dentist in 1200 Vienna, offering braces and aligner treatments for children, teenagers and adults.",
+  dePath: "/",
+  locale,
+});
 
-export default function EnHomePage() {
+export default async function EnHomePage() {
   const dict = getDictionary(locale);
+  const googleReviews = await getGoogleReviews(locale);
 
   return (
     <>
@@ -41,8 +39,9 @@ export default function EnHomePage() {
       <WhyChooseUs dict={dict} />
       <BracesCategoriesSection locale={locale} dict={dict} />
       <ServicesSection locale={locale} dict={dict} />
+      <HomeInternalLinks locale={locale} />
       <CTASection locale={locale} dict={dict} />
-      <GoogleRating dict={dict} />
+      <GoogleRating dict={dict} live={googleReviews} />
       <ContactSection locale={locale} dict={dict} />
     </>
   );

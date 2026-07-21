@@ -12,9 +12,9 @@ const DOCTOR_IMAGE =
   "/Specialist%20dentist%20in%20orthodontics%20Dr%20med%20dent%20Manish%20Sablania%20BDS%20MSc%20Orthodontic%20dentist%20Vienna%201200.png";
 
 const DOCTOR = {
-  title: "Specialist dentist in orthodontics Dr.med.dent Manish Sablania BDS M.Sc. Orthodontic dentist Vienna 1200",
-  line2: "Qualified orthodontist for \"health insurance – free braces\" specialized in orthodontics and orthodontics.",
-  bio: "Has over 28 years of experience and 7800+ dental adjustments and braces treatments, which makes him an expert in his field who cares deeply about the well-being of his patients.",
+  title: "Specialist orthodontist Dr. med. dent. Manish Sablania, BDS, M.Sc. – Orthodontist Vienna 1200",
+  line2: "Qualified elective orthodontist for Austria’s publicly funded braces programme, specialised in orthodontics.",
+  bio: "More than 28 years of experience and over 7,800 orthodontic treatments and braces cases, with a strong focus on patient wellbeing.",
 };
 
 export const metadata: Metadata = {

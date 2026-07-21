@@ -1,28 +1,30 @@
 import { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { DE_PATHS, EN_PATHS } from "@/lib/paths";
+import { SITEMAP_DE_PATHS, SITEMAP_EN_PATHS } from "@/lib/paths";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL.replace(/\/$/, "");
   const entries: MetadataRoute.Sitemap = [];
+  const seen = new Set<string>();
 
-  for (const path of DE_PATHS) {
-    const urlPath = path === "/" ? "" : path;
+  const push = (url: string, path: string, isHome: boolean) => {
+    if (seen.has(url)) return;
+    seen.add(url);
     entries.push({
-      url: `${baseUrl}${urlPath}`,
+      url,
       lastModified: new Date(),
-      changeFrequency: path === "/" ? "weekly" : ("monthly" as const),
-      priority: path === "/" ? 1 : 0.8,
+      changeFrequency: isHome ? "weekly" : ("monthly" as const),
+      priority: isHome ? 1 : path.includes("ueber-mich") || path.includes("/about") ? 0.9 : 0.8,
     });
+  };
+
+  for (const path of SITEMAP_DE_PATHS) {
+    const urlPath = path === "/" ? "" : path;
+    push(`${baseUrl}${urlPath || ""}`, path, path === "/");
   }
 
-  for (const path of EN_PATHS) {
-    entries.push({
-      url: `${baseUrl}${path}`,
-      lastModified: new Date(),
-      changeFrequency: path === "/en" ? "weekly" : ("monthly" as const),
-      priority: path === "/en" ? 1 : 0.8,
-    });
+  for (const path of SITEMAP_EN_PATHS) {
+    push(`${baseUrl}${path}`, path, path === "/en");
   }
 
   return entries;

@@ -13,20 +13,31 @@ import Script from "next/script";
 import "./globals.css";
 import { getMetadataBase } from "@/lib/site";
 import LocaleShell from "@/components/LocaleShell";
+import PracticeJsonLd from "@/components/PracticeJsonLd";
+import { DEFAULT_OG_IMAGE } from "@/lib/practiceInfo";
 
 const GA_MEASUREMENT_ID = "G-MXDRDTJFB3";
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
   title: {
-    default: "Zahnspange Sablania | Kieferorthopädie & Zahnspangen Wien",
+    default: "Kieferorthopäde Wien 1200 | Dr. Manish Sablania",
     template: "%s | Zahnspange Sablania",
   },
   description:
-    "Ihre Spezialisten für moderne Zahnspangen in Wien. Individuelle Beratung, moderne Technik und perfekte Ergebnisse.",
+    "Dr. Manish Sablania ist Fachzahnarzt für Kieferorthopädie und Zahnarzt in 1200 Wien. Zahnspangen, Aligner und Behandlungen für Kinder, Jugendliche und Erwachsene.",
   icons: {
     icon: "/Dr-Manish-fav.png",
     apple: "/Dr-Manish-fav.png",
+  },
+  openGraph: {
+    siteName: "Zahnspange Sablania",
+    locale: "de_AT",
+    type: "website",
+    images: [{ url: DEFAULT_OG_IMAGE }],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
@@ -51,6 +62,7 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
+        <PracticeJsonLd />
         <LocaleShell>{children}</LocaleShell>
       </body>
     </html>

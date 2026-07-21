@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 import PageContent from "./PageContent";
+import JsonLd from "./JsonLd";
 import { getHref } from "@/lib/paths";
 import { BOOKING_URL } from "@/lib/site";
 
@@ -231,13 +232,29 @@ export default function GratisZahnspangeContent({
             q: "Was ist eine interzeptive Behandlung?",
             a: "Eine begrenzte Therapie in der Wechselgebiss-Phase zur Lenkung von Wachstum und Zahnstellung, oft mit Pause und späterer erneuter Prüfung, ob eine weiterführende Therapie nötig ist.",
           },
+          {
+            q: "Was bedeutet Wahlkieferorthopäde?",
+            a: "Als Wahlkieferorthopäde ist Dr. Sablania kein direkt vertraglich gebundener Kassenarzt. Nach Genehmigung kann der gesetzliche Kassentarif von der zuständigen Krankenversicherung refundiert werden. Private Aufzahlungen oder Leistungen außerhalb des Tarifs sind nicht automatisch gedeckt.",
+          },
+          {
+            q: "Wer hat Anspruch auf die Gratis Zahnspange?",
+            a: "Anspruch haben in der Regel Kinder und Jugendliche bis zur Vollendung des 18. Lebensjahres bei medizinischer Notwendigkeit (IOTN 4 oder 5) und nach Genehmigung durch die Krankenkasse.",
+          },
+          {
+            q: "Werden auch Erwachsene behandelt?",
+            a: "Ja. Erwachsene werden kieferorthopädisch behandelt; die öffentlich geförderte Gratis Zahnspange gilt jedoch typischerweise nur für Kinder und Jugendliche unter den genannten Voraussetzungen.",
+          },
+          {
+            q: "Werden unsichtbare Zahnspangen angeboten?",
+            a: "Ja. Es werden unter anderem Aligner und linguale Zahnspangen angeboten – als private bzw. alternative Optionen zur kassenfinanzierten Metall-Bracket-Therapie.",
+          },
         ],
         arztH2: "Dr. med. dent. Manish Sablania M.Sc. Orthodontics",
         arztSub: "Dr. med. dent. Manish Sablania BDS M.Sc. – Kieferorthopädie-Zahnarzt Wien 1200",
         arztLi1:
           "Qualifizierter Wahlkieferorthopäde für „Krankenkasse-Gratis Zahnspange“, spezialisiert in Kieferorthopädie und Orthodontie.",
         arztLi2:
-          "Über 28 Jahre Erfahrung und 7800+ Zahnregulierungen und Zahnspangenbehandlungen – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten.",
+          "Über 28 Jahre Erfahrung und mehr als 7.800 kieferorthopädische Behandlungen und Zahnspangenfälle – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten.",
         arztCta: "Termin zur kostenlosen Erstberatung",
         finalH2: "Jetzt kostenlose Erstberatung vereinbaren",
         finalP:
@@ -249,7 +266,7 @@ export default function GratisZahnspangeContent({
         heroKicker: "Orthodontics Vienna",
         heroTitle: "Publicly funded braces",
         heroLead:
-          "Publicly funded braces – metal brackets. Since July 2015, Austria has had updated rules for subsidised orthodontic treatment for children and teens. As a specialist orthodontist and contracted ÖGK partner, we offer treatment under this scheme. Patients can receive 100% of the statutory tariff back from the health insurance fund.",
+          "Publicly funded braces – metal brackets. Since July 2015, Austria has had updated rules for subsidised orthodontic treatment for children and teens. Dr. Manish Sablania is a qualified elective orthodontist for the publicly funded braces programme. For eligible children and teenagers with IOTN grades 4 or 5, 100% of the statutory tariff may be reimbursed by the relevant health insurance provider after approval. Approval must be obtained from the health insurance provider before treatment begins. Reimbursement applies to the statutory tariff and does not automatically cover private upgrades or every treatment cost.",
         ctaPrimary: "Book a free initial consultation",
         ctaSecondary: "Book an appointment online",
         introH2: "Requirements and your entitlement to reimbursement",
@@ -408,11 +425,23 @@ export default function GratisZahnspangeContent({
             q: "What is interceptive treatment?",
             a: "Limited early treatment in the mixed dentition, often with a pause and later review for further care.",
           },
+          {
+            q: "Does the practice offer publicly funded braces?",
+            a: "Yes. Dr. Manish Sablania is a qualified elective orthodontist for Austria’s publicly funded braces programme. Eligibility typically depends on age (up to 18) and medical necessity (IOTN 4 or 5), subject to insurer approval.",
+          },
+          {
+            q: "What does elective orthodontist mean in Austria?",
+            a: "An elective orthodontist (Wahlkieferorthopäde) is not a directly contracted insurer orthodontist. After approval, eligible patients may receive reimbursement of the statutory tariff from their health insurance provider. Private upgrades or costs beyond the tariff are not automatically covered.",
+          },
+          {
+            q: "Can ÖGK-insured patients request reimbursement?",
+            a: "Patients insured with ÖGK or other Austrian providers may request reimbursement of the statutory tariff for approved treatment. Approval must be obtained before treatment begins.",
+          },
         ],
         arztH2: "Dr Manish Sablania M.Sc. Orthodontics",
         arztSub: "Specialist orthodontist Vienna 1200",
-        arztLi1: "Qualified partner for publicly funded braces.",
-        arztLi2: "28+ years of experience and 7800+ orthodontic treatments, patient-centred care.",
+        arztLi1: "Qualified elective orthodontist for Austria’s publicly funded braces programme.",
+        arztLi2: "More than 28 years of experience and over 7,800 orthodontic treatments and braces cases.",
         arztCta: "Book a free initial consultation",
         finalH2: "Book your free consultation",
         finalP: "We will explain suitable treatment and your options under the public braces scheme.",
@@ -880,6 +909,20 @@ export default function GratisZahnspangeContent({
           </div>
         </section>
       </div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: copy.faqs.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.a,
+            },
+          })),
+        }}
+      />
     </PageContent>
   );
 }

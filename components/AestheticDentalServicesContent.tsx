@@ -92,8 +92,8 @@ export default function AestheticDentalServicesContent({
       ? "Die unsichtbare Zahnspange für selbstbewusstes Lächeln"
       : "Invisible braces for a confident smile",
     orthoBody: isDe
-      ? "Die Möglichkeit, Zahnspangen bei Zahnfehlstellungen zu nutzen, ist heute eines der effizientesten Mittel zur Lösung kieferorthopädischer Probleme. Zahnspangen für Kinder, Jugendliche oder Erwachsene sind mein langjähriges Spezialgebiet. Meine Erfahrung von über 23 Jahren aus mehr als 6.500 Zahnspangen-Behandlungen ist ein Mehrwert, den ich Ihnen ans Herz legen möchte. Mit Herz, Leidenschaft und fundiertem Wissen widme ich mich in meiner Kieferorthopädie-Ordination der Lösung kieferorthopädischer Probleme. Dieser Grundsatz bildet das Fundament meiner Arbeit und treibt mich jeden Tag an, meinen Patientinnen und Patienten die bestmögliche Behandlung zu bieten. Das Wohl meiner Patienten steht immer im Mittelpunkt meiner Tätigkeit. Ich setze alles daran, individuelle Bedürfnisse zu verstehen und eine maßgeschneiderte Behandlung anzubieten. Dabei arbeite ich eng mit Ihnen zusammen, höre zu und beantworte Ihre Fragen, damit Sie sich während des gesamten Behandlungsprozesses gut aufgehoben fühlen."
-      : "Braces remain one of the most effective ways to treat malocclusion. Treating children, teens and adults has been my focus for many years—with over 23 years of experience and more than 6,500 brace treatments. Passion and sound knowledge guide every day in our practice. Your wellbeing is central: we listen, explain and support you throughout treatment.",
+      ? "Die Möglichkeit, Zahnspangen bei Zahnfehlstellungen zu nutzen, ist heute eines der effizientesten Mittel zur Lösung kieferorthopädischer Probleme. Zahnspangen für Kinder, Jugendliche oder Erwachsene sind mein langjähriges Spezialgebiet. Meine Erfahrung von über 28 Jahren aus mehr als 7.800 Zahnspangen-Behandlungen ist ein Mehrwert, den ich Ihnen ans Herz legen möchte. Mit Herz, Leidenschaft und fundiertem Wissen widme ich mich in meiner Kieferorthopädie-Ordination der Lösung kieferorthopädischer Probleme. Dieser Grundsatz bildet das Fundament meiner Arbeit und treibt mich jeden Tag an, meinen Patientinnen und Patienten die bestmögliche Behandlung zu bieten. Das Wohl meiner Patienten steht immer im Mittelpunkt meiner Tätigkeit. Ich setze alles daran, individuelle Bedürfnisse zu verstehen und eine maßgeschneiderte Behandlung anzubieten. Dabei arbeite ich eng mit Ihnen zusammen, höre zu und beantworte Ihre Fragen, damit Sie sich während des gesamten Behandlungsprozesses gut aufgehoben fühlen."
+      : "Braces remain one of the most effective ways to treat malocclusion. Treating children, teens and adults has been my focus for many years—with over 28 years of experience and more than 7,800 brace treatments. Passion and sound knowledge guide every day in our practice. Your wellbeing is central: we listen, explain and support you throughout treatment.",
     orthoBody2: isDe
       ? "In meiner Kieferorthopädie-Ordination geht es nicht nur um die Lösung kieferorthopädischer Probleme, sondern auch um ein positives und freundliches Umfeld. Ich möchte, dass Sie sich vom ersten Besuch bis zum Abschluss der Behandlung wohl und willkommen fühlen."
       : "Beyond clinical results, we want you to feel welcome and comfortable from your first visit through completion of treatment.",
@@ -119,10 +119,10 @@ export default function AestheticDentalServicesContent({
       : "Specialist orthodontist Vienna 1200",
     arztLi1: isDe
       ? "Qualifizierter Wahlkieferorthopäde für „Krankenkasse-Gratis Zahnspange“, spezialisiert in Kieferorthopädie und Orthodontie."
-      : "Qualified partner for publicly funded braces and specialist orthodontics.",
+      : "Qualified elective orthodontist for Austria’s publicly funded braces programme and specialist orthodontics.",
     arztLi2: isDe
-      ? "Über 28 Jahre Erfahrung und 7800+ Zahnregulierungen und Zahnspangenbehandlungen – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten."
-      : "Over 28 years of experience and 7800+ orthodontic treatments with patient wellbeing at the centre.",
+      ? "Über 28 Jahre Erfahrung und mehr als 7.800 kieferorthopädische Behandlungen und Zahnspangenfälle – mit Fokus auf das Wohlbefinden der Patientinnen und Patienten."
+      : "More than 28 years of experience and over 7,800 orthodontic treatments and braces cases.",
     ctaAesthetic: isDe ? "Termin für ästhetische Zahnmedizin vereinbaren" : "Book an aesthetic dentistry appointment",
     ctaConsult: isDe ? "Kostenlose Erstberatung vereinbaren" : "Book a free consultation",
   };

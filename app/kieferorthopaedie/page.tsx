@@ -1,24 +1,39 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageContent from "@/components/PageContent";
+import JsonLd from "@/components/JsonLd";
 import { getDictionary } from "@/lib/dictionaries";
-import { SITE_URL } from "@/lib/site";
 import { getHref } from "@/lib/paths";
+import { buildPageMetadata } from "@/lib/seo";
 
 const locale = "de" as const;
 
-export const metadata: Metadata = {
-  title: "Kieferorthopädie",
+const FAQS = [
+  {
+    q: "Werden auch Erwachsene kieferorthopädisch behandelt?",
+    a: "Ja. In der Ordination werden Kinder, Jugendliche und Erwachsene behandelt – mit festen Zahnspangen, Alignern und lingualen Optionen je nach Befund.",
+  },
+  {
+    q: "Werden unsichtbare Zahnspangen angeboten?",
+    a: "Ja. Es werden unter anderem transparente Aligner und unsichtbare linguale Zahnspangen angeboten.",
+  },
+  {
+    q: "Gibt es eine Gratis Zahnspange?",
+    a: "Unter bestimmten Voraussetzungen (u. a. Alter und IOTN 4 oder 5) kann eine öffentlich geförderte Behandlung möglich sein. Details und Ablauf erklären wir auf der Seite zur Gratis Zahnspange.",
+  },
+  {
+    q: "Wer ist der behandelnde Kieferorthopäde?",
+    a: "Dr. med. dent. Manish Sablania, BDS, M.Sc., ist Fachzahnarzt für Kieferorthopädie und Allgemeinzahnarzt in 1200 Wien. Die Beratung ist auf Deutsch, Englisch und Hindi möglich.",
+  },
+] as const;
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Kieferorthopädie Wien | Zahnspange & Aligner",
   description:
     "Kieferorthopädie in Wien: Korrektur von Zahn- und Kieferfehlstellungen für Kinder, Jugendliche und Erwachsene. Feste Zahnspange, Aligner und Lingualtechnik.",
-  alternates: {
-    canonical: `${SITE_URL}/kieferorthopaedie`,
-    languages: {
-      de: `${SITE_URL}/kieferorthopaedie`,
-      en: `${SITE_URL}/en/orthodontics`,
-    },
-  },
-};
+  dePath: "/kieferorthopaedie",
+  locale,
+});
 
 export default function KieferorthopaediePage() {
   const dict = getDictionary(locale);
@@ -63,6 +78,16 @@ export default function KieferorthopaediePage() {
             {nd.retainers}
           </Link>
         </li>
+        <li>
+          <Link href={getHref("/gratis-zahnspange", locale)} className="text-accent hover:underline">
+            Gratis Zahnspange
+          </Link>
+        </li>
+        <li>
+          <Link href={getHref("/ueber-mich", locale)} className="text-accent hover:underline">
+            Dr. Manish Sablania – Über mich
+          </Link>
+        </li>
       </ul>
 
       <h2 className="text-2xl font-bold text-primary mt-12 mb-4">{k.process}</h2>
@@ -74,7 +99,31 @@ export default function KieferorthopaediePage() {
         .
       </p>
 
+      <h2 className="text-2xl font-bold text-primary mt-12 mb-4">Häufige Fragen</h2>
+      <dl className="mt-6 space-y-6">
+        {FAQS.map((faq) => (
+          <div key={faq.q}>
+            <dt className="font-semibold text-primary">{faq.q}</dt>
+            <dd className="mt-2 text-gray-600">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+
       <p className="mt-10 text-gray-600">{k.closing}</p>
+      <p className="mt-6 text-xs text-gray-500">
+        Allgemeine Informationen ersetzen keine persönliche Untersuchung oder Diagnose.
+      </p>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+          })),
+        }}
+      />
     </PageContent>
   );
 }

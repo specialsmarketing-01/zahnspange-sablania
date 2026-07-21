@@ -8,6 +8,22 @@ const nextConfig = {
         destination: "/en",
         permanent: true,
       },
+      // Canonical appointment URL
+      {
+        source: "/online-termin",
+        destination: "/online-termine",
+        permanent: true,
+      },
+      {
+        source: "/kontaktiere-uns",
+        destination: "/kontakt",
+        permanent: true,
+      },
+      {
+        source: "/en/kontaktiere-uns",
+        destination: "/en/contact",
+        permanent: true,
+      },
     ];
   },
   images: {

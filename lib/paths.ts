@@ -5,7 +5,10 @@
 
 export type Locale = "de" | "en";
 
-/** German path (root) -> English path (under /en) */
+/**
+ * Canonical German → English pairs (one EN URL each).
+ * Aliases that redirect or share an EN page are listed separately.
+ */
 export const DE_TO_EN: Record<string, string> = {
   "/": "/en",
   "/leistungen": "/en/services",
@@ -27,7 +30,6 @@ export const DE_TO_EN: Record<string, string> = {
   "/vorher-nachher-fotos": "/en/before-after",
   "/kontakt": "/en/contact",
   "/online-termine": "/en/book-appointment",
-  "/online-termin": "/en/book-appointment",
   "/faqs": "/en/faqs",
   "/impressum": "/en/imprint",
   "/datenschutz": "/en/privacy-policy",
@@ -44,21 +46,42 @@ export const DE_TO_EN: Record<string, string> = {
   "/artikel": "/en/article",
 };
 
-/** English path -> German path (root) */
-export const EN_TO_DE: Record<string, string> = Object.fromEntries(
-  Object.entries(DE_TO_EN).map(([de, en]) => [en, de])
-);
+/** Paths that redirect (excluded from sitemap) */
+export const REDIRECT_ONLY_DE_PATHS = ["/online-termin", "/kontaktiere-uns"] as const;
 
-/** All German paths for sitemap/nav (root) */
-export const DE_PATHS = Object.keys(DE_TO_EN) as string[];
+/**
+ * German paths included in the sitemap (canonical indexable URLs).
+ * Includes both before/after German pages; English counterpart listed once separately.
+ */
+export const SITEMAP_DE_PATHS: string[] = Object.keys(DE_TO_EN);
 
-/** All English paths for sitemap/nav */
-export const EN_PATHS = Object.values(DE_TO_EN);
+/**
+ * Unique English paths for sitemap (deduped).
+ */
+export const SITEMAP_EN_PATHS: string[] = Array.from(new Set(Object.values(DE_TO_EN)));
+
+/**
+ * Preferred German path when multiple DE URLs share one EN URL (language switcher).
+ */
+const EN_PREFERRED_DE: Record<string, string> = {
+  "/en/before-after": "/vorher-nachher-fotos",
+  "/en/book-appointment": "/online-termine",
+};
+
+/** English path -> German path (root), preferring canonicals for shared EN routes */
+export const EN_TO_DE: Record<string, string> = {
+  ...Object.fromEntries(Object.entries(DE_TO_EN).map(([de, en]) => [en, de])),
+  ...EN_PREFERRED_DE,
+};
+
+/** @deprecated use SITEMAP_DE_PATHS — kept for compatibility */
+export const DE_PATHS = SITEMAP_DE_PATHS;
+
+/** @deprecated use SITEMAP_EN_PATHS */
+export const EN_PATHS = SITEMAP_EN_PATHS;
 
 /**
  * Get the equivalent URL for the other locale.
- * pathname: current pathname (e.g. /leistungen or /en/services)
- * targetLocale: 'de' | 'en'
  */
 export function getPathForLocale(pathname: string, targetLocale: Locale): string {
   const normalized = pathname?.replace(/\/$/, "") || "/";
@@ -66,21 +89,15 @@ export function getPathForLocale(pathname: string, targetLocale: Locale): string
   if (targetLocale === "de") {
     return EN_TO_DE[path] ?? "/";
   }
-  // Already on English path: keep it; else convert German path to English
   if (path.startsWith("/en")) return path;
+  if (path === "/online-termin") return "/en/book-appointment";
   return DE_TO_EN[path] ?? "/en";
 }
 
-/**
- * True if pathname is an English route (under /en).
- */
 export function isEnglishPath(pathname: string): boolean {
   return pathname?.startsWith("/en") ?? false;
 }
 
-/**
- * Current locale from pathname: 'de' (root) or 'en' (/en/...).
- */
 export function getLocaleFromPathname(pathname: string): Locale {
   return isEnglishPath(pathname) ? "en" : "de";
 }

@@ -133,7 +133,7 @@ export function LegalPart1() {
         <h2 className="text-xl font-bold text-primary sm:text-2xl">Kontaktdaten des Verantwortlichen</h2>
         <p className="mt-4 text-gray-700">
           Sollten Sie Fragen zum Datenschutz oder zur Verarbeitung personenbezogener Daten haben, finden Sie nachfolgend die
-          Kontaktdaten der verantwortlichen Person bzw. Stelle:Zahnspange SablaniaPorschestrasse 29/2/15, 1230 Wien
+          Kontaktdaten der verantwortlichen Person bzw. Stelle: Zahnspange Sablania, Forsthausgasse 16–20, Stiege 3, EG, 1200 Wien
         </p>
         <div className="mt-6 rounded-lg border border-primary/15 bg-primary/[0.03] px-4 py-3 sm:flex sm:flex-wrap sm:items-baseline sm:gap-x-8 sm:gap-y-2">
           <p className="text-sm font-medium text-primary">
