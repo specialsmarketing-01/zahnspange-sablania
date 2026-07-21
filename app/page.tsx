@@ -12,7 +12,6 @@ import GoogleRating from "@/components/GoogleRating";
 import ContactSection from "@/components/ContactSection";
 import HomeInternalLinks from "@/components/HomeInternalLinks";
 import { getDictionary } from "@/lib/dictionaries";
-import { getGoogleReviews } from "@/lib/googleReviews";
 import { buildPageMetadata } from "@/lib/seo";
 
 const locale = "de" as const;
@@ -25,9 +24,8 @@ export const metadata: Metadata = buildPageMetadata({
   locale,
 });
 
-export default async function HomePage() {
+export default function HomePage() {
   const dict = getDictionary(locale);
-  const googleReviews = await getGoogleReviews(locale);
 
   return (
     <>
@@ -41,7 +39,7 @@ export default async function HomePage() {
       <ServicesSection locale={locale} dict={dict} />
       <HomeInternalLinks locale={locale} />
       <CTASection locale={locale} dict={dict} />
-      <GoogleRating dict={dict} live={googleReviews} />
+      <GoogleRating dict={dict} locale={locale} />
       <ContactSection locale={locale} dict={dict} />
     </>
   );

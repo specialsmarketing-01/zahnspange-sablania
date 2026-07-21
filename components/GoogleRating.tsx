@@ -1,8 +1,12 @@
 import type { Dictionary } from "@/lib/dictionaries";
-import type { GoogleReview, GoogleReviewsData } from "@/lib/googleReviews";
-import { formatGoogleReviewCount, formatGoogleScore } from "@/lib/googleReviews";
-
-const GOOGLE_WRITE_REVIEW_URL = "https://g.page/r/Cd19fH_VsH0WEBM/review";
+import type { Locale } from "@/lib/i18n";
+import {
+  GOOGLE_REVIEWS_CONTENT,
+  GOOGLE_VIEW_REVIEWS_URL,
+  GOOGLE_WRITE_REVIEW_URL,
+  formatManualReviewCount,
+  formatManualScore,
+} from "@/lib/googleReviewsContent";
 
 function StarIcon({ className }: { className?: string }) {
   return (
@@ -21,36 +25,30 @@ function avatarLetter(name: string) {
   return trimmed.charAt(0).toUpperCase() || "?";
 }
 
-type ReviewItem = GoogleReview;
-
 type HomepageGoogle = {
   googleRatingTrust: string;
-  googleRatingScore: string;
-  googleRatingReviews: string;
-  googleRatingFallbackScore: number;
-  googleRatingFallbackCount: number;
   googleRatingCta: string;
   googleRatingCtaSub?: string;
   googleRatingReviewsBlockTitle: string;
   googleRatingReviewsBlockSub: string;
-  googleRatingExampleReviews: ReviewItem[];
+  googleRatingViewAll?: string;
 };
 
 export default function GoogleRating({
   dict,
-  live,
+  locale,
 }: {
   dict: Dictionary;
-  live?: GoogleReviewsData | null;
+  locale: Locale;
 }) {
   const h = dict.homepage as typeof dict.homepage & HomepageGoogle;
-  const rating = live?.rating ?? h.googleRatingFallbackScore;
-  const total = live?.total ?? h.googleRatingFallbackCount;
-  const reviews =
-    live?.reviews?.length ? live.reviews : (h.googleRatingExampleReviews ?? []);
-
-  const scoreLabel = formatGoogleScore(h.googleRatingScore, rating);
-  const reviewsLabel = formatGoogleReviewCount(h.googleRatingReviews, total);
+  const lang = locale === "en" ? "en" : "de";
+  const content = GOOGLE_REVIEWS_CONTENT[lang];
+  const scoreLabel = formatManualScore(content.rating);
+  const reviewsLabel = formatManualReviewCount(lang, content.reviewCount);
+  const viewAllLabel =
+    h.googleRatingViewAll ??
+    (lang === "de" ? "Bewertungen auf Google ansehen" : "View reviews on Google");
 
   return (
     <section className="bg-gray-50" aria-labelledby="google-rating-heading">
@@ -102,6 +100,14 @@ export default function GoogleRating({
                 {h.googleRatingCta}
               </span>
             </a>
+            <a
+              href={GOOGLE_VIEW_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-[#0f2e5c] underline-offset-2 hover:underline"
+            >
+              {viewAllLabel}
+            </a>
             {h.googleRatingCtaSub ? (
               <p className="max-w-sm text-center text-xs leading-relaxed text-gray-500 sm:text-sm">
                 {h.googleRatingCtaSub}
@@ -126,7 +132,7 @@ export default function GoogleRating({
           className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           aria-labelledby="google-reviews-block-heading"
         >
-          {reviews.map((review, index) => {
+          {content.reviews.map((review, index) => {
             const stars = review.rating ?? 5;
             return (
               <li key={`${review.name}-${index}`}>
@@ -145,6 +151,9 @@ export default function GoogleRating({
                           {review.badge}
                         </p>
                       ) : null}
+                      {review.sourceLabel ? (
+                        <p className="mt-1 text-xs font-medium text-gray-500">{review.sourceLabel}</p>
+                      ) : null}
                     </div>
                   </div>
 
@@ -154,7 +163,9 @@ export default function GoogleRating({
                     ))}
                   </div>
 
-                  <p className="mt-2 text-sm text-gray-500">{review.date}</p>
+                  {review.date ? (
+                    <p className="mt-2 text-sm text-gray-500">{review.date}</p>
+                  ) : null}
 
                   <p className="mt-3 text-gray-700 leading-relaxed">{review.text}</p>
                 </article>

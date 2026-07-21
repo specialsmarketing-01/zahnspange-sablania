@@ -43,6 +43,8 @@ type BuildMetadataOptions = {
   canonicalPath?: string;
   ogImage?: string;
   noIndex?: boolean;
+  /** When true, bypass the root layout title template */
+  absoluteTitle?: boolean;
 };
 
 /**
@@ -56,6 +58,7 @@ export function buildPageMetadata({
   canonicalPath,
   ogImage = DEFAULT_OG_IMAGE,
   noIndex = false,
+  absoluteTitle = false,
 }: BuildMetadataOptions): Metadata {
   const canonicalDePath = canonicalPath ?? dePath;
   const canonical =
@@ -68,7 +71,7 @@ export function buildPageMetadata({
   const ogImageAbs = ogImage.startsWith("http") ? ogImage : `${base}${ogImage}`;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description: descriptionTrimmed,
     alternates: {
       canonical,
