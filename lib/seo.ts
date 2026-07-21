@@ -45,6 +45,12 @@ type BuildMetadataOptions = {
   noIndex?: boolean;
   /** When true, bypass the root layout title template */
   absoluteTitle?: boolean;
+  /**
+   * When true, only emit de-AT + x-default (no English alternate).
+   * Use for German-only articles without an EN equivalent.
+   */
+  deOnly?: boolean;
+  openGraphType?: "website" | "article";
 };
 
 /**
@@ -59,6 +65,8 @@ export function buildPageMetadata({
   ogImage = DEFAULT_OG_IMAGE,
   noIndex = false,
   absoluteTitle = false,
+  deOnly = false,
+  openGraphType = "website",
 }: BuildMetadataOptions): Metadata {
   const canonicalDePath = canonicalPath ?? dePath;
   const canonical =
@@ -66,7 +74,11 @@ export function buildPageMetadata({
       ? absoluteUrl(canonicalDePath, "de")
       : absoluteUrl(canonicalDePath, "en");
 
-  const langs = languageAlternates(dePath);
+  const deUrl = absoluteUrl(dePath === "/" ? "/" : canonicalDePath, "de");
+  const languages = deOnly
+    ? { "de-AT": deUrl, "x-default": deUrl }
+    : languageAlternates(dePath)?.languages;
+
   const descriptionTrimmed = description.slice(0, 160);
   const ogImageAbs = ogImage.startsWith("http") ? ogImage : `${base}${ogImage}`;
 
@@ -75,7 +87,7 @@ export function buildPageMetadata({
     description: descriptionTrimmed,
     alternates: {
       canonical,
-      languages: langs?.languages,
+      languages,
     },
     openGraph: {
       title,
@@ -83,7 +95,7 @@ export function buildPageMetadata({
       url: canonical,
       siteName: "Zahnspange Sablania",
       locale: locale === "de" ? "de_AT" : "en",
-      type: "website",
+      type: openGraphType,
       images: [{ url: ogImageAbs }],
     },
     twitter: {

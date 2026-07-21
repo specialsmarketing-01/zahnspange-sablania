@@ -143,6 +143,8 @@ export const dictionaries = {
       "/implantat-wien": "Implantat Wien",
       "/zahnarzt-1200-wien": "Zahnarzt 1200 Wien",
       "/artikel": "Artikel",
+      "/wahlkieferorthopaede-vertragskieferorthopaede-oegk":
+        "Wahlkieferorthopäde oder Vertragskieferorthopäde: Was bezahlt die ÖGK?",
     } as Record<string, string>,
     homepage: {
       heroTitle: "Ihre Spezialisten für moderne Zahnspangen in Wien",

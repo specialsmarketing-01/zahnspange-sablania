@@ -56,6 +56,14 @@ export const REDIRECT_ONLY_DE_PATHS = ["/online-termin", "/kontaktiere-uns"] as 
 export const SITEMAP_DE_PATHS: string[] = Object.keys(DE_TO_EN);
 
 /**
+ * German-only content paths (e.g. articles without an English twin).
+ * Included in the sitemap once; no EN hreflang pair.
+ */
+export const DE_ONLY_SITEMAP_PATHS: string[] = [
+  "/wahlkieferorthopaede-vertragskieferorthopaede-oegk",
+];
+
+/**
  * Unique English paths for sitemap (deduped).
  */
 export const SITEMAP_EN_PATHS: string[] = Array.from(new Set(Object.values(DE_TO_EN)));
